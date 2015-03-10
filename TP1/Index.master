@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Index.master.cs" Inherits="TP1.Index" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
+        <div class="page-header">
+            <h1><%  %> Here shall be Name <small>Subtext for header</small><p></p></h1>
+        </div>
+        <ul class="nav nav-tabs">
+            <li <%if (Page.Request.FilePath == "/Profil.aspx")
+                  {%>
+                class="active" <% } %>><a href="Profil.aspx">Profil</a></li>
+            <li <%if (Page.Request.FilePath == "/Room.aspx")
+                  {%>
+                class="active" <% } %>><a href="Room.aspx">Room</a></li>
+            <li <%if (Page.Request.FilePath == "/LoginsJournal.aspx")
+                  {%>
+                class="active" <% } %>><a href="LoginsJournal.aspx">Logins Journal</a></li>
+        </ul>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+
+</asp:Content>
