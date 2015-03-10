@@ -35,22 +35,75 @@
                     </div>
 
                     <div class="col-xs-12 col-md-6">
-                        <div class="form-group">
-                            <img src="asd.jpg" class="img-thumbnail center-block" width="200" height="200" />
-                            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="center-block" />
-                        </div>
-
-                    </div>
-
-                    
-                </div>
-                <div class="row">
-                        <div class="col-xs-12 col-md-6">
+                        <div class="row">
                             <div class="form-group">
-                                <button type="submit" name="sub" class="btn btn-primary btn-lg center-block">Submit</button>
+                                <img src="asd.jpg" class="img-thumbnail center-block" width="200" height="200" />
+                                <asp:FileUpload ID="FileUpload1" runat="server" CssClass="center-block" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+                                <div class="panel">
+                                    <div class="panel-heading"></div>
+                                    <div class="panel-body"></div>
+                                    <div class="row">
+                                        <asp:UpdatePanel ID="PN_Captcha" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+
+                                                <div class="col-xs-6">
+                                                    <asp:ImageButton ID="RegenarateCaptcha" runat="server"
+                                                        ImageUrl="~/Images/RegenerateCaptcha.png"
+                                                        CausesValidation="False"
+                                                        OnClick="RegenarateCaptcha_Click"
+                                                        ValidationGroup="Subscribe_Validation"
+                                                        Width="48"
+                                                        ToolTip="Regénérer le captcha..."
+                                                        CssClass="pull-right" />
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <asp:Image ID="IMGCaptcha" ImageUrl="~/captcha.png" runat="server" CssClass="pull-left" />
+                                                </div>
+
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </div>
+                                    <div class="row">
+                                        <asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5" CssClass="center-block"></asp:TextBox>
+                                    </div>
+                                    <asp:CustomValidator ID="CV_Captcha" runat="server"
+                                        ErrorMessage="Code captcha incorrect!"
+                                        ValidationGroup="Subscribe_Validation"
+                                        Text="!"
+                                        ControlToValidate="TB_Captcha"
+                                        OnServerValidate="CV_Captcha_ServerValidate"
+                                        ValidateEmptyText="True">
+                                    </asp:CustomValidator>
+                                    <div class="row">
+                                        <asp:Button ID="BTN_Submit" runat="server"
+                                            Text="Soumettre ..."
+                                            ValidationGroup="Subscribe_Validation"
+                                            OnClick="BTN_Submit_Click"
+                                            CssClass="center-block" />
+                                    </div>
+
+                                </div>
+
+                                <asp:ValidationSummary ID="Subscribe_Validation" runat="server" ValidationGroup="Subscribe_Validation" />
                             </div>
                         </div>
                     </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <button type="submit" name="sub" class="btn btn-primary btn-lg center-block">Submit</button>
+                        </div>
+                    </div>
+                </div>
                 <hr />
                 <div class="row">
                     <div class=""></div>
@@ -59,6 +112,6 @@
                         You <strong>must</strong> be connected to access this website.
                     </div>
                 </div>
-           
-        </div>
+
+            </div>
 </asp:Content>
