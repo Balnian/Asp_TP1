@@ -61,6 +61,7 @@
     <Content Include="App_Data\MainDB_log.ldf">
       <DependentUpon>MainDB.mdf</DependentUpon>
     </Content>
+    <Content Include="LoginsJournal.aspx" />
     <Content Include="Master.Master" />
     <Content Include="Index.master" />
     <None Include="Web.Debug.config">
@@ -74,6 +75,7 @@
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="Profil.aspx" />
+    <Content Include="Room.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="TestCoalis.aspx" />
     <Content Include="Web.config" />
@@ -96,6 +98,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LoginsJournal.aspx.cs">
+      <DependentUpon>LoginsJournal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginsJournal.aspx.designer.cs">
+      <DependentUpon>LoginsJournal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -111,6 +120,13 @@
       <DependentUpon>Profil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room.aspx.cs">
+      <DependentUpon>Room.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Room.aspx.designer.cs">
+      <DependentUpon>Room.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

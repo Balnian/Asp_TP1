@@ -31,6 +31,16 @@
                             <label for="pwd">Confirm Password:</label>
                             <input type="password" class="form-control" id="conpwd" placeholder="Confirm password" />
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="pwd">Email:</label>
+                            <input type="password" class="form-control" id="mail" placeholder="Enter Email" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pwd">Confirm Email:</label>
+                            <input type="password" class="form-control" id="conmail" placeholder="Confirm Email" />
+                        </div>
 
                     </div>
 
