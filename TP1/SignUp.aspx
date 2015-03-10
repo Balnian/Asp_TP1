@@ -32,8 +32,6 @@
                             <input type="password" class="form-control" id="conpwd" placeholder="Confirm password" />
                         </div>
 
-
-
                     </div>
 
                     <div class="col-xs-12 col-md-6">
@@ -41,7 +39,9 @@
                             <img src="asd.jpg" class="img-thumbnail center-block" width="200" height="200" />
                             <asp:FileUpload ID="FileUpload1" runat="server" CssClass="center-block" />
                         </div>
+
                     </div>
+
                     
                 </div>
                 <div class="row">
@@ -59,6 +59,6 @@
                         You <strong>must</strong> be connected to access this website.
                     </div>
                 </div>
-            </div>
+           
         </div>
 </asp:Content>

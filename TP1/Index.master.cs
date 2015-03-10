@@ -11,7 +11,7 @@ namespace TP1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["user"] = "x";
+            Session["user"] = "x";
             if (Session["user"]==null)
             {
                 Response.Redirect("Login.aspx?Error=MustLogin");
