@@ -48,7 +48,7 @@
                         <div class="row">
                             <div class="form-group">
                                 <img src="asd.jpg" id="IMG_Avatar" class="img-thumbnail center-block" width="200" height="200" />
-                                <asp:FileUpload ID="FU_Avatar"  ClientIDMode="Static" runat="server" CssClass="center-block"  onchange="PreLoadImage();"/>
+                                <asp:FileUpload ID="FU_Avatar" ClientIDMode="Static" runat="server" CssClass="center-block" onchange="PreLoadImage();" />
                             </div>
                         </div>
 
@@ -86,9 +86,21 @@
                                         <div class="row">
 
                                             <div class="col-xs-5 col-xs-offset-4 pull-left">
+                                                <div class="form-group has-error has-feedback">
                                                 <asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5" CssClass="form-control" placeholder="Enter Captcha"></asp:TextBox>
+                                                <asp:CustomValidator ID="CV_Captcha" runat="server"
+                                                    ErrorMessage="Code captcha incorrect!"
+                                                    ValidationGroup="Subscribe_Validation"
+                                                    Text=""  
+                                                    Display="None"                                       
+                                                    ControlToValidate="TB_Captcha"
+                                                    OnServerValidate="CV_Captcha_ServerValidate"
+                                                    ValidateEmptyText="True"
+                                                    
+                                                    CssClass="glyphicon glyphicon-remove form-control-feedback show">
+                                                </asp:CustomValidator>
                                             </div>
-
+                                            </div>
                                         </div>
                                     </div>
 
@@ -105,14 +117,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-6">
                     <div class="form-group">
-                        <asp:CustomValidator ID="CV_Captcha" runat="server"
-                            ErrorMessage="Code captcha incorrect!"
-                            ValidationGroup="Subscribe_Validation"
-                            Text="!"
-                            ControlToValidate="TB_Captcha"
-                            OnServerValidate="CV_Captcha_ServerValidate"
-                            ValidateEmptyText="True">
-                        </asp:CustomValidator>
+
                         <div class="row">
                             <asp:Button ID="BTN_Submit" runat="server"
                                 Text="Submit"
@@ -126,7 +131,7 @@
             </div>
 
             <div class="row">
-                <div class=""></div>
+                <div class="col-xs-12"></div>
                 <div class="alert alert-danger alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <asp:ValidationSummary ID="Subscribe_Validation" runat="server" ValidationGroup="Subscribe_Validation" />
