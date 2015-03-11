@@ -61,6 +61,7 @@
     <Content Include="App_Data\MainDB_log.ldf">
       <DependentUpon>MainDB.mdf</DependentUpon>
     </Content>
+    <Content Include="js.js" />
     <Content Include="LoginsJournal.aspx" />
     <Content Include="Master.Master" />
     <Content Include="Index.master" />
@@ -77,10 +78,10 @@
     <Content Include="Profil.aspx" />
     <Content Include="Room.aspx" />
     <Content Include="SignUp.aspx" />
-    <Content Include="TestCoalis.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EMail.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -136,13 +137,6 @@
       <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlExpressUtilities.cs" />
-    <Compile Include="TestCoalis.aspx.cs">
-      <DependentUpon>TestCoalis.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestCoalis.aspx.designer.cs">
-      <DependentUpon>TestCoalis.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>

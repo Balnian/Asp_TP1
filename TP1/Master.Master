@@ -16,6 +16,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      <script src="js.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
