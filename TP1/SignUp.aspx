@@ -47,7 +47,7 @@
                     <div class="col-xs-12 col-md-6">
                         <div class="row">
                             <div class="form-group">
-                                <img src="asd.jpg" id="IMG_Avatar" class="img-thumbnail center-block" width="200" height="200" />
+                                <img src="~/Images/Anonymous.png" id="IMG_Avatar" class="img-thumbnail center-block" width="200" height="200" />
                                 <asp:FileUpload ID="FU_Avatar"  ClientIDMode="Static" runat="server" CssClass="center-block"  onchange="PreLoadImage();"/>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                                                             CssClass="pull-right" />
                                                     </div>
                                                     <div class="col-xs-8">
-                                                        <asp:Image ID="IMGCaptcha" ImageUrl="~/captcha.png" runat="server" CssClass="pull-left" />
+                                                        <asp:Image ID="IMGCaptcha" ImageUrl="~/captcha.png" runat="server" CssClass="pull-left"  />
                                                     </div>
 
                                                 </ContentTemplate>
@@ -88,7 +88,6 @@
                                             <div class="col-xs-5 col-xs-offset-4 pull-left">
                                                 <asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5" CssClass="form-control" placeholder="Enter Captcha"></asp:TextBox>
                                             </div>
-
                                         </div>
                                     </div>
 
