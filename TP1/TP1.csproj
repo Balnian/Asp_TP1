@@ -77,7 +77,6 @@
     <Content Include="Profil.aspx" />
     <Content Include="Room.aspx" />
     <Content Include="SignUp.aspx" />
-    <Content Include="TestCoalis.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -136,13 +135,6 @@
       <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlExpressUtilities.cs" />
-    <Compile Include="TestCoalis.aspx.cs">
-      <DependentUpon>TestCoalis.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestCoalis.aspx.designer.cs">
-      <DependentUpon>TestCoalis.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
