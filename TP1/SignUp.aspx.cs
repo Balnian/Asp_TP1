@@ -18,6 +18,7 @@ namespace TP1
             {
                 Session["captcha"] = BuildCaptcha();
             }
+            LoadAnonymous();
         }
 
         Random random = new Random();
@@ -86,5 +87,28 @@ namespace TP1
         {
             args.IsValid = (TB_Captcha.Text == (string)Session["captcha"]);
         } 
+       private void LoadAnonymous()
+       {
+          //String Avatar_Path = "";
+          //String avatar_ID = "";
+
+          //if (FU_Avatar.FileName != "")
+          //{
+
+          //   avatar_ID = Guid.NewGuid().ToString();
+          //   Avatar_Path = Server.MapPath(@"~\Avatars\") + avatar_ID + ".png";
+          //   FU_Avatar.SaveAs(Avatar_Path);
+          //}
+       
+       
+       }
+       private void InsertRecord()
+       { 
+       //Request["yolo"]
+       
+       
+       
+       
+       }
     }
 }
