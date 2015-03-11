@@ -28,7 +28,6 @@ namespace TP1
             Password = this["PassWord"];
             Email = this["Email"];
             Avatar = this["Avatar"];
-
         }
 
         public override void InitColumnsVisibility()
