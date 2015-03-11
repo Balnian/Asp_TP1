@@ -98,6 +98,7 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LoginInfo.cs" />
     <Compile Include="LoginsJournal.aspx.cs">
       <DependentUpon>LoginsJournal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -134,6 +135,7 @@
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SqlExpressUtilities.cs" />
     <Compile Include="TestCoalis.aspx.cs">
       <DependentUpon>TestCoalis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -141,6 +143,7 @@
     <Compile Include="TestCoalis.aspx.designer.cs">
       <DependentUpon>TestCoalis.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

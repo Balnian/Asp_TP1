@@ -28,7 +28,7 @@
                     <input type="password" class="form-control" id="pwd" placeholder="Enter password" />
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="sub" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="sub" class="btn btn-primary">Connection</button>
                 </div>
                 <div class="form-group">
                     <button type="submit" name="fmp" class="btn btn-default ">Forgot my password</button>
