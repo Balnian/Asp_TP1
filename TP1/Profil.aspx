@@ -12,33 +12,24 @@
 
                         <div class="form-group">
                             <label for="user">Full Name:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your full name" />
+                           <asp:TextBox ID="TB_FullName" name="Name" runat="server" CssClass="form-control"></asp:TextBox> 
+                          
                         </div>
 
                         <div class="form-group">
-                            <label for="user">Username:</label>
-                            <input type="text" class="form-control" id="user" placeholder="Enter username" />
+                            <label for="user">Username:</label>    
+                              <asp:TextBox ID="TB_UserName" name="User" runat="server" CssClass="form-control"></asp:TextBox> 
                         </div>
 
                         <div class="form-group">
                             <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" />
+                              <asp:TextBox ID="TB_PassWord"  TextMode="password" name="Pwd" runat="server" CssClass="form-control"></asp:TextBox> 
                         </div>
-
-                        <div class="form-group">
-                            <label for="pwd">Confirm Password:</label>
-                            <input type="password" class="form-control" id="conpwd" placeholder="Confirm password" />
-                        </div>
-
+                    
                          <div class="form-group">
-                            <label for="pwd">Email:</label>
-                            <input type="password" class="form-control" id="mail" placeholder="Enter Email" />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="pwd">Confirm Email:</label>
-                            <input type="password" class="form-control" id="conmail" placeholder="Confirm Email" />
-                        </div>
+                            <label for="pwd">Email:</label>                         
+                             <asp:TextBox ID="TB_Email" name="Mail" runat="server" CssClass="form-control"></asp:TextBox>  
+                        </div>                      
 
                     </div>
 

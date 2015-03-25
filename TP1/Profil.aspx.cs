@@ -9,9 +9,23 @@ namespace TP1
 {
     public partial class Profil : System.Web.UI.Page
     {
+       Users Usager;
         protected void Page_Load(object sender, EventArgs e)
         {
+           if(!Page.IsCallback)
+           if(Session["User"] != null)
+           { 
+           Usager = (Users)Session["User"];
+           SetTbText();
+           }
+        }
 
+       private void SetTbText()
+        {
+           TB_FullName.Text = Usager.UserName;
+           TB_UserName.Text = Usager.UserName;
+           TB_PassWord.Text = Usager.Password;
+           TB_Email.Text = Usager.Email;
         }
     }
 }

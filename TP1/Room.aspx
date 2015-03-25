@@ -4,7 +4,7 @@
  <div class="panel panel-default">
   <div class="panel-heading">User Online</div>
   <div class="panel-body">
-    Panel content qui serait la gridview de sql utilities
+ <asp:Panel id="PN_GridView" runat="server"></asp:Panel>
   </div>
 </div>
 </asp:Content>

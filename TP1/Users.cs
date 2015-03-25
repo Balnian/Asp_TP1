@@ -34,6 +34,7 @@ namespace TP1
         {
             base.InitColumnsVisibility();
             SetColumnVisibility("Avatar", false);
+            SetColumnVisibility("ID", false);
         }
 
         public override void InitColumnsSortEnable()

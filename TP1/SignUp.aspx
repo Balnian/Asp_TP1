@@ -19,12 +19,12 @@
 
                         <div class="form-group">
                             <label for="user">Username:</label>
-                            <input type="text" class="form-control" id="user" placeholder="Enter username" />
+                            <input name="UserName" type="text" class="form-control" id="user" placeholder="Enter username" />
                         </div>
 
                         <div class="form-group">
                             <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" />
+                            <input name="PassWord" type="password" class="form-control" id="pwd" placeholder="Enter password" />
                         </div>
 
                         <div class="form-group">
@@ -34,14 +34,13 @@
 
                         <div class="form-group">
                             <label for="pwd">Email:</label>
-                            <input type="password" class="form-control" id="mail" placeholder="Enter Email" />
+                            <input name="Email" type="text" class="form-control" id="mail" placeholder="Enter Email" />
                         </div>
 
                         <div class="form-group">
                             <label for="pwd">Confirm Email:</label>
-                            <input type="password" class="form-control" id="conmail" placeholder="Confirm Email" />
+                            <input type="text" class="form-control" id="conmail" placeholder="Confirm Email" />
                         </div>
-
                     </div>
 
                     <div class="col-xs-12 col-md-6">
