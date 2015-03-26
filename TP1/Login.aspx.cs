@@ -9,9 +9,20 @@ namespace TP1
 {
     public partial class Login : System.Web.UI.Page
     {
+        Users Usager;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Page.IsPostBack)
+            { 
+                Usager = new Users((string)Application["MainDB"], this);
+               if(Usager.SelectByFieldName("UserName",TB_UserName.Text))
+               {
+                   if (Usager.SelectByFieldName("PassWord", TB_PassWord.Text))
+                       Response.Redirect("Profil.aspx");
+               }
+              
+            }
         }
+        
     }
 }

@@ -22,7 +22,7 @@ namespace TP1
 
        private void SetTbText()
         {
-           TB_FullName.Text = Usager.FullName;
+            TB_FullName.Text = Usager.ID.ToString();
            TB_UserName.Text = Usager.UserName;
            TB_PassWord.Text = Usager.Password;
            TB_Email.Text = Usager.Email;
@@ -30,6 +30,7 @@ namespace TP1
         }
        private void Update()
        {
+    //      Usager.GetValues();
 
            Usager.FullName = TB_FullName.Text;
            Usager.UserName = TB_UserName.Text;
@@ -47,7 +48,7 @@ namespace TP1
                FU_Avatar.SaveAs(Avatar_Path);
            }
            Usager.Avatar = avatar_ID; ;
-
+      
            Usager.Update();
        
        }
