@@ -37,7 +37,7 @@
                         <div class="form-group">
                             
                            <asp:Image id="IMG_Avatar" ClientIDMode="Static" runat="server" CssClass="img-thumbnail center-block" width="200" height="200"  ImageUrl="~/Images/Anonymous.png" />
-                            <asp:FileUpload ID="FileUpload1" ClientIDMode="Static" runat="server" CssClass="center-block" onchange="PreLoadImage();" />
+                            <asp:FileUpload id="FU_Avatar" ClientIDMode="Static" runat="server" CssClass="center-block" onchange="PreLoadImage();" />
                         </div>
                     </div>
                     
@@ -45,7 +45,12 @@
                 <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
-                                <button type="submit" name="sub" class="btn btn-primary btn-lg center-block">Update</button>
+                               
+                                   <asp:Button ID="BTN_Submit" runat="server"
+                                Text="Update"
+                                ValidationGroup="Subscribe_Validation"
+                                OnClick="BTN_Submit_Click"
+                                CssClass="btn btn-primary btn-lg center-block" />
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
  <div class="panel panel-default">
-  <div class="panel-heading">User Online</div>
+  <div class="panel-heading">Users</div>
   <div class="panel-body">
  <asp:Panel id="PN_GridView" runat="server"></asp:Panel>
   </div>

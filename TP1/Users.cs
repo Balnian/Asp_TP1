@@ -52,13 +52,13 @@ namespace TP1
 
         public override void Insert()
         {
-            InsertRecord(UserName, Password, Email, Avatar);
+            InsertRecord(FullName,UserName, Password, Email, Avatar);
         }
 
         
         public override void Update()
         {
-            UpdateRecord(ID, UserName, Password, Email, Avatar);
+            UpdateRecord(ID,FullName, UserName, Password, Email, Avatar);
         }
 
 

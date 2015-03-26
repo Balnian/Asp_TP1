@@ -105,6 +105,7 @@ namespace TP1
       {
          Usager = new Users((string)Application["MainDB"], this);
 
+         Usager.FullName = Request["FullName"];
          Usager.UserName = Request["UserName"];
          Usager.Password = Request["PassWord"];
          Usager.Email = Request["Email"];

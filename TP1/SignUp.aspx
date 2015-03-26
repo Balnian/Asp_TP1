@@ -14,7 +14,7 @@
 
                         <div class="form-group">
                             <label for="user">Full Name:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your full name" />
+                            <input name="FullName" type="text" class="form-control" id="name" placeholder="Enter your full name" />
                         </div>
 
                         <div class="form-group">
@@ -39,7 +39,7 @@
 
                         <div class="form-group">
                             <label for="pwd">Confirm Email:</label>
-                            <input type="text" class="form-control" id="conmail" pClientIDModelaceholder="Confirm Email" />
+                            <input type="text" class="form-control" id="conmail" placeholder="Confirm Email" />
                         </div>
                     </div>
 
