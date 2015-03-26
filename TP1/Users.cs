@@ -58,7 +58,7 @@ namespace TP1
         
         public override void Update()
         {
-            UpdateRecord(ID,FullName, UserName, Password, Email, Avatar);
+            UpdateRecord();
         }
 
 

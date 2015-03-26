@@ -31,7 +31,6 @@ namespace TP1
        private void Update()
        {
     //      Usager.GetValues();
-
            Usager.FullName = TB_FullName.Text;
            Usager.UserName = TB_UserName.Text;
            Usager.Password = TB_PassWord.Text;

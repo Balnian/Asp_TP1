@@ -18,8 +18,7 @@
                 <h1>Login</h1>
             </div>
             <div class="panel-body">
-
-              
+            
                   <div class="form-group">
                             <label for="user">Username:</label>    
                               <asp:TextBox id="TB_UserName" name="User" runat="server" CssClass="form-control" placeholder="Enter username"></asp:TextBox> 
