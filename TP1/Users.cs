@@ -11,6 +11,7 @@ namespace TP1
         //Variable for Users table
         public long ID{ get; set; }
         public String UserName { get; set; }
+        public String FullName { get; set; }
         public String Password { get; set; }
         public String Email { get; set; }
         public String Avatar { get; set; }
@@ -23,17 +24,19 @@ namespace TP1
         }
         public override void GetValues()
         {
-            ID = long.Parse(this["ID"]);
-            UserName = this["Username"];
-            Password = this["PassWord"];
-            Email = this["Email"];
-            Avatar = this["Avatar"];
+            ID = long.Parse(FieldsValues[0]);
+            FullName = FieldsValues[1];
+            UserName = FieldsValues[2];
+            Password = FieldsValues[3];
+            Email = FieldsValues[4];
+            Avatar = FieldsValues[5];
+
         }
 
         public override void InitColumnsVisibility()
         {
             base.InitColumnsVisibility();
-            SetColumnVisibility("Avatar", false);
+            //SetColumnVisibility("Avatar", false);
             SetColumnVisibility("ID", false);
         }
 

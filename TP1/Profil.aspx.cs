@@ -12,7 +12,7 @@ namespace TP1
        Users Usager;
         protected void Page_Load(object sender, EventArgs e)
         {
-           if(!Page.IsCallback)
+           
            if(Session["User"] != null)
            { 
            Usager = (Users)Session["User"];
@@ -22,10 +22,11 @@ namespace TP1
 
        private void SetTbText()
         {
-           TB_FullName.Text = Usager.UserName;
+           TB_FullName.Text = Usager.FullName;
            TB_UserName.Text = Usager.UserName;
            TB_PassWord.Text = Usager.Password;
            TB_Email.Text = Usager.Email;
+           IMG_Avatar.ImageUrl = @"~\Avatars/" + Usager.Avatar + ".png";
         }
     }
 }

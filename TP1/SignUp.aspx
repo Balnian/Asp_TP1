@@ -39,15 +39,15 @@
 
                         <div class="form-group">
                             <label for="pwd">Confirm Email:</label>
-                            <input type="text" class="form-control" id="conmail" placeholder="Confirm Email" />
+                            <input type="text" class="form-control" id="conmail" pClientIDModelaceholder="Confirm Email" />
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-md-6">
                         <div class="row">
                             <div class="form-group">
-                                <img src="asd.jpg" id="IMG_Avatar" class="img-thumbnail center-block" width="200" height="200" />
-                                <asp:FileUpload ID="FU_Avatar" ClientIDMode="Static" runat="server" CssClass="center-block" onchange="PreLoadImage();" />
+                                    <asp:Image id="IMG_Avatar" ClientIDMode="Static" runat="server" CssClass="img-thumbnail center-block" width="200" height="200"  ImageUrl="~/Images/Anonymous.png" />
+                                <asp:FileUpload id="FU_Avatar"  ClientIDMode="Static" runat="server" CssClass="center-block" onchange="PreLoadImage();" />
                             </div>
                         </div>
 

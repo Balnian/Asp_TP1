@@ -114,7 +114,6 @@ namespace TP1
 
          if (FU_Avatar.FileName != "")
          {
-
             avatar_ID = Guid.NewGuid().ToString();
             Avatar_Path = Server.MapPath(@"~\Avatars\") + avatar_ID + ".png";
             FU_Avatar.SaveAs(Avatar_Path);
