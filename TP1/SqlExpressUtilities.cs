@@ -27,9 +27,9 @@ namespace SqlExpressUtilities
     public class SqlExpressWrapper
     {
         // objet de connection
-        SqlConnection connection;
+    public    SqlConnection connection;
         // chaine de connection
-        string connexionString;
+       public string connexionString;
         // Objet de lecture issue de la dernière requête SQL
         public SqlDataReader reader;
         // Objet Page de classe "Web Form" donnant accès à l'objet Application, Session et Response, etc.

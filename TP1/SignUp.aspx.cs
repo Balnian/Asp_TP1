@@ -119,7 +119,7 @@ namespace TP1
             Avatar_Path = Server.MapPath(@"~\Avatars\") + avatar_ID + ".png";
             FU_Avatar.SaveAs(Avatar_Path);
          }
-         Usager.Avatar = avatar_ID; ;
+         Usager.Avatar = avatar_ID; 
          Usager.Insert();
          Session["User"] = Usager;
 

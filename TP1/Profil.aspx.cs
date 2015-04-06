@@ -12,8 +12,8 @@ namespace TP1
        Users Usager;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-           if(Session["User"] != null)
+
+            if (Session["User"] != null && !Page.IsPostBack)
            { 
            Usager = (Users)Session["User"];
            SetTbText();
@@ -22,33 +22,37 @@ namespace TP1
 
        private void SetTbText()
         {
-            TB_FullName.Text = Usager.ID.ToString();
+            Usager.ID = Usager.SelectId(Usager.UserName);
+            TB_FullName.Text = Usager.FullName;
            TB_UserName.Text = Usager.UserName;
-           TB_PassWord.Text = Usager.Password;
+           //TB_PassWord.Text = Usager.Password;
            TB_Email.Text = Usager.Email;
            IMG_Avatar.ImageUrl = @"~\Avatars/" + Usager.Avatar + ".png";
         }
        private void Update()
        {
-    //      Usager.GetValues();
-           Usager.FullName = TB_FullName.Text;
-           Usager.UserName = TB_UserName.Text;
-           Usager.Password = TB_PassWord.Text;
-           Usager.Email = TB_Email.Text;
-           DeleteImage(Usager.Avatar);
-
-           String Avatar_Path = "";
-           String avatar_ID = "";
-
-           if (FU_Avatar.FileName != "")
+           if (Session["User"] != null)
            {
-               avatar_ID = Guid.NewGuid().ToString();
-               Avatar_Path = Server.MapPath(@"~\Avatars\") + avatar_ID + ".png";
-               FU_Avatar.SaveAs(Avatar_Path);
+               Usager = (Users)Session["User"];
+               Usager.ID = Usager.SelectId(Usager.UserName);
+               Usager.FullName = TB_FullName.Text;
+               Usager.UserName = TB_UserName.Text;
+               Usager.Password = TB_PassWord.Text;
+               Usager.Email = TB_Email.Text;
+               DeleteImage(Usager.Avatar);
+
+               String Avatar_Path = "";
+               String avatar_ID = "";
+
+               if (FU_Avatar.FileName != "")
+               {
+                   avatar_ID = Guid.NewGuid().ToString();
+                   Avatar_Path = Server.MapPath(@"~\Avatars\") + avatar_ID + ".png";
+                   FU_Avatar.SaveAs(Avatar_Path);
+               }
+               Usager.Avatar = avatar_ID; ;
+               Usager.Update();
            }
-           Usager.Avatar = avatar_ID; ;
-      
-           Usager.Update();
        
        }
        private void DeleteImage(String ID)
