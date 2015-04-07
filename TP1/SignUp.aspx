@@ -47,8 +47,12 @@
                     <div class="col-xs-12 col-md-6">
                         <div class="row">
                             <div class="form-group">
-                                <img src="asd.jpg" id="IMG_Avatar" class="img-thumbnail center-block" width="200" height="200" />
-                                <asp:FileUpload ID="FU_Avatar" ClientIDMode="Static" runat="server" CssClass="center-block" onchange="PreLoadImage();" />
+                                <div class="thumbnail">
+                                    <img src="Images/Anonymous.png" id="IMG_Avatar" class=" center-block" width="200" height="200" />
+                                    <div class="caption">
+                                        <asp:FileUpload ID="FU_Avatar" ClientIDMode="Static" runat="server" accept="image/*" CssClass="form-control " onchange="PreLoadImage();" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -76,7 +80,7 @@
                                                             CssClass="pull-right" />
                                                     </div>
                                                     <div class="col-xs-8">
-                                                        <asp:Image ID="IMGCaptcha" ImageUrl="~/captcha.png" runat="server" CssClass="pull-left" />
+                                                        <asp:Image ID="IMGCaptcha" Width="220px" ImageUrl="~/captcha.png" runat="server" CssClass="img-thumbnail pull-left" />
                                                     </div>
 
                                                 </ContentTemplate>
@@ -87,19 +91,18 @@
 
                                             <div class="col-xs-5 col-xs-offset-4 pull-left">
                                                 <div class="form-group has-error has-feedback">
-                                                <asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5" CssClass="form-control" placeholder="Enter Captcha"></asp:TextBox>
-                                                <asp:CustomValidator ID="CV_Captcha" runat="server"
-                                                    ErrorMessage="Code captcha incorrect!"
-                                                    ValidationGroup="Subscribe_Validation"
-                                                    Text=""  
-                                                    Display="None"                                       
-                                                    ControlToValidate="TB_Captcha"
-                                                    OnServerValidate="CV_Captcha_ServerValidate"
-                                                    ValidateEmptyText="True"
-                                                    
-                                                    CssClass="glyphicon glyphicon-remove form-control-feedback show">
-                                                </asp:CustomValidator>
-                                            </div>
+                                                    <asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5" CssClass="form-control" placeholder="Enter Captcha"></asp:TextBox>
+                                                    <asp:CustomValidator ID="CV_Captcha" runat="server"
+                                                        ErrorMessage="Code captcha incorrect!"
+                                                        ValidationGroup="Subscribe_Validation"
+                                                        Text=""
+                                                        Display="None"
+                                                        ControlToValidate="TB_Captcha"
+                                                        OnServerValidate="CV_Captcha_ServerValidate"
+                                                        ValidateEmptyText="True"
+                                                        CssClass="glyphicon glyphicon-remove form-control-feedback show">
+                                                    </asp:CustomValidator>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -45,7 +45,7 @@
                     <div class="col-xs-12 col-md-6">
                         <div class="form-group">
                             <img src="asd.jpg" id="IMG_Avatar"class="img-thumbnail center-block" width="200" height="200" />
-                            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="center-block" onchange="PreLoadImage();" />
+                            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="form-control center-block" onchange="PreLoadImage();" />
                         </div>
                     </div>
                     

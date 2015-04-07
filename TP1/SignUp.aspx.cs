@@ -41,7 +41,7 @@ namespace TP1
 
             for (int i = 0; i < 5; i++)
                 captcha += RandomChar();
-            return captcha;//.ToLower();
+            return captcha.ToLower();
         }
 
         string BuildCaptcha()
@@ -53,7 +53,7 @@ namespace TP1
             SolidBrush brush = new SolidBrush(RandomColor(0, 127));
             SolidBrush pen = new SolidBrush(RandomColor(172, 255));
             DC.FillRectangle(brush, 0, 0, 200, 100);
-            Font font = new Font("Snap ITC", 32, FontStyle.Regular);
+            Font font = new Font("Snap ITC", 28, FontStyle.Regular);
             PointF location = new PointF(5f, 5f);
             DC.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             string captcha = Captcha();
