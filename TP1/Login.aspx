@@ -18,15 +18,16 @@
                 <h1>Login</h1>
             </div>
             <div class="panel-body">
+            
+                  <div class="form-group">
+                            <label for="user">Username:</label>    
+                              <asp:TextBox id="TB_UserName" name="User" runat="server" CssClass="form-control" placeholder="Enter username"></asp:TextBox> 
+                        </div>
 
-                <div class="form-group">
-                    <label for="user">Username:</label>
-                    <input type="text" class="form-control" id="user" placeholder="Enter username" />
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" />
-                </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                              <asp:TextBox id="TB_PassWord"  TextMode="password" name="Pwd" runat="server" CssClass="form-control" placeholder="Enter password"></asp:TextBox> 
+                        </div>
                 <div class="form-group">
                     <button type="submit" name="sub" class="btn btn-primary">Connection</button>
                 </div>
@@ -37,8 +38,6 @@
             </div>
             <div class="panel-footer">
                 <button type="submit" name="su" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Sign Up</button>
-
-
             </div>
         </div>
     </div>

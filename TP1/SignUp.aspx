@@ -14,17 +14,17 @@
 
                         <div class="form-group">
                             <label for="user">Full Name:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your full name" />
+                            <input name="FullName" type="text" class="form-control" id="name" placeholder="Enter your full name" />
                         </div>
 
                         <div class="form-group">
                             <label for="user">Username:</label>
-                            <input type="text" class="form-control" id="user" placeholder="Enter username" />
+                            <input name="UserName" type="text" class="form-control" id="user" placeholder="Enter username" />
                         </div>
 
                         <div class="form-group">
                             <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" />
+                            <input name="PassWord" type="password" class="form-control" id="pwd" placeholder="Enter password" />
                         </div>
 
                         <div class="form-group">
@@ -34,19 +34,20 @@
 
                         <div class="form-group">
                             <label for="pwd">Email:</label>
-                            <input type="password" class="form-control" id="mail" placeholder="Enter Email" />
+                            <input name="Email" type="text" class="form-control" id="mail" placeholder="Enter Email" />
                         </div>
 
                         <div class="form-group">
                             <label for="pwd">Confirm Email:</label>
-                            <input type="password" class="form-control" id="conmail" placeholder="Confirm Email" />
+                            <input type="text" class="form-control" id="conmail" placeholder="Confirm Email" />
                         </div>
-
                     </div>
 
                     <div class="col-xs-12 col-md-6">
                         <div class="row">
                             <div class="form-group">
+                                    <asp:Image id="IMG_Avatar" ClientIDMode="Static" runat="server" CssClass="img-thumbnail center-block" width="200" height="200"  ImageUrl="~/Images/Anonymous.png" />
+                                <asp:FileUpload id="FU_Avatar"  ClientIDMode="Static" runat="server" CssClass="center-block" onchange="PreLoadImage();" />
                                 <div class="thumbnail">
                                     <img src="Images/Anonymous.png" id="IMG_Avatar" class=" center-block" width="200" height="200" />
                                     <div class="caption">
@@ -91,18 +92,18 @@
 
                                             <div class="col-xs-5 col-xs-offset-4 pull-left">
                                                 <div class="form-group has-error has-feedback">
-                                                    <asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5" CssClass="form-control" placeholder="Enter Captcha"></asp:TextBox>
-                                                    <asp:CustomValidator ID="CV_Captcha" runat="server"
-                                                        ErrorMessage="Code captcha incorrect!"
-                                                        ValidationGroup="Subscribe_Validation"
-                                                        Text=""
-                                                        Display="None"
-                                                        ControlToValidate="TB_Captcha"
-                                                        OnServerValidate="CV_Captcha_ServerValidate"
-                                                        ValidateEmptyText="True"
-                                                        CssClass="glyphicon glyphicon-remove form-control-feedback show">
-                                                    </asp:CustomValidator>
-                                                </div>
+                                                <asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5" CssClass="form-control" placeholder="Enter Captcha"></asp:TextBox>
+                                                <asp:CustomValidator ID="CV_Captcha" runat="server"
+                                                    ErrorMessage="Code captcha incorrect!"
+                                                    ValidationGroup="Subscribe_Validation"
+                                                    Text=""  
+                                                    Display="None"                                       
+                                                    ControlToValidate="TB_Captcha"
+                                                    OnServerValidate="CV_Captcha_ServerValidate"
+                                                    ValidateEmptyText="True"
+                                                    CssClass="glyphicon glyphicon-remove form-control-feedback show">
+                                                </asp:CustomValidator>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>

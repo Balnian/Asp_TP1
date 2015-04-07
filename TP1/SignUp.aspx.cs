@@ -12,6 +12,7 @@ namespace TP1
 {
     public partial class SignUp : System.Web.UI.Page
     {
+      Users Usager;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -67,7 +68,6 @@ namespace TP1
             bitmap.Save(Server.MapPath("Captcha.png"), ImageFormat.Png);
             return captcha;
         }
-
         protected void RegenarateCaptcha_Click(object sender, ImageClickEventArgs e)
         {
             Session["captcha"] = BuildCaptcha();
@@ -79,9 +79,11 @@ namespace TP1
         {
             if (Page.IsValid)
             {
+            InsertRecord();
                 Session["message"] = "(Inscription réussie - complétez maintenant votre profil...)";
                 Response.Redirect("Profil.aspx");
             }
+        
         }
         protected void CV_Captcha_ServerValidate(object source, ServerValidateEventArgs args)
         {
@@ -89,25 +91,37 @@ namespace TP1
         } 
        private void LoadAnonymous()
        {
-          //String Avatar_Path = "";
-          //String avatar_ID = "";
+         String Avatar_Path = "";
+         String avatar_ID = "";
 
-          //if (FU_Avatar.FileName != "")
-          //{
-
-          //   avatar_ID = Guid.NewGuid().ToString();
-          //   Avatar_Path = Server.MapPath(@"~\Avatars\") + avatar_ID + ".png";
-          //   FU_Avatar.SaveAs(Avatar_Path);
-          //}
-       
-       
+         if (FU_Avatar.FileName != "")
+         {
+            avatar_ID = Guid.NewGuid().ToString();
+            Avatar_Path = Server.MapPath(@"~\Avatars\") + avatar_ID + ".png";
+            FU_Avatar.SaveAs(Avatar_Path);
+         }
        }
        private void InsertRecord()
        { 
-       //Request["yolo"]
+         Usager = new Users((string)Application["MainDB"], this);
        
+         Usager.FullName = Request["FullName"];
+         Usager.UserName = Request["UserName"];
+         Usager.Password = Request["PassWord"];
+         Usager.Email = Request["Email"];
        
+         String Avatar_Path = "";
+         String avatar_ID = "";
        
+         if (FU_Avatar.FileName != "")
+         {
+            avatar_ID = Guid.NewGuid().ToString();
+            Avatar_Path = Server.MapPath(@"~\Avatars\") + avatar_ID + ".png";
+            FU_Avatar.SaveAs(Avatar_Path);
+         }
+         Usager.Avatar = avatar_ID; 
+         Usager.Insert();
+         Session["User"] = Usager;
        
        }
     }

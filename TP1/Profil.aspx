@@ -12,40 +12,32 @@
 
                         <div class="form-group">
                             <label for="user">Full Name:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your full name" />
+                           <asp:TextBox ID="TB_FullName" name="Name" runat="server" CssClass="form-control"></asp:TextBox> 
+                          
                         </div>
 
                         <div class="form-group">
                             <label for="user">Username:</label>
-                            <input type="text" class="form-control" id="user" placeholder="Enter username" />
+                              <asp:TextBox ID="TB_UserName" name="User" runat="server" CssClass="form-control"></asp:TextBox> 
                         </div>
 
                         <div class="form-group">
                             <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="pwd">Confirm Password:</label>
-                            <input type="password" class="form-control" id="conpwd" placeholder="Confirm password" />
+                              <asp:TextBox ID="TB_PassWord"  TextMode="password" name="Pwd" runat="server" CssClass="form-control"></asp:TextBox> 
                         </div>
 
                          <div class="form-group">
                             <label for="pwd">Email:</label>
-                            <input type="password" class="form-control" id="mail" placeholder="Enter Email" />
+                             <asp:TextBox ID="TB_Email" name="Mail" runat="server" CssClass="form-control"></asp:TextBox>  
                         </div>
 
-                        <div class="form-group">
-                            <label for="pwd">Confirm Email:</label>
-                            <input type="password" class="form-control" id="conmail" placeholder="Confirm Email" />
                         </div>
-
-                    </div>
 
                     <div class="col-xs-12 col-md-6">
                         <div class="form-group">
-                            <img src="asd.jpg" id="IMG_Avatar"class="img-thumbnail center-block" width="200" height="200" />
-                            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="form-control center-block" onchange="PreLoadImage();" />
+                            
+                           <asp:Image id="IMG_Avatar" ClientIDMode="Static" runat="server" CssClass="img-thumbnail center-block" width="200" height="200"  ImageUrl="~/Images/Anonymous.png" />
+                            <asp:FileUpload id="FU_Avatar" ClientIDMode="Static" runat="server" CssClass="center-block" onchange="PreLoadImage();" />
                         </div>
                     </div>
                     
@@ -53,7 +45,12 @@
                 <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
-                                <button type="submit" name="sub" class="btn btn-primary btn-lg center-block">Update</button>
+                               
+                                   <asp:Button ID="BTN_Submit" runat="server"
+                                Text="Update"
+                                ValidationGroup="Subscribe_Validation"
+                                OnClick="BTN_Submit_Click"
+                                CssClass="btn btn-primary btn-lg center-block" />
                             </div>
                         </div>
                     </div>
