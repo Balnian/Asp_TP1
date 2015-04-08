@@ -61,6 +61,7 @@
     <Content Include="App_Data\MainDB_log.ldf">
       <DependentUpon>MainDB.mdf</DependentUpon>
     </Content>
+    <Content Include="ChatRoom.aspx" />
     <Content Include="js.js" />
     <Content Include="LoginsJournal.aspx" />
     <Content Include="Master.Master" />
@@ -78,9 +79,17 @@
     <Content Include="Profil.aspx" />
     <Content Include="Room.aspx" />
     <Content Include="SignUp.aspx" />
+    <Content Include="ThreadsManager.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChatRoom.aspx.cs">
+      <DependentUpon>ChatRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChatRoom.aspx.designer.cs">
+      <DependentUpon>ChatRoom.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EMail.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -137,6 +146,13 @@
       <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlExpressUtilities.cs" />
+    <Compile Include="ThreadsManager.aspx.cs">
+      <DependentUpon>ThreadsManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreadsManager.aspx.designer.cs">
+      <DependentUpon>ThreadsManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -88,8 +88,10 @@
                                         <div class="row">
 
                                             <div class="col-xs-5 col-xs-offset-4 pull-left">
-                                                <div class="form-group has-error has-feedback">
+                                                <asp:Panel ID="Captcha_Input_Group" runat="server" CssClass="form-group">
+                                                    <label class="control-label sr-only" ></label>
                                                     <asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5" CssClass="form-control" placeholder="Enter Captcha"></asp:TextBox>
+                                                    <!--<span id="Error_Span_Captcha" class="glyphicon glyphicon-remove form-control-feedback show"></span>-->
                                                     <asp:CustomValidator ID="CV_Captcha" runat="server"
                                                         ErrorMessage="Code captcha incorrect!"
                                                         ValidationGroup="Subscribe_Validation"
@@ -98,9 +100,9 @@
                                                         ControlToValidate="TB_Captcha"
                                                         OnServerValidate="CV_Captcha_ServerValidate"
                                                         ValidateEmptyText="True"
-                                                        CssClass="glyphicon glyphicon-remove form-control-feedback show">
+                                                        >
                                                     </asp:CustomValidator>
-                                                </div>
+                                                </asp:Panel>
                                             </div>
                                         </div>
                                     </div>
@@ -132,11 +134,11 @@
 
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="alert alert-danger alert-dismissible" role="alert">
+                    <asp:Panel ID="ErrorOverview" CssClass="alert alert-danger alert-dismissible" runat="server" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <asp:ValidationSummary ID="Subscribe_Validation" runat="server" ValidationGroup="Subscribe_Validation" />
-                    </div>
-                </div>
+                    </asp:Panel>
+                </div> 
             </div>
 
         </div>

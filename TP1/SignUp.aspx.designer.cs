@@ -67,6 +67,15 @@ namespace TP1 {
         protected global::System.Web.UI.WebControls.Image IMGCaptcha;
         
         /// <summary>
+        /// Contrôle Captcha_Input_Group.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Captcha_Input_Group;
+        
+        /// <summary>
         /// Contrôle TB_Captcha.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,15 @@ namespace TP1 {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BTN_Submit;
+        
+        /// <summary>
+        /// Contrôle ErrorOverview.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ErrorOverview;
         
         /// <summary>
         /// Contrôle Subscribe_Validation.

@@ -15,9 +15,11 @@ namespace TP1
       Users Usager;
         protected void Page_Load(object sender, EventArgs e)
         {
+            ErrorOverview.Visible = false;
             if (!Page.IsPostBack)
             {
                 Session["captcha"] = BuildCaptcha();
+                
             }
             LoadAnonymous();
         }
@@ -87,7 +89,23 @@ namespace TP1
         }
         protected void CV_Captcha_ServerValidate(object source, ServerValidateEventArgs args)
         {
+            Label ErrSpan_Captcha = new Label();
             args.IsValid = (TB_Captcha.Text == (string)Session["captcha"]);
+            if (!args.IsValid)
+            {
+                ErrorOverview.Visible = true;
+                ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
+                ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
+                
+                 TB_Captcha.Parent.Controls.AddAt(TB_Captcha.Parent.Controls.IndexOf(TB_Captcha)+1,ErrSpan_Captcha);
+                 Captcha_Input_Group.CssClass = "form-group has-error has-feedback";
+            }
+            else
+            {
+                Captcha_Input_Group.CssClass = "form-group";
+                Captcha_Input_Group.Controls.Remove(ErrSpan_Captcha);
+
+            }
         } 
        private void LoadAnonymous()
        {
