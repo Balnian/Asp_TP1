@@ -52,92 +52,91 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- CAPTCHA -->
-                    <div class="row">
-                        <div class="form-group">
-                            <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
-                            <div class="panel panel-default">
+                        <!-- CAPTCHA -->
+                        <div class="row">
+                            <div class="form-group">
+                                <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
-                                <div class="panel-body">
+                                <div class="panel panel-default">
 
-                                    <div class="row">
-                                        <asp:UpdatePanel ID="PN_Captcha" runat="server" UpdateMode="Conditional">
-                                            <ContentTemplate>
+                                    <div class="panel-body">
 
-                                                <div class="col-xs-4">
-                                                    <asp:ImageButton ID="RegenarateCaptcha" runat="server"
-                                                        ImageUrl="~/Images/RegenerateCaptcha.png"
-                                                        CausesValidation="False"
-                                                        OnClick="RegenarateCaptcha_Click"
+                                        <div class="row">
+                                            <asp:UpdatePanel ID="PN_Captcha" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+
+                                                    <div class="col-xs-4">
+                                                        <asp:ImageButton ID="RegenarateCaptcha" runat="server"
+                                                            ImageUrl="~/Images/RegenerateCaptcha.png"
+                                                            CausesValidation="False"
+                                                            OnClick="RegenarateCaptcha_Click"
+                                                            ValidationGroup="Subscribe_Validation"
+                                                            Width="48"
+                                                            ToolTip="Regénérer le captcha..."
+                                                            CssClass="pull-right" />
+                                                    </div>
+                                                    <div class="col-xs-8">
+                                                        <asp:Image ID="IMGCaptcha" Width="220px" ImageUrl="~/captcha.png" runat="server" CssClass="img-thumbnail pull-left" />
+                                                    </div>
+
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+
+                                            <div class="col-xs-5 col-xs-offset-4 pull-left">
+                                                <div class="form-group has-error has-feedback">
+                                                    <asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5" CssClass="form-control" placeholder="Enter Captcha"></asp:TextBox>
+                                                    <asp:CustomValidator ID="CV_Captcha" runat="server"
+                                                        ErrorMessage="Code captcha incorrect!"
                                                         ValidationGroup="Subscribe_Validation"
-                                                        Width="48"
-                                                        ToolTip="Regénérer le captcha..."
-                                                        CssClass="pull-right" />
+                                                        Text=""
+                                                        Display="None"
+                                                        ControlToValidate="TB_Captcha"
+                                                        OnServerValidate="CV_Captcha_ServerValidate"
+                                                        ValidateEmptyText="True"
+                                                        CssClass="glyphicon glyphicon-remove form-control-feedback show">
+                                                    </asp:CustomValidator>
                                                 </div>
-                                                <div class="col-xs-8">
-                                                    <asp:Image ID="IMGCaptcha" Width="220px" ImageUrl="~/captcha.png" runat="server" CssClass="img-thumbnail pull-left" />
-                                                </div>
-
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
-                                    </div>
-                                    <br />
-                                    <div class="row">
-
-                                        <div class="col-xs-5 col-xs-offset-4 pull-left">
-                                            <div class="form-group has-error has-feedback">
-                                                <asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5" CssClass="form-control" placeholder="Enter Captcha"></asp:TextBox>
-                                                <asp:CustomValidator ID="CV_Captcha" runat="server"
-                                                    ErrorMessage="Code captcha incorrect!"
-                                                    ValidationGroup="Subscribe_Validation"
-                                                    Text=""
-                                                    Display="None"
-                                                    ControlToValidate="TB_Captcha"
-                                                    OnServerValidate="CV_Captcha_ServerValidate"
-                                                    ValidateEmptyText="True"
-                                                    CssClass="glyphicon glyphicon-remove form-control-feedback show">
-                                                </asp:CustomValidator>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
+                        <!-- FIN CAPTCHA -->
                     </div>
-                </div>
-                <!-- FIN CAPTCHA -->
 
-            </div>
-
-
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <div class="form-group">
-
-                    <div class="row">
-                        <asp:Button ID="BTN_Submit" runat="server"
-                            Text="Submit"
-                            ValidationGroup="Subscribe_Validation"
-                            OnClick="BTN_Submit_Click"
-                            CssClass="btn btn-primary btn-lg center-block" />
-                    </div>
 
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="form-group">
 
-        <div class="row">
-            <div class="col-xs-12"></div>
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <asp:ValidationSummary ID="Subscribe_Validation" runat="server" ValidationGroup="Subscribe_Validation" />
+                        <div class="row">
+                            <asp:Button ID="BTN_Submit" runat="server"
+                                Text="Submit"
+                                ValidationGroup="Subscribe_Validation"
+                                OnClick="BTN_Submit_Click"
+                                CssClass="btn btn-primary btn-lg center-block" />
+                        </div>
+
+                    </div>
+                </div>
             </div>
-        </div>
 
-    </div>
+            <div class="row">
+                <div class="col-xs-12"></div>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <asp:ValidationSummary ID="Subscribe_Validation" runat="server" ValidationGroup="Subscribe_Validation" />
+                </div>
+            </div>
+
+        </div>
 </asp:Content>
