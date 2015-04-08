@@ -7,8 +7,6 @@ namespace TP1
 {
     public class LoginInfo : SqlExpressUtilities.SqlExpressWrapper
     {
-
-
         public long ID{ get; set; }
         public long ID_U{ get; set; }
         public DateTime LoginDate { get; set; }
@@ -41,9 +39,6 @@ namespace TP1
         {
             InsertRecord(ID_U, LoginDate, LogOutDate, IpAdresse);
         }
-
-
-      
 
 
 
