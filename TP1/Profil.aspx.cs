@@ -18,6 +18,7 @@ namespace TP1
            Usager = (Users)Session["User"];
            SetTbText();
            }
+           
         }
 
        private void SetTbText()
@@ -41,17 +42,21 @@ namespace TP1
                Usager.Email = TB_Email.Text;
                DeleteImage(Usager.Avatar);
 
-               String Avatar_Path = "";
                String avatar_ID = "";
 
                if (FU_Avatar.FileName != "")
                {
+                  String Avatar_Path = "";
+                  String avatar_ID = "";
                    avatar_ID = Guid.NewGuid().ToString();
                    Avatar_Path = Server.MapPath(@"~\Avatars\") + avatar_ID + ".png";
                    FU_Avatar.SaveAs(Avatar_Path);
+                   Usager.Avatar = avatar_ID; ;
                }
-               Usager.Avatar = avatar_ID; ;
+              
                Usager.Update();
+               Session["User"] = Usager;
+               IMG_Avatar.ImageUrl = @"~\Avatars/" + Usager.Avatar + ".png";
            }
        
        }

@@ -15,11 +15,9 @@ namespace TP1
       }
       private void SelectAllUser()
       {
-
         Users Usager  = new Users ((string)Application["MainDB"], this);
         Usager.SelectAll();
-        Usager.MakeGridView(PN_GridView, "Room.aspx");
-      
+        Usager.MakeGridView(PN_GridView, "Room.aspx");   
       }
    }
 }
