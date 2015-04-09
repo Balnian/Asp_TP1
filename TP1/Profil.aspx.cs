@@ -40,12 +40,11 @@ namespace TP1
                Usager.UserName = TB_UserName.Text;
                Usager.Password = TB_PassWord.Text;
                Usager.Email = TB_Email.Text;
-               DeleteImage(Usager.Avatar);
-
-               String avatar_ID = "";
+                         
 
                if (FU_Avatar.FileName != "")
                {
+                  DeleteImage(Usager.Avatar);
                   String Avatar_Path = "";
                   String avatar_ID = "";
                    avatar_ID = Guid.NewGuid().ToString();
