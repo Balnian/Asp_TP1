@@ -32,8 +32,8 @@ namespace TP1
                    if (Usager.SelectByFieldName("PassWord", TB_PassWord.Text))
                    {
                        Usager.SetUserInfo(TB_UserName.Text);
-                       Session["Users"] = Usager;
-                       Session["LoginDate"] = DateTime.Now;
+                       Session["User"] = Usager;
+                      
                        Response.Redirect("Profil.aspx");
                    }
                }

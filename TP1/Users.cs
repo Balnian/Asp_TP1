@@ -157,12 +157,13 @@ namespace TP1
                    
         }
 
-        public override void MakeGridView(Panel PN_GridView, string EditPage)
+        public  void MakeGridView(Panel PN_GridView, List<long> Online)
         {
            // base.MakeGridView(PN_GridView, EditPage);
             // converver le panneau parent (utilisé dans certaines méthodes de cette classe)
 
            Table Grid = null;
+        
            if (reader.HasRows)
            {
               Grid = new Table();
@@ -202,7 +203,11 @@ namespace TP1
 
                  TableCell tdimage = new TableCell();
                  Image image = new Image();
+                 if (!Online.Contains(long.Parse(FieldsValues[0])))
                  image.ImageUrl = @"~\Images\OffLine.png";
+                 else
+                 image.ImageUrl = @"~\Images\Online.png";
+
                  tdimage.Controls.Add(image);
                  tr.Cells.Add(tdimage);
                  for (int fieldIndex = 0; fieldIndex < FieldsValues.Count; fieldIndex++)
@@ -241,13 +246,18 @@ namespace TP1
                  TableCell tdavatar = new TableCell();
                  Image imageA = new Image();
                  imageA.ImageUrl = @"~\Avatars/" + FieldsValues[5] + ".png";
+                 imageA.CssClass = "img-responsive";
+                 imageA.Width = new Unit(100);
+                
                  tdavatar.Controls.Add(imageA);
                  tr.Cells.Add(tdavatar);
 
                
 
                  Grid.Rows.Add(tr);
+
               }
+              Grid.CssClass = "table table-striped";
            }
            PN_GridView.Controls.Clear();
            if (Grid != null)

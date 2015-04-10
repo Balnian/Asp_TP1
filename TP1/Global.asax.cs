@@ -11,9 +11,10 @@ namespace TP1
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+           List<long> Online = new List<long>();
            string DB_Path = Server.MapPath(@"~\App_Data\MainDB.mdf");
            Application["MainDB"] = @"Data Source=(LocalDB)\v11.0;AttachDbFilename='" + DB_Path + "';Integrated Security=True";
-           List<long> Online = new List<long>();
+           Application["Online"] = Online;
         }
     }
 }
