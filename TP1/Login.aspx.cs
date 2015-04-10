@@ -16,13 +16,15 @@ namespace TP1
             {
                 
                 LoginInfo Linfo = new LoginInfo((string)Application["MainDB"], this);
-                Linfo.ID_U = Usager.ID;
-                Linfo.LoginDate = DateTime.Parse(Session["LoginDate"].ToString());
+                Linfo.ID_U = ((Users)Session["User"]).ID;
+                Linfo.LoginDate = (DateTime)Session["LoginDate"];
                 Linfo.LogOutDate = DateTime.Now;
                 Linfo.IpAdresse = Request.UserHostAddress.ToString();
                 Linfo.Insert();
-                Session["Users"] = null;
+                ((List<long>)Application["Online"]).Remove(((Users)Session["User"]).ID);
+                Session["User"] = null;
                 Response.Redirect("Login.aspx");
+                
             }
             if (Page.IsPostBack)
             { 
@@ -34,6 +36,7 @@ namespace TP1
                        Usager.SetUserInfo(TB_UserName.Text);
                        Session["User"] = Usager;
                        ((List<long>)Application["Online"]).Add(Usager.ID);
+                       Session["LoginDate"] = DateTime.Now;
                        Response.Redirect("Profil.aspx");
                    }
                }

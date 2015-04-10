@@ -83,8 +83,9 @@ namespace TP1
             {
             InsertRecord();
                 Session["message"] = "(Inscription réussie - complétez maintenant votre profil...)";
-                Response.Redirect("Profil.aspx");
                 Session["LoginDate"] = DateTime.Now;
+                Response.Redirect("Profil.aspx");
+                
             }
         
         }
