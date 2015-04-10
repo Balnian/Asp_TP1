@@ -12,6 +12,15 @@ namespace TP1
         Users Usager;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Users"]!=null)
+            {
+                LoginInfo Linfo = new LoginInfo((string)Application["MainDB"], this);
+                Linfo.ID_U = Usager.ID;
+                Linfo.LoginDate = DateTime.Parse(Session["LoginDate"].ToString());
+                Linfo.LogOutDate = DateTime.Now;
+                Linfo.IpAdresse = Request.UserHostAddress.ToString();
+                Linfo.Insert();
+            }
             if (Page.IsPostBack)
             { 
                 Usager = new Users((string)Application["MainDB"], this);
@@ -21,10 +30,7 @@ namespace TP1
                    {
                        Usager.SetUserInfo(TB_UserName.Text);
                        Session["Users"] = Usager;
-                       LoginInfo Linfo = new LoginInfo((string)Application["MainDB"],this);
-                       Linfo.ID_U = Usager.ID;
-                       Linfo.LoginDate = DateTime.Now;
-                       Linfo.IpAdresse = Request.UserHostAddress.ToString();
+                       Session["LoginDate"] = DateTime.Now;
                        Response.Redirect("Profil.aspx");
                    }
                }
