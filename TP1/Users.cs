@@ -34,7 +34,6 @@ namespace TP1
             Password = FieldsValues[3];
             Email = FieldsValues[4];
             Avatar = FieldsValues[5];
-
         }
 
         public override void InitColumnsVisibility()
@@ -236,11 +235,18 @@ namespace TP1
                        
                         //Grid.Rows.Add(tr);
                     }
+                    TableCell tdavatar = new TableCell();
+                    Image imageA = new Image();
+                    imageA.ImageUrl = @"~\Avatars/" +FieldsValues[5] + ".png";
+                    tdavatar.Controls.Add(imageA);
+                    tr.Cells.Add(tdavatar);
+
                     TableCell tdimage = new TableCell();
                     Image image = new Image();
                     image.ImageUrl = @"~\Images\OffLine.png";
-                    tdimage.Controls.Add(image);
+                    tdimage.Controls.Add(image);                  
                     tr.Cells.Add(tdimage);
+
                     Grid.Rows.Add(tr);
                 }
             }
@@ -249,9 +255,6 @@ namespace TP1
                 PN_GridView.Controls.Add(Grid);
             EndQuerySQL();
         }
-
-              
-        
-
+                    
     }
 }
