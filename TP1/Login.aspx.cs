@@ -12,14 +12,17 @@ namespace TP1
         Users Usager;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Users"]!=null)
+            if (Session["User"]!=null)
             {
+                
                 LoginInfo Linfo = new LoginInfo((string)Application["MainDB"], this);
                 Linfo.ID_U = Usager.ID;
                 Linfo.LoginDate = DateTime.Parse(Session["LoginDate"].ToString());
                 Linfo.LogOutDate = DateTime.Now;
                 Linfo.IpAdresse = Request.UserHostAddress.ToString();
                 Linfo.Insert();
+                Session["Users"] = null;
+                Response.Redirect("Login.aspx");
             }
             if (Page.IsPostBack)
             { 
