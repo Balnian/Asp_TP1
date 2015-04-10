@@ -18,7 +18,8 @@ namespace TP1
             ErrorOverview.Visible = false;
             if (!Page.IsPostBack)
             {
-                Session["captcha"] = BuildCaptcha();                
+                Session["captcha"] = BuildCaptcha();      
+               
             }
             LoadAnonymous();
         }
@@ -83,6 +84,7 @@ namespace TP1
             InsertRecord();
                 Session["message"] = "(Inscription réussie - complétez maintenant votre profil...)";
                 Response.Redirect("Profil.aspx");
+                Session["LoginDate"] = DateTime.Now;
             }
         
         }

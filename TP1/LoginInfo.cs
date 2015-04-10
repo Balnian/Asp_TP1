@@ -35,6 +35,8 @@ namespace TP1
 
         }
 
+
+
         public override void Insert()
         {
             InsertRecord(ID_U, LoginDate, LogOutDate, IpAdresse);
