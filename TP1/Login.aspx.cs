@@ -18,7 +18,11 @@ namespace TP1
                if(Usager.SelectByFieldName("UserName",TB_UserName.Text))
                {
                    if (Usager.SelectByFieldName("PassWord", TB_PassWord.Text))
+                   {
+                       Usager.SetUserInfo(TB_UserName.Text);
+                       Session["Users"] = Usager;
                        Response.Redirect("Profil.aspx");
+                   }
                }
               
             }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 using System.Web.UI;
@@ -434,7 +433,7 @@ namespace SqlExpressUtilities
 
         // Panneau parent à la GridView généré par MakeGriewView
         private Panel PN_GridView = null;
-        public virtual void MakeGridView(Panel PN_GridView, String EditPage)
+        public virtual void MakeGridView(Panel PN_GridView, String EditPage )
         {
            
             // converver le panneau parent (utilisé dans certaines méthodes de cette classe)
@@ -478,11 +477,13 @@ namespace SqlExpressUtilities
                 while (Next())
                 {
                     tr = new TableRow();
+                    
                     for (int fieldIndex = 0; fieldIndex < FieldsValues.Count; fieldIndex++)
                     {
                         if (ColumnsVisibility[fieldIndex])
                         {
                             TableCell td = new TableCell();
+                            
                             if (CellsContentDelegate[fieldIndex] != null)
                             {
                                 // construction spécialisée du contenu d'une cellule
