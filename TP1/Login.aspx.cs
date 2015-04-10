@@ -21,6 +21,10 @@ namespace TP1
                    {
                        Usager.SetUserInfo(TB_UserName.Text);
                        Session["Users"] = Usager;
+                       LoginInfo Linfo = new LoginInfo((string)Application["MainDB"],this);
+                       Linfo.ID_U = Usager.ID;
+                       Linfo.LoginDate = DateTime.Now;
+                       Linfo.IpAdresse = Request.UserHostAddress.ToString();
                        Response.Redirect("Profil.aspx");
                    }
                }
