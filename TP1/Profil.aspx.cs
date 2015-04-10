@@ -12,7 +12,7 @@ namespace TP1
        Users Usager;
         protected void Page_Load(object sender, EventArgs e)
         {
-           if (Session["User"] != null)
+           if (Session["User"] != null && !Page.IsPostBack)
            {
               Usager = (Users)Session["User"];
               SetTbText();

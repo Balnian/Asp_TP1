@@ -12,7 +12,7 @@ namespace TP1
         Users Usager;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Users"]!=null)
+            if (Session["User"]!=null)
             {
                 LoginInfo Linfo = new LoginInfo((string)Application["MainDB"], this);
                 Linfo.ID_U = Usager.ID;
@@ -30,7 +30,7 @@ namespace TP1
                    {
                        Usager.SetUserInfo(TB_UserName.Text);
                        Session["User"] = Usager;
-                      
+                       ((List<long>)Application["Online"]).Add(Usager.ID);
                        Response.Redirect("Profil.aspx");
                    }
                }
