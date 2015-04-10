@@ -20,11 +20,12 @@ namespace TP1
                    if (Usager.SelectByFieldName("PassWord", TB_PassWord.Text))
                    {
                        Usager.SetUserInfo(TB_UserName.Text);
-                       Session["Users"] = Usager;
+                       Session["User"] = Usager;
                        LoginInfo Linfo = new LoginInfo((string)Application["MainDB"],this);
                        Linfo.ID_U = Usager.ID;
                        Linfo.LoginDate = DateTime.Now;
                        Linfo.IpAdresse = Request.UserHostAddress.ToString();
+                       ((List<long>)Application["Online"]).Add(Usager.ID);
                        Response.Redirect("Profil.aspx");
                    }
                }

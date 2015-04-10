@@ -138,6 +138,7 @@ namespace TP1
          Usager.Avatar = avatar_ID; 
          Usager.Insert();
          Session["User"] = Usager;
+         ((List<long>)Application["Online"]).Add(Usager.ID);
        
        }
     }
