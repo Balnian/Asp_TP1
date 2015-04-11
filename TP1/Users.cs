@@ -30,8 +30,8 @@ namespace TP1
         {
             ID = long.Parse(FieldsValues[0]);
             FullName = FieldsValues[1];
-            UserName = FieldsValues[2];
-            Password = FieldsValues[3];
+            UserName = FieldsValues[3];
+            Password = FieldsValues[2];
             Email = FieldsValues[4];
             Avatar = FieldsValues[5];
         }
@@ -137,10 +137,10 @@ namespace TP1
 
                 while (Reader.Read())
                 {
-                    iD = Reader.GetInt64(0);
-                    UserName = Reader.GetString(1);
-                    FullName = Reader.GetString(2);
-                    Password = Reader.GetString(3);
+                    iD = Reader.GetInt64(0);                  
+                    FullName = Reader.GetString(1);
+                    Password = Reader.GetString(2);
+                    UserName = Reader.GetString(3);
                     Email = Reader.GetString(4);
                     Avatar = Reader.GetString(5);
                 }
@@ -167,36 +167,9 @@ namespace TP1
            if (reader.HasRows)
            {
               Grid = new Table();
-              // Construction de l'entête de la GridView
+          
               TableRow tr = new TableRow();
-              for (int columnIndex = 0; columnIndex < ColumnTitles.Count; columnIndex++)
-              {
-                 if (ColumnsVisibility[columnIndex])
-                 {
-                    TableCell td = new TableCell();
-                    tr.Cells.Add(td);
-                    Label LBL_Header = new Label();
-                    LBL_Header.Text = "<b>" + ColumnTitles[columnIndex] + "</b>";
-
-                    if (ColumnsSortEnable[columnIndex])
-                    {
-                       ImageButton BTN_Sort = new ImageButton();
-                       // assignation du delegate du clic (voir sa définition plus bas dans le code)
-                       BTN_Sort.Click += new ImageClickEventHandler(SortField_Click);
-                       // IMPORTANT!!!
-                       // il faut placer dans le répertoire Images du projet l'icône qui représente un tri
-                       BTN_Sort.ImageUrl = @"~/Images/Sort.png";
-                       // afin de bien reconnaitre quel champ il faudra trier on construit ici un ID
-                       // pour le bouton
-                       BTN_Sort.ID = "Sort_" + FieldsNames[columnIndex];
-                       td.Controls.Add(BTN_Sort);
-                    }
-                    td.Controls.Add(LBL_Header);
-                 }
-              }
-              Grid.Rows.Add(tr);
-
-              // Construction des rangées de la GridView
+            
               while (Next())
               {
                  tr = new TableRow();
@@ -241,7 +214,7 @@ namespace TP1
                        tr.Cells.Add(td);
                     }
 
-                    //Grid.Rows.Add(tr);
+                   
                  }
                  TableCell tdavatar = new TableCell();
                  Image imageA = new Image();
@@ -286,10 +259,10 @@ namespace TP1
 
               while (Reader.Read())
               {
-                 iD = Reader.GetInt64(0);
-                 UserName = Reader.GetString(1);
-                 FullName = Reader.GetString(2);
-                 Password = Reader.GetString(3);
+                 iD = Reader.GetInt64(0);                 
+                 FullName = Reader.GetString(1);
+                 Password = Reader.GetString(2);
+                  UserName = Reader.GetString(3);
                  Email = Reader.GetString(4);
                  Avatar = Reader.GetString(5);
               }
