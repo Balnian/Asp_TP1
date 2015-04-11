@@ -18,12 +18,7 @@
             <li <%if (Page.Request.FilePath == "/LoginsJournal.aspx")
                   {%>
                 class="active" <% } %>><a href="LoginsJournal.aspx">Logins Journal</a></li>
-            <li <%if (Page.Request.FilePath == "/ThreadsManager.aspx")
-                  {%>
-                class="active" <% } %>><a href="ThreadsManager.aspx">Threads Manager</a></li>
-            <li <%if (Page.Request.FilePath == "/ChatRoom.aspx")
-                  {%>
-                class="active" <% } %>><a href="ChatRoom.aspx">Chat Room</a></li>
+           
         </ul>
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
