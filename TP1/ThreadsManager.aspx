@@ -11,13 +11,18 @@
              </asp:Panel>
                <div class="col-xs-7 col-md-3">
                                
-                                   <asp:Button ID="BTN_Create" runat="server"
-                                Text="Create"
-                                ValidationGroup="Subscribe_Validation"
-                                OnClick="BTN_Create_Click"
-                                CssClass="btn btn-primary btn-lg center-block" />
-                            </div>
+             <asp:Button ID="BTN_Create" runat="server"
+                 Text="Create"
+                 ValidationGroup="Subscribe_Validation"
+                 OnClick="BTN_Create_Click"
+                 CssClass="btn btn-primary btn-lg center-block" />
+               </div>
           </div>
+        <div>
+             <asp:Panel   ID="Pn_Thread" runat="server">           
+             </asp:Panel>
+
+        </div>
     </asp:Panel>
 
 </asp:Content>

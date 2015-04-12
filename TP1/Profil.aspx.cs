@@ -40,7 +40,6 @@ namespace TP1
                Usager.Password = TB_PassWord.Text;
                Usager.Email = TB_Email.Text;
                          
-
                if (FU_Avatar.FileName != "")
                {
                   DeleteImage(Usager.Avatar);
@@ -55,8 +54,7 @@ namespace TP1
                Usager.Update();
                Session["User"] = Usager;
                IMG_Avatar.ImageUrl = @"~\Avatars/" + Usager.Avatar + ".png";
-           }
-       
+           }      
        }
        private void DeleteImage(String ID)
        {
