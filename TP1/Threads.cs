@@ -32,7 +32,6 @@ namespace TP1
         {
             InsertRecord(creator, title, date);        
         }
-
          public long GetId(String threadName)
          { 
          
