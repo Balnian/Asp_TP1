@@ -256,11 +256,12 @@ namespace TP1
            }
         }
 
-        public void MakeAGridForThread(Panel   PN_GridView)
+        public List<CheckBox> MakeAGridForThread(Panel PN_GridView)
         {
 
 
             Table Grid = null;
+            List<CheckBox> cblist = new List<CheckBox>();
 
             if (reader.HasRows)
             {
@@ -282,7 +283,6 @@ namespace TP1
                    
                         tr = new TableRow();
 
-
                                 TableCell td = new TableCell();
                                 td.Text = FieldsValues[2].ToString();
                                 td.CssClass = "numeric";
@@ -299,6 +299,7 @@ namespace TP1
                                 check.ID = FieldsValues[0].ToString();
                                 tdcheck.Controls.Add(check);
                                 tr.Cells.Add(tdcheck);
+                                cblist.Add(check);
 
                     Grid.Rows.Add(tr);
 
@@ -310,9 +311,9 @@ namespace TP1
             if (Grid != null)
                 PN_GridView.Controls.Add(Grid);
             EndQuerySQL();
-        
-        
-        
+
+
+            return cblist;
         
         
         }
