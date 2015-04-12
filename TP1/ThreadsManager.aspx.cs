@@ -40,7 +40,14 @@ namespace TP1
                 thread.title = TB_ThreadName.Text;
                 thread.date = DateTime.Now.ToString();
                 thread.Insert();
-                //reste a implanter la classe threadaccess  
+                ThreadAcces threadA = new ThreadAcces((string)Application["MainDB"], this);
+                threadA.THREAD_ID = thread.GetId(user.UserName);
+                    foreach (long id in idlist)
+                    {
+                        threadA.ID_U = id;
+                        threadA.Insert();
+                    }
+               
             }
 
         }
