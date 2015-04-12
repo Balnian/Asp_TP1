@@ -19,5 +19,10 @@ namespace TP1
         Usager.SelectAll();
         Usager.MakeGridView(PN_GridView,(List<long>)Application["Online"]);   
       }
+      protected void Timer_Tick(object sender, EventArgs e)
+      {
+
+          SelectAllUser();
+      }
    }
 }
