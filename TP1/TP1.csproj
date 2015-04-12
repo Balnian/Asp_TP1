@@ -146,6 +146,7 @@
       <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlExpressUtilities.cs" />
+    <Compile Include="Threads.cs" />
     <Compile Include="ThreadsManager.aspx.cs">
       <DependentUpon>ThreadsManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

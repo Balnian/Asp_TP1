@@ -49,15 +49,7 @@ namespace TP1
             //SetColumnVisibility("Email", false);
         }
 
-        public override void InitColumnsSortEnable()
-        {
-            //reste a voir les columns quon veut pas dans la gridview
-        }
-
-        public override void InitColumnsTitles()
-        {
-            //reste a voir les columns quon veut pas dans la gridview
-        }
+     
 
         public override void Insert()
         {
@@ -104,9 +96,7 @@ namespace TP1
                 Reader = sqlcmd.ExecuteReader();
 
                 while (Reader.Read())                
-               iD = Reader.GetInt64(0);
-                   
-
+               iD = Reader.GetInt64(0);                  
                     Reader.Close();                
             }
             catch (Exception)
@@ -159,9 +149,7 @@ namespace TP1
 
         public  void MakeGridView(Panel PN_GridView, List<long> Online)
         {
-           // base.MakeGridView(PN_GridView, EditPage);
-            // converver le panneau parent (utilisé dans certaines méthodes de cette classe)
-
+           
            Table Grid = null;
         
            if (reader.HasRows)
@@ -176,6 +164,7 @@ namespace TP1
 
                  TableCell tdimage = new TableCell();
                  Image image = new Image();
+
                  if (!Online.Contains(long.Parse(FieldsValues[0])))
                  image.ImageUrl = @"~\Images\OffLine.png";
                  else
@@ -190,9 +179,7 @@ namespace TP1
                        TableCell td = new TableCell();
 
                        if (CellsContentDelegate[fieldIndex] != null)
-                       {
-                          // construction spécialisée du contenu d'une cellule
-                          // définie dans les sous classes
+                       {                          
                           td.Controls.Add(CellsContentDelegate[fieldIndex]());
                        }
                        else
@@ -200,9 +187,7 @@ namespace TP1
                           Type type = FieldsTypes[fieldIndex];
                           if (SQLHelper.IsNumericType(type))
                           {
-                             td.Text = FieldsValues[fieldIndex].ToString();
-                             // IMPORTANT! Il faut inclure dans la section style
-                             // une classe numeric qui impose l'alignement à droite
+                             td.Text = FieldsValues[fieldIndex].ToString();                           
                              td.CssClass = "numeric";
                           }
                           else
@@ -237,8 +222,6 @@ namespace TP1
               PN_GridView.Controls.Add(Grid);
            EndQuerySQL();
            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
         }
 
         private void ReadUsers()

@@ -11,7 +11,13 @@ namespace TP1
    {
       protected void Page_Load(object sender, EventArgs e)
       {
+          long id= 0;
+          LoginInfo log = new LoginInfo((string)Application["MainDB"], this);
+          log.SelectAll();
+          if(Session["User"]!=null)
+           id = ((Users)Session["User"]).ID;
 
+          log. MakeThatGridView(Log_Panel,id);
       }
    }
 }
