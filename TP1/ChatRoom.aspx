@@ -23,7 +23,7 @@
         <div class="panel-body">
             <!-- Room Selection -->
             <div class="col-xs-2 hidden-sm hidden-xs">
-                <div class="row">
+                <div class="row">plu
                     <asp:UpdatePanel ID="ListeConvo" runat="server">
                         <ContentTemplate>
                             <ul class="nav nav-pills nav-stacked">

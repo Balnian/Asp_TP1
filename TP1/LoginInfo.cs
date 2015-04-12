@@ -27,10 +27,8 @@ namespace TP1
             //ici reste a voir si on veut enelever la visibility de certaine columns
             base.InitColumnsVisibility();
             SetColumnVisibility("ID", false);
-              SetColumnVisibility("LogOutDate", false);
-        
+              SetColumnVisibility("LogOutDate", false);       
         }
-
 
         public override void InitColumnsSortEnable()
         {
@@ -118,18 +116,12 @@ namespace TP1
                    UserInfo[1] = Reader.GetString(3);
                    UserInfo[2] = Reader.GetString(4);
                 }
-
                 Reader.Close();
             }
             catch (Exception)
             {
             }
-            finally
-            {
-               
-            
-            }
-
+         
             return UserInfo;
         
         }
