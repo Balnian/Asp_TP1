@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI.WebControls;
 using System.Web.UI;
 using SqlExpressUtilities;
+using System.Data.SqlClient;
 namespace TP1
 {
     public class LoginInfo : SqlExpressUtilities.SqlExpressWrapper
@@ -25,6 +26,9 @@ namespace TP1
         {
             //ici reste a voir si on veut enelever la visibility de certaine columns
             base.InitColumnsVisibility();
+            SetColumnVisibility("ID", false);
+              SetColumnVisibility("LogOutDate", false);
+        
         }
 
 
@@ -61,38 +65,26 @@ namespace TP1
                 if(long.Parse(FieldsValues[1]) == ID)
                 { 
                  tr = new TableRow();
+                 String[] info = SelectInfo(long.Parse(FieldsValues[1]));
 
                  for (int fieldIndex = 0; fieldIndex < FieldsValues.Count; fieldIndex++)
                  {
                      if (ColumnsVisibility[fieldIndex])
                      {
-                         TableCell td = new TableCell();
-
-                         if (CellsContentDelegate[fieldIndex] != null)
-                         {
-                             td.Controls.Add(CellsContentDelegate[fieldIndex]());
-                         }
-                         else
-                         {
-                             Type type = FieldsTypes[fieldIndex];
-                             if (SQLHelper.IsNumericType(type))
-                             {
-                                 td.Text = FieldsValues[fieldIndex].ToString();
-                                 td.CssClass = "numeric";
-                             }
-                             else
-                                 if (type == typeof(DateTime))
-                                     td.Text = DateTime.Parse(FieldsValues[fieldIndex]).ToShortDateString();
-                                 else
-                                     td.Text = SQLHelper.FromSql(FieldsValues[fieldIndex]);
-                         }
-                         tr.Cells.Add(td);
+                              TableCell td = new TableCell();
+                               td.Text = FieldsValues[fieldIndex].ToString();
+                                 td.CssClass = "numeric";                                                
+                                  tr.Cells.Add(td);
                      }
                  }
-                   
+                 for (int i = 0; i < info.Length; i++)
+                 {
+                      TableCell cell = new TableCell();
+                      cell.Text = info[i];
+                      cell.CssClass = "numeric";         
+                      tr.Cells.Add(cell);
                  }
-              
-              
+                 }                            
 
                  Grid.Rows.Add(tr);
 
@@ -106,5 +98,43 @@ namespace TP1
            //////////////////////////////////////////////////////////////////
         }
 
+        private String[] SelectInfo(long id)
+        {
+            String Query = "Select * from Users Where ID = "+ id ;
+            SqlConnection Connection;
+            SqlDataReader Reader;
+            String [] UserInfo = new String[3]; 
+            
+            // instancier l'objet de collection
+            Connection = new SqlConnection(connexionString);
+            // bâtir l'objet de requête
+            SqlCommand sqlcmd = new SqlCommand(Query, Connection);
+           
+            try
+            {
+                Connection.Open();
+                Reader = sqlcmd.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                   UserInfo[0] = Reader.GetString(1);
+                   UserInfo[1] = Reader.GetString(3);
+                   UserInfo[2] = Reader.GetString(4);
+                }
+
+                Reader.Close();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+               
+            
+            }
+
+            return UserInfo;
+        
+        }
     }
 }
