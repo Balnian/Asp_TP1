@@ -259,7 +259,6 @@ namespace TP1
         public List<CheckBox> MakeAGridForThread(Panel PN_GridView)
         {
 
-
             Table Grid = null;
             List<CheckBox> cblist = new List<CheckBox>();
 
