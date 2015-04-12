@@ -20,7 +20,7 @@ namespace TP1
 
         public override void Insert()
         {
-            InsertRecord(creator, title, date);
+            //InsertRecord(creator, title, date);
         }
     }
 }
