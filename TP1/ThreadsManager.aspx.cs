@@ -19,5 +19,18 @@ namespace TP1
                 user.MakeAGridForThread(Pn_Users);
             }
         }
+        protected void BTN_Create_Click(object sender, EventArgs e)
+        {
+              if (Session["User"] != null)
+            {
+                user = (Users)Session["User"];
+                Threads thread = new Threads((string)Application["MainDB"], this);
+              
+                
+                  
+            }
+
+        }
+
     }
 }

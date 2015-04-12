@@ -37,7 +37,6 @@ namespace EmailSender
             client.Port = HostPort; 
             client.Host = Host;
             client.EnableSsl = SSLSecurity; 
-
             try
             {
                 client.Send(mail);
