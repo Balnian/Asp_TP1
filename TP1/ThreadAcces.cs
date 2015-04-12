@@ -26,6 +26,7 @@ namespace TP1
             ID_U = long.Parse(FieldsValues[2]);
            
         }
+        public override void Insert()
         {
 
             InsertRecord(THREAD_ID, ID_U);
