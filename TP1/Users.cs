@@ -197,9 +197,7 @@ namespace TP1
                                 td.Text = SQLHelper.FromSql(FieldsValues[fieldIndex]);
                        }
                        tr.Cells.Add(td);
-                    }
-
-                   
+                    }                  
                  }
                  TableCell tdavatar = new TableCell();
                  Image imageA = new Image();
@@ -208,10 +206,7 @@ namespace TP1
                  imageA.Width = new Unit(100);
                 
                  tdavatar.Controls.Add(imageA);
-                 tr.Cells.Add(tdavatar);
-
-               
-
+                 tr.Cells.Add(tdavatar);              
                  Grid.Rows.Add(tr);
 
               }
@@ -260,6 +255,66 @@ namespace TP1
               EndQuerySQL();
            }
         }
-                    
+
+        public void MakeAGridForThread(Panel   PN_GridView)
+        {
+
+
+            Table Grid = null;
+
+            if (reader.HasRows)
+            {
+                Grid = new Table();
+
+                TableRow tr ;
+                //tr = new TableRow();
+                //TableCell tdall = new TableCell();
+               // //tdall.Text = "All Users";
+               // TableCell tdcheckA = new TableCell();
+                //CheckBox checkA = new CheckBox();
+                //checkA.ID = "All";
+                //tdcheckA.Controls.Add(checkA);
+                //tr.Cells.Add(tdcheckA);
+              //  Grid.Rows.Add(tr);
+
+                while (Next())
+                {
+                   
+                        tr = new TableRow();
+
+
+                                TableCell td = new TableCell();
+                                td.Text = FieldsValues[2].ToString();
+                                td.CssClass = "numeric";
+                                tr.Cells.Add(td);
+                                TableCell tdavatar = new TableCell();
+                                Image imageA = new Image();
+                                imageA.ImageUrl = @"~\Avatars/" + FieldsValues[5] + ".png";
+                                imageA.CssClass = "img-responsive";
+                                imageA.Width = new Unit(70);
+                                tdavatar.Controls.Add(imageA);
+                                tr.Cells.Add(tdavatar);
+                                TableCell tdcheck = new TableCell();
+                                CheckBox check = new CheckBox();
+                                check.ID = FieldsValues[0].ToString();
+                                tdcheck.Controls.Add(check);
+                                tr.Cells.Add(tdcheck);
+
+                    Grid.Rows.Add(tr);
+
+                }
+               
+                Grid.CssClass = "table-condensed";
+            }
+            PN_GridView.Controls.Clear();
+            if (Grid != null)
+                PN_GridView.Controls.Add(Grid);
+            EndQuerySQL();
+        
+        
+        
+        
+        
+        }
     }
 }

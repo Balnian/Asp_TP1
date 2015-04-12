@@ -40,6 +40,15 @@ namespace TP1 {
         protected global::System.Web.UI.WebControls.TextBox TB_PassWord;
         
         /// <summary>
+        /// Contrôle TB_ValidPW.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TB_ValidPW;
+        
+        /// <summary>
         /// Contrôle TB_Email.
         /// </summary>
         /// <remarks>

@@ -25,7 +25,10 @@
                             <label for="pwd">Password:</label>
                               <asp:TextBox ID="TB_PassWord"  TextMode="password" name="Pwd" runat="server" CssClass="form-control"></asp:TextBox> 
                         </div>
-
+                         <div class="form-group">
+                            <label for="pwd">Confirm Password:</label>
+                              <asp:TextBox ID="TB_ValidPW"  TextMode="password" name="PwdVal" runat="server" CssClass="form-control"></asp:TextBox> 
+                        </div>
                          <div class="form-group">
                             <label for="pwd">Email:</label>
                              <asp:TextBox ID="TB_Email" name="Mail" runat="server" CssClass="form-control"></asp:TextBox>  
