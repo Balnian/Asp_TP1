@@ -21,9 +21,11 @@
             </select>
         </div>
         <div class="panel-body">
+
             <!-- Room Selection -->
             <div class="col-xs-2 hidden-sm hidden-xs">
-                <div class="row">plu
+                <div class="row">
+                    plu
                     <asp:UpdatePanel ID="ListeConvo" runat="server">
                         <ContentTemplate>
                             <ul class="nav nav-pills nav-stacked">
@@ -40,20 +42,115 @@
                 <table class="table table-responsive" style="word-wrap: break-word">
                     <asp:UpdatePanel ID="Chat" runat="server">
                         <ContentTemplate>
-                            <tr><td class="col-xs-2"><img src="Captcha.png" class="img-responsive"  /></td><td class="col-xs-2"><div class="row">Date/heure</div><div class="row"><strong>Alias de l'usager</strong></div></td><td class="col-xs-8" style="word-wrap:break-word!important">sadsda asdasdsadasdas asdasdsadsa asdsadsa asdasdasds asddsdaa asddsas asdddas asddsadaas asdsadsadas asdsadsassss assddddffddf 555555555555555555555555555555555555555 55555555555555555555555555555555 55555555555555555555555555555 555555555555555555555555555</td></tr>
-                            <tr><td><img src="" class="img-responsive"  /></td><td><div class="row">Date/heure</div><div class="row"><strong>Alias de l'usager</strong></div></td><td>Le message...</td></tr>
-                            <tr><td><img src="" class="img-responsive"  /></td><td><div class="row">Date/heure</div><div class="row"><strong>Alias de l'usager</strong></div></td><td>Le message...</td></tr>
-                            <tr><td><img src="" class="img-responsive"  /></td><td><div class="row">Date/heure</div><div class="row"><strong>Alias de l'usager</strong></div></td><td>Le message...</td></tr>
-                            <tr><td><img src="" class="img-responsive"  /></td><td><div class="row">Date/heure</div><div class="row"><strong>Alias de l'usager</strong></div></td><td>Le message...</td></tr>
-                            <tr><td><img src="" class="img-responsive"  /></td><td><div class="row">Date/heure</div><div class="row"><strong>Alias de l'usager</strong></div></td><td>Le message...</td></tr>
-                            <tr><td><img src="" class="img-responsive"  /></td><td><div class="row">Date/heure</div><div class="row"><strong>Alias de l'usager</strong></div></td><td>Le message...</td></tr>
-                            <tr><td><img src="" class="img-responsive"  /></td><td><div class="row">Date/heure</div><div class="row"><strong>Alias de l'usager</strong></div></td><td>Le message...</td></tr>
-                            <tr><td><img src="" class="img-responsive"  /></td><td><div class="row">Date/heure</div><div class="row"><strong>Alias de l'usager</strong></div></td><td>Le message...</td></tr>
-                            <tr><td><img src="" class="img-responsive"  /></td><td><div class="row">Date/heure</div><div class="row"><strong>Alias de l'usager</strong></div></td><td>Le message...</td></tr>
+                            <tr>
+                                <td class="col-xs-2">
+                                    <img src="Captcha.png" class="img-responsive" /></td>
+                                <td class="col-xs-2">
+                                    <div class="row">Date/heure</div>
+                                    <div class="row"><strong>Alias de l'usager</strong></div>
+                                </td>
+                                <td class="col-xs-8" style="word-wrap: break-word!important">sadsda asdasdsadasdas asdasdsadsa asdsadsa asdasdasds asddsdaa asddsas asdddas asddsadaas asdsadsadas asdsadsassss assddddffddf 555555555555555555555555555555555555555 55555555555555555555555555555555 55555555555555555555555555555 555555555555555555555555555</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="" class="img-responsive" /></td>
+                                <td>
+                                    <div class="row">Date/heure</div>
+                                    <div class="row"><strong>Alias de l'usager</strong></div>
+                                </td>
+                                <td>Le message...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="" class="img-responsive" /></td>
+                                <td>
+                                    <div class="row">Date/heure</div>
+                                    <div class="row"><strong>Alias de l'usager</strong></div>
+                                </td>
+                                <td>Le message...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="" class="img-responsive" /></td>
+                                <td>
+                                    <div class="row">Date/heure</div>
+                                    <div class="row"><strong>Alias de l'usager</strong></div>
+                                </td>
+                                <td>Le message...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="" class="img-responsive" /></td>
+                                <td>
+                                    <div class="row">Date/heure</div>
+                                    <div class="row"><strong>Alias de l'usager</strong></div>
+                                </td>
+                                <td>Le message...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="" class="img-responsive" /></td>
+                                <td>
+                                    <div class="row">Date/heure</div>
+                                    <div class="row"><strong>Alias de l'usager</strong></div>
+                                </td>
+                                <td>Le message...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="" class="img-responsive" /></td>
+                                <td>
+                                    <div class="row">Date/heure</div>
+                                    <div class="row"><strong>Alias de l'usager</strong></div>
+                                </td>
+                                <td>Le message...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="" class="img-responsive" /></td>
+                                <td>
+                                    <div class="row">Date/heure</div>
+                                    <div class="row"><strong>Alias de l'usager</strong></div>
+                                </td>
+                                <td>Le message...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="" class="img-responsive" /></td>
+                                <td>
+                                    <div class="row">Date/heure</div>
+                                    <div class="row"><strong>Alias de l'usager</strong></div>
+                                </td>
+                                <td>Le message...</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="" class="img-responsive" /></td>
+                                <td>
+                                    <div class="row">Date/heure</div>
+                                    <div class="row"><strong>Alias de l'usager</strong></div>
+                                </td>
+                                <td>Le message...</td>
+                            </tr>
 
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </table>
+                <hr />
+                <div class="row">
+                    <div class="col-xs-12 col-xs-offset-0 col-md-9 col-md-offset-3">
+                    <div class="input-group">
+                        <textarea id="Message" name="Message" maxlength="150" style="resize:none" class="form-control" rows="3">
+                             
+                        </textarea>
+                        <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-send"></span> Send</span>
+                        
+
+                    </div>
+                    
+
+                </div>
+                    </div>
             </div>
             <!-- User -->
             <div class="col-xs-3 col-md-2">
@@ -68,6 +165,8 @@
                 </asp:UpdatePanel>
             </div>
         </div>
+
+    </div>
     </div>
 
 
