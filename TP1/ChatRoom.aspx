@@ -30,11 +30,7 @@
                         <ContentTemplate>
                          
                             <asp:Panel ID="Thread_Panel" runat="server"></asp:Panel>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li role="presentation" class="active"><a href="#">1</a></li>
-                                <li role="presentation"><a href="#">Convo2</a></li>
-                                <li role="presentation"><a href="#">Convo3</a></li>
-                            </ul>
+                            
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>

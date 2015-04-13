@@ -52,8 +52,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                         <!-- CAPTCHA -->
                         <div class="row">
                             <div class="form-group">
