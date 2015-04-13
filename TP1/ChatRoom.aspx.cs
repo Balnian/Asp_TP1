@@ -11,6 +11,7 @@ namespace TP1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+          
             SetMessage();
         }
 
@@ -49,23 +50,15 @@ namespace TP1
                 Tmessage.Date_Of_Creation = DateTime.Now.ToShortTimeString();
                 Tmessage.Message = Tb_Message.Text;
                 Tmessage.Insert();                              
-            }                
+            }
 
-
+            SetMessage();
 
         }
+
         protected void Timer_Chat_Tick(object sender, EventArgs e)
         {
-           Users user;
-           if (Session["User"] != null)
-           {
-              user = (Users)Session["User"];
-              user.SelectAll();
-
-              Threads thread = new Threads((string)Application["MainDB"], this);
-              thread.SelectAll();
-              thread.ShowThread(Thread_Panel, user.ID);
-           }                
+       
           
         }
     }
