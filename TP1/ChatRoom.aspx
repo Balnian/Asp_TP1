@@ -76,11 +76,7 @@
             <div class="col-xs-3 col-md-2">
                 <asp:UpdatePanel ID="Users" runat="server">
                     <ContentTemplate>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li role="presentation" class="active"><a href="#">3</a></li>
-                            <li role="presentation"><a href="#">Convo2</a></li>
-                            <li role="presentation"><a href="#">Convo3</a></li>
-                        </ul>
+                           <asp:Panel ID="User_Panel" runat="server"></asp:Panel>
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </div>
