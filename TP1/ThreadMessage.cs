@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace TP1
@@ -39,6 +40,7 @@ namespace TP1
             if (reader.HasRows)
             {
                 Grid = new Table();
+                Grid.CssClass = "table table-responsive";
                 TableRow tr;
              
                 while (Next())
@@ -46,8 +48,10 @@ namespace TP1
                     tr = new TableRow();
                     String[] info = GetUserNameAndAvatar(long.Parse(FieldsValues[2]));
                     Image imagea = new Image();
-
+                    imagea.CssClass = "img-responsive";
+                    //Image
                     TableCell tdavatar = new TableCell();
+                    tdavatar.CssClass = "col-xs-1";
                     Image imageA = new Image();
                     imageA.ImageUrl = @"~\Avatars/" + info[1] + ".png";
                     imageA.CssClass = "img-responsive";
@@ -55,10 +59,25 @@ namespace TP1
                     tdavatar.Controls.Add(imageA);
                     tr.Cells.Add(tdavatar);
                    
+                    //Heure et nom
                     TableCell td = new TableCell();
-                    td.Text = FieldsValues[3] + "/n" + info[0];
+                    td.CssClass = "col-xs-2";
+                    HtmlGenericControl row1 = new HtmlGenericControl("div");
+                    row1.Attributes.Add("class", "row");
+                    row1.InnerText = FieldsValues[3];
+
+                    HtmlGenericControl row2 = new HtmlGenericControl("div");
+                    HtmlGenericControl str = new HtmlGenericControl("strong");
+                    str.InnerText = info[0];
+                    row2.Controls.Add(str);
+
+                    td.Controls.Add(row1);
+                    td.Controls.Add(row2);
                     tr.Cells.Add(td);
+
+                    //Message
                     TableCell ttext = new TableCell();
+                    ttext.CssClass = "col-xs-9";
                     ttext.Text = FieldsValues[4];
                     tr.Cells.Add(ttext);
                     Grid.Rows.Add(tr);

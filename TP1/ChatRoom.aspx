@@ -42,13 +42,13 @@
             <div class="col-xs-9 col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <table class="table table-responsive" style="word-wrap: break-word">
+                        
                             <asp:UpdatePanel ID="Chat" runat="server">
                                 <ContentTemplate>
                                     <asp:Panel ID="Message_Panel" runat="server"></asp:Panel>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
-                        </table>
+                        
                     </div>
 
                     
@@ -86,7 +86,7 @@
         </div>
 
     </div>
-    </div>
+    
 
 
 </asp:Content>
