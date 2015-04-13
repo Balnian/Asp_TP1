@@ -103,25 +103,30 @@ namespace TP1
             Connection = new SqlConnection(connexionString);
             // bâtir l'objet de requête
             SqlCommand sqlcmd = new SqlCommand(Query, Connection);
-            Page.Application.Lock();
+          //  Page.Application.Lock();
             try
             {
-                Connection.Open();
-                Reader = sqlcmd.ExecuteReader();
+               Connection.Open();
+               Reader = sqlcmd.ExecuteReader();
 
-                while (Reader.Read())
-                {
-                    info[0] = Reader.GetString(0);
-                    info[1] = Reader.GetString(1);               
-                }
-                Reader.Close();
+               while (Reader.Read())
+               {
+                  info[0] = Reader.GetString(0);
+                  info[1] = Reader.GetString(1);
+               }
+               Reader.Close();
             }
             catch (Exception)
             {
             }
-          
+
+            finally
+            {
+              // EndQuerySQL();
+            
+            }
             return info;
-        
+            
         
         
         

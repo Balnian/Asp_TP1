@@ -50,7 +50,8 @@ namespace TP1
                 Tmessage.User_ID = user.ID;
                 Tmessage.Date_Of_Creation = DateTime.Now.ToShortTimeString();
                 Tmessage.Message = Tb_Message.Text;
-                Tmessage.Insert();                              
+                Tmessage.Insert();
+                Tmessage.EndQuerySQL();            
             }
 
             SetMessage();
