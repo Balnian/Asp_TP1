@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="max-height:100%">
         <div class="panel-heading">
             <!-- header -->
             <!--Big-->
@@ -43,9 +43,9 @@
             <!-- Chat -->
             <div class="col-xs-9 col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-body">
+                    <div class="panel-body" style="overflow-y:scroll">
                             <asp:Timer runat="server" ID="Timer_Chat" Interval="3000" OnTick="Timer_Chat_Tick"></asp:Timer>
-                            <asp:UpdatePanel ID="Chat" runat="server">
+                            <asp:UpdatePanel ID="Chat" runat="server" >
                                  <Triggers>
                                   <asp:AsyncPostBackTrigger ControlID="Timer_Chat" EventName="Tick" />
                              </Triggers>
