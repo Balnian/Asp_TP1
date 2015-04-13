@@ -16,7 +16,6 @@ namespace TP1
           log.SelectAll();
           if(Session["User"]!=null)
            id = ((Users)Session["User"]).ID;
-
           log. MakeThatGridView(Log_Panel,id);
       }
    }

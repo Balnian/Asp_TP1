@@ -35,9 +35,7 @@ namespace TP1
 
         public void MessageGridView(Panel  PN_GridView)
         {
-
-            Table Grid = null;
-         
+            Table Grid = null;        
             if (reader.HasRows)
             {
                 Grid = new Table();
@@ -91,8 +89,7 @@ namespace TP1
                 while (Reader.Read())
                 {
                     info[0] = Reader.GetString(0);
-                    info[1] = Reader.GetString(1);
-                
+                    info[1] = Reader.GetString(1);               
                 }
                 Reader.Close();
             }

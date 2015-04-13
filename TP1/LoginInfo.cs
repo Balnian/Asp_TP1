@@ -51,10 +51,8 @@ namespace TP1
         
            if (reader.HasRows)
            {
-              Grid = new Table();
-          
-              TableRow tr = new TableRow();
-            
+              Grid = new Table();          
+              TableRow tr = new TableRow();           
               while (Next())
               {
                 if(long.Parse(FieldsValues[1]) == ID)
@@ -80,9 +78,7 @@ namespace TP1
                       tr.Cells.Add(cell);
                  }
                  }                            
-
                  Grid.Rows.Add(tr);
-
               }
               Grid.CssClass = "table table-striped";
            }
@@ -109,7 +105,6 @@ namespace TP1
             {
                 Connection.Open();
                 Reader = sqlcmd.ExecuteReader();
-
                 while (Reader.Read())
                 {
                    UserInfo[0] = Reader.GetString(1);

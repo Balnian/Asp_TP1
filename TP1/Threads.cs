@@ -76,13 +76,9 @@ namespace TP1
 
                 TableRow tr;
              
-
                 while (Next())
                 {
-
                     tr = new TableRow();
-
-
                     TableCell td = new TableCell();
                     td.Text = FieldsValues[2];
                     tr.Cells.Add(td);
@@ -94,13 +90,17 @@ namespace TP1
             PN_GridView.Controls.Clear();
             if (Grid != null)
                 PN_GridView.Controls.Add(Grid);
-            EndQuerySQL();       
-        
-        
-        
+            EndQuerySQL();                             
         }
+
+         public void MakeThreadList()
+         { 
+         
+           
          
          
+         
+         }
          
         
     }

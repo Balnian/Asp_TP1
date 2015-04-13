@@ -29,8 +29,7 @@ namespace TP1
               if (Session["User"] != null)
             {
                 user = (Users)Session["User"];
-                Threads thread = new Threads((string)Application["MainDB"], this);
-                
+                Threads thread = new Threads((string)Application["MainDB"], this);               
                 foreach (CheckBox cb in cblist)
                 {
                     if (cb.Checked)

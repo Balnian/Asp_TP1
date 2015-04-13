@@ -25,9 +25,10 @@
             <!-- Room Selection -->
             <div class="col-xs-2 hidden-sm hidden-xs">
                 <div class="row">
-                    plu
+                    
                     <asp:UpdatePanel ID="ListeConvo" runat="server">
                         <ContentTemplate>
+                         <asp:Panel ID="Thread_Panel" runat="server"></asp:Panel>
                             <ul class="nav nav-pills nav-stacked">
                                 <li role="presentation" class="active"><a href="#">1</a></li>
                                 <li role="presentation"><a href="#">Convo2</a></li>
