@@ -275,16 +275,7 @@ namespace TP1
                 Grid = new Table();
 
                 TableRow tr ;
-                //tr = new TableRow();
-                //TableCell tdall = new TableCell();
-               // //tdall.Text = "All Users";
-               // TableCell tdcheckA = new TableCell();
-                //CheckBox checkA = new CheckBox();
-                //checkA.ID = "All";
-                //tdcheckA.Controls.Add(checkA);
-                //tr.Cells.Add(tdcheckA);
-              //  Grid.Rows.Add(tr);
-
+               
                 while (Next())
                 {
                    
@@ -319,10 +310,59 @@ namespace TP1
                 PN_GridView.Controls.Add(Grid);
             EndQuerySQL();
 
+            return cblist;              
+        }
 
-            return cblist;
+
+        public void listAccessThread(Panel PN_GridView, long Thread_id, List<long> online_user)
+        {
+            Table Grid = null;
+            if (reader.HasRows)
+            {
+                Grid = new Table();
+
+                TableRow tr;              
+                while (Next())
+                {
+                    tr = new TableRow();
+
+                    TableCell tdavatar = new TableCell();
+                    Image imageA = new Image();
+                    imageA.ImageUrl = @"~\Avatars/" + FieldsValues[5] + ".png";
+                    imageA.CssClass = "img-responsive";
+                    imageA.Width = new Unit(40);
+                    tdavatar.Controls.Add(imageA);
+                    tr.Cells.Add(tdavatar);
+                    TableCell td = new TableCell();
+                    td.Text = FieldsValues[2].ToString();
+                    td.CssClass = "numeric";
+                    tr.Cells.Add(td);
+                    TableCell tdimage = new TableCell();
+                    Image image = new Image();
+
+                    if (online_user.Contains(long.Parse(FieldsValues[0])))
+                        image.ImageUrl = @"~\Images\OffLine.png";
+                    else
+                        image.ImageUrl = @"~\Images\Online.png";
+
+                    image.Width = new Unit(30);
+                    tdimage.Controls.Add(image);
+                    tr.Cells.Add(tdimage);
+                    Grid.Rows.Add(tr);
+
+                }
+
+                Grid.CssClass = "table-condensed";
+            }
+            PN_GridView.Controls.Clear();
+            if (Grid != null)
+                PN_GridView.Controls.Add(Grid);
+            EndQuerySQL();
+
+        
         
         
         }
+
     }
 }

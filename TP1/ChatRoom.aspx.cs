@@ -13,6 +13,7 @@ namespace TP1
         {          
             SetMessage();
             ShowThreadUser();
+            ShowUser();
         }
 
         public void SetMessage()
@@ -67,7 +68,19 @@ namespace TP1
             Threads thread = new Threads((string)Application["MainDB"], this);          
             thread.SelectAll();
             thread.MakeThreadList(Thread_Panel, 2);
-            thread.EndQuerySQL();
+            thread.EndQuerySQL();                  
+        }
+
+        public void ShowUser()
+        {
+            Users user;
+             if (Session["User"] != null)
+            {
+                user = (Users)Session["User"];
+                user.SelectAll();
+                user.listAccessThread(User_Panel,2,(List<long>)Application["Online"]);
+                user.EndQuerySQL();
+            }
         
         
         
