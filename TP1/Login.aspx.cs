@@ -35,6 +35,7 @@ namespace TP1
                        Session["User"] = Usager;
                        ((List<long>)Application["Online"]).Add(Usager.ID);
                        Session["LoginDate"] = DateTime.Now;
+                       Usager.EndQuerySQL();
                        Response.Redirect("Profil.aspx");
                    }
                }
