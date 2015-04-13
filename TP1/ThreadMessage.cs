@@ -57,6 +57,7 @@ namespace TP1
                    
                     TableCell td = new TableCell();
                     td.Text = FieldsValues[3] + "/n" + info[0];
+                    tr.Cells.Add(td);
                     TableCell ttext = new TableCell();
                     ttext.Text = FieldsValues[4];
                     tr.Cells.Add(ttext);
