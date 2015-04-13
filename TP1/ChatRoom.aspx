@@ -25,10 +25,10 @@
             <!-- Room Selection -->
             <div class="col-xs-2 hidden-sm hidden-xs">
                 <div class="row">
-                    
+
                     <asp:UpdatePanel ID="ListeConvo" runat="server">
                         <ContentTemplate>
-                         <asp:Panel ID="Thread_Panel" runat="server"></asp:Panel>
+                            <asp:Panel ID="Thread_Panel" runat="server"></asp:Panel>
                             <ul class="nav nav-pills nav-stacked">
                                 <li role="presentation" class="active"><a href="#">1</a></li>
                                 <li role="presentation"><a href="#">Convo2</a></li>
@@ -40,26 +40,36 @@
             </div>
             <!-- Chat -->
             <div class="col-xs-9 col-md-8">
-                <table class="table table-responsive" style="word-wrap: break-word">
-                    <asp:UpdatePanel ID="Chat" runat="server">
-                        <ContentTemplate>
-                            <asp:Panel id="Message_Panel" runat="server"></asp:Panel>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </table>
-                <hr />
-                <div class="row">
-                    <div class="col-xs-12 col-xs-offset-0 col-md-9 col-md-offset-2">
-                    <div class="input-group">
-                        <asp:TextBox  Cssclass="form-control" ID="Tb_Message" TextMode="multiline"  Columns="40" Rows="5" runat="server" placeholder="Enter Message">
-
-
-                        </asp:TextBox>
-                   <asp:Button ID="Btn_Send" CssClass=" btn-primary" runat="server" Text="Send" OnClick="Btn_Send_Click"/>
-                        
-                    </div>                   
-                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table table-responsive" style="word-wrap: break-word">
+                            <asp:UpdatePanel ID="Chat" runat="server">
+                                <ContentTemplate>
+                                    <asp:Panel ID="Message_Panel" runat="server"></asp:Panel>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </table>
                     </div>
+
+                    
+                    <!-- Message Input -->
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-12 col-xs-offset-0 col-md-9 col-md-offset-2">
+                                <div class="col-xs-10">
+                                    <asp:TextBox CssClass="form-control" ID="Tb_Message" style="resize:none" MaxLength="1" TextMode="multiline" Columns="40" Rows="5" runat="server" placeholder="Enter Message"></asp:TextBox>
+
+                                </div>
+                                <div class="col-xs-2">
+
+
+                                    <asp:Button ID="Btn_Send" CssClass="btn btn-primary btn-block" runat="server" Text="Send" OnClick="Btn_Send_Click" />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- User -->
             <div class="col-xs-3 col-md-2">
