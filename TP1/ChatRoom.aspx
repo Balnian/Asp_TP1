@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="panel panel-default" style="max-height:100%">
+    <div class="panel panel-default" style="max">
         <div class="panel-heading">
             <!-- header -->
             <!--Big-->

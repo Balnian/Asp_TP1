@@ -79,6 +79,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Profil.aspx" />
     <Content Include="Room.aspx" />
+    <Content Include="SetHeight.js" />
     <Content Include="SignUp.aspx" />
     <Content Include="ThreadsManager.aspx" />
     <Content Include="Web.config" />
