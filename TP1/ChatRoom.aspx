@@ -28,6 +28,8 @@
 
                     <asp:UpdatePanel ID="ListeConvo" runat="server">
                         <ContentTemplate>
+              
+           
                             <asp:Panel ID="Thread_Panel" runat="server"></asp:Panel>
                             <ul class="nav nav-pills nav-stacked">
                                 <li role="presentation" class="active"><a href="#">1</a></li>
@@ -43,7 +45,12 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <table class="table table-responsive" style="word-wrap: break-word">
+                            <asp:Timer runat="server" ID="Timer_Chat" Interval="3000" OnTick="Timer_Chat_Tick"></asp:Timer>
                             <asp:UpdatePanel ID="Chat" runat="server">
+                                 <Triggers>
+                                  <asp:AsyncPostBackTrigger ControlID="Timer_Chat" EventName="Tick" />
+                             </Triggers>
+         
                                 <ContentTemplate>
                                     <asp:Panel ID="Message_Panel" runat="server"></asp:Panel>
                                 </ContentTemplate>
