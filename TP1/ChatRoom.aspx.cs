@@ -18,8 +18,9 @@ namespace TP1
         public void SetMessage()
         {
             ThreadMessage message = new ThreadMessage((string)Application["MainDB"], this);
-            message.SelectAll();
-            message.MessageGridView(Message_Panel);                   
+            message.SelectAll();           
+            message.MessageGridView(Message_Panel);
+            message.EndQuerySQL();     
         }
         public void SetThread()
         {
@@ -27,11 +28,11 @@ namespace TP1
             if (Session["User"] != null)
             {
                 user = (Users)Session["User"];
-                user.SelectAll();
-                
+                user.SelectAll();             
                 Threads thread = new Threads((string)Application["MainDB"], this);
-                thread.SelectAll();
+                thread.SelectAll();              
                 thread.ShowThread(Thread_Panel, user.ID);
+                thread.EndQuerySQL();
             }                
         }
         protected void Btn_Send_Click(object sender, EventArgs e)
