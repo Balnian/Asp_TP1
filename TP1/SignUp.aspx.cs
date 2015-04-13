@@ -80,11 +80,10 @@ namespace TP1
         {
             if (Page.IsValid)
             {
-            InsertRecord();
+                InsertRecord();
                 Session["message"] = "(Inscription réussie - complétez maintenant votre profil...)";
                 Session["LoginDate"] = DateTime.Now;
-                Response.Redirect("Profil.aspx");
-                
+                Response.Redirect("Profil.aspx");               
             }
         
         }

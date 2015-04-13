@@ -45,10 +45,8 @@ namespace TP1
         }
 
         public void MakeThatGridView(Panel PN_GridView,long ID)
-        { 
-              
-           Table Grid = null;
-        
+        {               
+           Table Grid = null;        
            if (reader.HasRows)
            {
               Grid = new Table();          
@@ -70,13 +68,13 @@ namespace TP1
                                   tr.Cells.Add(td);
                      }
                  }
-                 for (int i = 0; i < info.Length; i++)
-                 {
-                      TableCell cell = new TableCell();
-                      cell.Text = info[i];
-                      cell.CssClass = "numeric";         
-                      tr.Cells.Add(cell);
-                 }
+                     for (int i = 0; i < info.Length; i++)
+                     {
+                          TableCell cell = new TableCell();
+                          cell.Text = info[i];
+                          cell.CssClass = "numeric";         
+                          tr.Cells.Add(cell);
+                     }
                  }                            
                  Grid.Rows.Add(tr);
               }
@@ -91,7 +89,7 @@ namespace TP1
 
         private String[] SelectInfo(long id)
         {
-            String Query = "Select * from Users Where ID = "+ id ;
+            String Query = "Select * from Users Where ID = " + id ;
             SqlConnection Connection;
             SqlDataReader Reader;
             String [] UserInfo = new String[3]; 

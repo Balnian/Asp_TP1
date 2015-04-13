@@ -11,20 +11,15 @@ namespace TP1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
             SetMessage();
         }
 
         public void SetMessage()
         {
-
             ThreadMessage message = new ThreadMessage((string)Application["MainDB"], this);
             message.SelectAll();
-            message.MessageGridView(Message_Panel);           
-        
+            message.MessageGridView(Message_Panel);                   
         }
-
         public void SetThread()
         {
             Users user;
@@ -36,9 +31,28 @@ namespace TP1
                 Threads thread = new Threads((string)Application["MainDB"], this);
                 thread.SelectAll();
                 thread.ShowThread(Thread_Panel, user.ID);
-            }
-        
-        
+            }                
+        }
+        protected void Btn_Send_Click(object sender, EventArgs e)
+        {
+
+            Users user;
+
+            if (Session["User"] != null)
+            {
+                user = (Users)Session["User"];
+
+                ThreadMessage Tmessage = new ThreadMessage((string)Application["MainDB"], this);
+
+                Tmessage.Thread_ID = 3;
+                Tmessage.User_ID = user.ID;
+                Tmessage.Date_Of_Creation = DateTime.Now.ToShortTimeString();
+                Tmessage.Message = Tb_Message.Text;
+                Tmessage.Insert();                              
+            }                
+
+
+
         }
     }
 }

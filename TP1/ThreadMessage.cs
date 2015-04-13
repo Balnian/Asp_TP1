@@ -9,11 +9,11 @@ namespace TP1
 {
     public class ThreadMessage: SqlExpressUtilities.SqlExpressWrapper
     {
-        long ID { get; set; }
-        long Thread_ID { get; set; }
-        long User_ID { get; set; }
-         String Date_Of_Creation { get; set; }
-        String Message { get; set; }
+     public   long ID { get; set; }
+     public   long Thread_ID { get; set; }
+    public    long User_ID { get; set; }
+    public     String Date_Of_Creation { get; set; }
+     public   String Message { get; set; }
         public ThreadMessage(String connexionString, System.Web.UI.Page Page)
             : base(connexionString, Page)
         {
@@ -44,19 +44,22 @@ namespace TP1
                 while (Next())
                 {
                     tr = new TableRow();
-                    String[] info = GetUserNameAndAvatar(long.Parse(FieldsValues[3]));
-                    Image imagea = new Image();
+                    String[] info = GetUserNameAndAvatar(long.Parse(FieldsValues[2]));
+                    //Image imagea = new Image();
 
-                    TableCell tdavatar = new TableCell();
-                    Image imageA = new Image();
-                    imageA.ImageUrl = @"~\Avatars/" +  info[1] + ".png";
-                    imageA.CssClass = "img-responsive";
-                    imageA.Width = new Unit(60);
-                    tdavatar.Controls.Add(imageA);
-                    tr.Cells.Add(tdavatar);
+                    //TableCell tdavatar = new TableCell();
+                    //Image imageA = new Image();
+                    //imageA.ImageUrl = @"~\Avatars/" +  info[1] + ".png";
+                    //imageA.CssClass = "img-responsive";
+                    //imageA.Width = new Unit(60);
+                    //tdavatar.Controls.Add(imageA);
+                    //tr.Cells.Add(tdavatar);
                    
                     TableCell td = new TableCell();
                     td.Text = FieldsValues[3] + "/n" + info[0];
+                    TableCell ttext = new TableCell();
+                    ttext.Text = FieldsValues[4];
+                    tr.Cells.Add(ttext);
                     Grid.Rows.Add(tr);
                 }
 

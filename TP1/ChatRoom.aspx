@@ -49,16 +49,15 @@
                 </table>
                 <hr />
                 <div class="row">
-                    <div class="col-xs-12 col-xs-offset-0 col-md-9 col-md-offset-3">
+                    <div class="col-xs-12 col-xs-offset-0 col-md-9 col-md-offset-2">
                     <div class="input-group">
-                        <textarea id="Message" name="Message" maxlength="150" style="resize:none" class="form-control" rows="3">
-                             
-                        </textarea>
-                        <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-send"></span> Send</span>
-                        
-                    </div>
-                    
+                        <asp:TextBox  Cssclass="form-control" ID="Tb_Message" TextMode="multiline"  Columns="40" Rows="5" runat="server" placeholder="Enter Message">
 
+
+                        </asp:TextBox>
+                   <asp:Button ID="Btn_Send" CssClass=" btn-primary" runat="server" Text="Send" OnClick="Btn_Send_Click"/>
+                        
+                    </div>                   
                 </div>
                     </div>
             </div>
