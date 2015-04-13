@@ -6,6 +6,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using SqlExpressUtilities;
 using System.Data.SqlClient;
+using System.Web.UI.HtmlControls;
 namespace TP1
 {
     public class LoginInfo : SqlExpressUtilities.SqlExpressWrapper
@@ -71,8 +72,19 @@ namespace TP1
                      for (int i = 0; i < info.Length; i++)
                      {
                           TableCell cell = new TableCell();
-                          cell.Text = info[i];
-                          cell.CssClass = "numeric";         
+                         if(i==2)
+                         {
+                             HtmlGenericControl abal = new HtmlGenericControl("a");
+                             abal.Attributes.Add("href", "mailto:" + info[i]);
+                             abal.InnerText = info[i];
+                             cell.Controls.Add(abal);
+                         }
+                         else
+                         {
+                             cell.Text = info[i];
+                             cell.CssClass = "numeric";     
+                         }
+                                   
                           tr.Cells.Add(cell);
                      }
                  }                            

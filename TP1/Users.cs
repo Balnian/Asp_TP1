@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using System.Web.UI;
 using SqlExpressUtilities;
+using System.Web.UI.HtmlControls;
 
 namespace TP1
 {
@@ -192,6 +193,15 @@ namespace TP1
                              if (type == typeof(DateTime))
                                 td.Text = DateTime.Parse(FieldsValues[fieldIndex]).ToShortDateString();
                              else
+                                 if(FieldsNames[fieldIndex]=="Email")
+                                 {
+                                     HtmlGenericControl abal =new HtmlGenericControl("a");
+                                     abal.Attributes.Add("href", "mailto:" + SQLHelper.FromSql(FieldsValues[fieldIndex]));
+                                     abal.InnerText = SQLHelper.FromSql(FieldsValues[fieldIndex]);
+                                     td.Controls.Add(abal);
+                                 }
+                                     
+                                 else
                                 td.Text = SQLHelper.FromSql(FieldsValues[fieldIndex]);
                        }
                        tr.Cells.Add(td);
