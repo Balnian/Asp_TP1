@@ -25,7 +25,7 @@ namespace TP1
             Usager.ID = Usager.SelectId(Usager.UserName);
             TB_FullName.Text = Usager.FullName;
            TB_UserName.Text = Usager.UserName;
-           TB_PassWord.Text = Usager.Password;
+          TB_PassWord.Attributes["Value"] = Usager.Password;
            TB_Email.Text = Usager.Email;
            IMG_Avatar.ImageUrl = @"~\Avatars/" + Usager.Avatar + ".png";
         }
@@ -54,6 +54,7 @@ namespace TP1
                Usager.Update();
                Session["User"] = Usager;
                IMG_Avatar.ImageUrl = @"~\Avatars/" + Usager.Avatar + ".png";
+             
            }      
        }
        private void DeleteImage(String ID)

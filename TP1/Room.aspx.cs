@@ -17,7 +17,8 @@ namespace TP1
       {
         Users Usager  = new Users ((string)Application["MainDB"], this);
         Usager.SelectAll();
-        Usager.MakeGridView(PN_GridView,(List<long>)Application["Online"]);   
+        Usager.MakeGridView(PN_GridView,(List<long>)Application["Online"]);
+        Usager.EndQuerySQL();
       }
       protected void Timer_Tick(object sender, EventArgs e)
       {

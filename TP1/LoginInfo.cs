@@ -115,8 +115,7 @@ namespace TP1
             {
             }
          
-            return UserInfo;
-        
+            return UserInfo;       
         }
     }
 }
