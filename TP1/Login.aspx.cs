@@ -22,6 +22,7 @@ namespace TP1
                 Linfo.Insert();
                 ((List<long>)Application["Online"]).Remove(((Users)Session["User"]).ID);
                 Session["User"] = null;
+                Linfo.EndQuerySQL();
                 Response.Redirect("Login.aspx");               
             }
             if (Page.IsPostBack)

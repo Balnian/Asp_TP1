@@ -30,6 +30,7 @@ namespace TP1
                 user = (Users)Session["User"];
                 user.SelectAll();             
                 Threads thread = new Threads((string)Application["MainDB"], this);
+                user.EndQuerySQL();   
                 thread.SelectAll();              
                 thread.ShowThread(Thread_Panel, user.ID);
                 thread.EndQuerySQL();
