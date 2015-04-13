@@ -54,5 +54,19 @@ namespace TP1
 
 
         }
+        protected void Timer_Chat_Tick(object sender, EventArgs e)
+        {
+           Users user;
+           if (Session["User"] != null)
+           {
+              user = (Users)Session["User"];
+              user.SelectAll();
+
+              Threads thread = new Threads((string)Application["MainDB"], this);
+              thread.SelectAll();
+              thread.ShowThread(Thread_Panel, user.ID);
+           }                
+          
+        }
     }
 }

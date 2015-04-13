@@ -23,9 +23,8 @@
                             <label for="user">Username:</label>    
                               <asp:TextBox id="TB_UserName" name="User" runat="server" CssClass="form-control" placeholder="Enter username"></asp:TextBox> 
                         </div>
-
                         <div class="form-group">
-                            <label for="pwd">Password:</label>
+                            <%--<label for="pwd">Password:</label>--%>
                               <asp:TextBox id="TB_PassWord"  TextMode="password" name="Pwd" runat="server" CssClass="form-control" placeholder="Enter password"></asp:TextBox> 
                         </div>
                 <div class="form-group">
