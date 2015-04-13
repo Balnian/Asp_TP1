@@ -54,6 +54,7 @@ namespace TP1
                Usager.Update();
                Session["User"] = Usager;
                IMG_Avatar.ImageUrl = @"~\Avatars/" + Usager.Avatar + ".png";
+               Usager.EndQuerySQL();
              
            }      
        }

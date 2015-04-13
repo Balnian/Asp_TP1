@@ -154,10 +154,8 @@ namespace TP1
         
            if (reader.HasRows)
            {
-              Grid = new Table();
-          
-              TableRow tr = new TableRow();
-            
+              Grid = new Table();          
+              TableRow tr = new TableRow();           
               while (Next())
               {
                  tr = new TableRow();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace TP1
@@ -93,12 +94,23 @@ namespace TP1
             EndQuerySQL();                             
         }
 
-         public void MakeThreadList()
-         { 
-         
-           
-         
-         
+         public void MakeThreadList(Panel Pn_Thread, long u_Id)
+         {
+
+             HtmlGenericControl OrderedList = new HtmlGenericControl("ul");
+
+             while (Next())
+             {
+
+                 HtmlGenericControl li = new HtmlGenericControl("li");
+                 li.InnerText = FieldsValues[2];
+                 OrderedList.Controls.Add(li);               
+
+             }
+             OrderedList.Attributes.Add("class", "nav nav-pills nav-stacked");
+             Pn_Thread.Controls.Clear();
+             Pn_Thread.Controls.Add(OrderedList);
+             EndQuerySQL();             
          
          }
          

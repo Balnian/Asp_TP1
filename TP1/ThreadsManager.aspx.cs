@@ -51,7 +51,8 @@ namespace TP1
                         threadA.ID_U = id;
                         threadA.Insert();
                     }
-               
+                    thread.EndQuerySQL();
+                    threadA.EndQuerySQL();
             }
 
         }
