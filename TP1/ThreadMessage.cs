@@ -45,15 +45,15 @@ namespace TP1
                 {
                     tr = new TableRow();
                     String[] info = GetUserNameAndAvatar(long.Parse(FieldsValues[2]));
-                    //Image imagea = new Image();
+                    Image imagea = new Image();
 
-                    //TableCell tdavatar = new TableCell();
-                    //Image imageA = new Image();
-                    //imageA.ImageUrl = @"~\Avatars/" +  info[1] + ".png";
-                    //imageA.CssClass = "img-responsive";
-                    //imageA.Width = new Unit(60);
-                    //tdavatar.Controls.Add(imageA);
-                    //tr.Cells.Add(tdavatar);
+                    TableCell tdavatar = new TableCell();
+                    Image imageA = new Image();
+                    imageA.ImageUrl = @"~\Avatars/" + info[1] + ".png";
+                    imageA.CssClass = "img-responsive";
+                    imageA.Width = new Unit(60);
+                    tdavatar.Controls.Add(imageA);
+                    tr.Cells.Add(tdavatar);
                    
                     TableCell td = new TableCell();
                     td.Text = FieldsValues[3] + "/n" + info[0];
@@ -63,7 +63,7 @@ namespace TP1
                     Grid.Rows.Add(tr);
                 }
 
-                Grid.CssClass = "table-condensed";
+              //  Grid.CssClass = "table-condensed";
             }
             PN_GridView.Controls.Clear();
             if (Grid != null)
