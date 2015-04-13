@@ -12,6 +12,18 @@ namespace TP1
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+            SetMessage();
+        }
+
+        public void SetMessage()
+        {
+
+            ThreadMessage message = new ThreadMessage((string)Application["MainDB"], this);
+            message.SelectAll();
+            message.MessageGridView(Message_Panel);           
+        
+        
         }
     }
 }

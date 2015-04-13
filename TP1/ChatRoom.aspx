@@ -42,97 +42,7 @@
                 <table class="table table-responsive" style="word-wrap: break-word">
                     <asp:UpdatePanel ID="Chat" runat="server">
                         <ContentTemplate>
-                            <tr>
-                                <td class="col-xs-2">
-                                    <img src="Captcha.png" class="img-responsive" /></td>
-                                <td class="col-xs-2">
-                                    <div class="row">Date/heure</div>
-                                    <div class="row"><strong>Alias de l'usager</strong></div>
-                                </td>
-                                <td class="col-xs-8" style="word-wrap: break-word!important">sadsda asdasdsadasdas asdasdsadsa asdsadsa asdasdasds asddsdaa asddsas asdddas asddsadaas asdsadsadas asdsadsassss assddddffddf 555555555555555555555555555555555555555 55555555555555555555555555555555 55555555555555555555555555555 555555555555555555555555555</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="" class="img-responsive" /></td>
-                                <td>
-                                    <div class="row">Date/heure</div>
-                                    <div class="row"><strong>Alias de l'usager</strong></div>
-                                </td>
-                                <td>Le message...</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="" class="img-responsive" /></td>
-                                <td>
-                                    <div class="row">Date/heure</div>
-                                    <div class="row"><strong>Alias de l'usager</strong></div>
-                                </td>
-                                <td>Le message...</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="" class="img-responsive" /></td>
-                                <td>
-                                    <div class="row">Date/heure</div>
-                                    <div class="row"><strong>Alias de l'usager</strong></div>
-                                </td>
-                                <td>Le message...</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="" class="img-responsive" /></td>
-                                <td>
-                                    <div class="row">Date/heure</div>
-                                    <div class="row"><strong>Alias de l'usager</strong></div>
-                                </td>
-                                <td>Le message...</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="" class="img-responsive" /></td>
-                                <td>
-                                    <div class="row">Date/heure</div>
-                                    <div class="row"><strong>Alias de l'usager</strong></div>
-                                </td>
-                                <td>Le message...</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="" class="img-responsive" /></td>
-                                <td>
-                                    <div class="row">Date/heure</div>
-                                    <div class="row"><strong>Alias de l'usager</strong></div>
-                                </td>
-                                <td>Le message...</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="" class="img-responsive" /></td>
-                                <td>
-                                    <div class="row">Date/heure</div>
-                                    <div class="row"><strong>Alias de l'usager</strong></div>
-                                </td>
-                                <td>Le message...</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="" class="img-responsive" /></td>
-                                <td>
-                                    <div class="row">Date/heure</div>
-                                    <div class="row"><strong>Alias de l'usager</strong></div>
-                                </td>
-                                <td>Le message...</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="" class="img-responsive" /></td>
-                                <td>
-                                    <div class="row">Date/heure</div>
-                                    <div class="row"><strong>Alias de l'usager</strong></div>
-                                </td>
-                                <td>Le message...</td>
-                            </tr>
-
+                            <asp:Panel id="Message_Panel" runat="server"></asp:Panel>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </table>
@@ -145,7 +55,6 @@
                         </textarea>
                         <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-send"></span> Send</span>
                         
-
                     </div>
                     
 

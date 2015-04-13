@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace TP1
 {
@@ -62,7 +63,42 @@ namespace TP1
             }
             return iD;
         }
+
+
+         public void ShowThread(Panel PN_GridView, long id) 
+        {
+        
+            Table Grid = null;
          
+            if (reader.HasRows)
+            {
+                Grid = new Table();
+
+                TableRow tr;
+             
+
+                while (Next())
+                {
+
+                    tr = new TableRow();
+
+
+                    TableCell td = new TableCell();
+                    td.Text = FieldsValues[2];
+                    tr.Cells.Add(td);
+                    Grid.Rows.Add(tr);
+                }
+
+                Grid.CssClass = "nav nav-pills nav-stacked";
+            }
+            PN_GridView.Controls.Clear();
+            if (Grid != null)
+                PN_GridView.Controls.Add(Grid);
+            EndQuerySQL();       
+        
+        
+        
+        }
          
          
          

@@ -18,7 +18,10 @@ namespace TP1
             {
                 user = (Users)Session["User"];
                 user.SelectAll();
-              cblist = user.MakeAGridForThread(Pn_Users);
+               cblist = user.MakeAGridForThread(Pn_Users);
+               Threads thread = new Threads((string)Application["MainDB"], this);
+               thread.SelectAll();
+               thread.ShowThread(Pn_Thread, user.ID);
             }
         }
         protected void BTN_Create_Click(object sender, EventArgs e)

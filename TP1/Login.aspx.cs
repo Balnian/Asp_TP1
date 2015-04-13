@@ -13,8 +13,7 @@ namespace TP1
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"]!=null)
-            {
-                
+            {               
                 LoginInfo Linfo = new LoginInfo((string)Application["MainDB"], this);
                 Linfo.ID_U = ((Users)Session["User"]).ID;
                 Linfo.LoginDate = (DateTime)Session["LoginDate"];
@@ -23,8 +22,7 @@ namespace TP1
                 Linfo.Insert();
                 ((List<long>)Application["Online"]).Remove(((Users)Session["User"]).ID);
                 Session["User"] = null;
-                Response.Redirect("Login.aspx");
-                
+                Response.Redirect("Login.aspx");               
             }
             if (Page.IsPostBack)
             { 
