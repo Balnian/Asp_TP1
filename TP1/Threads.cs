@@ -103,7 +103,11 @@ namespace TP1
              {
 
                  HtmlGenericControl li = new HtmlGenericControl("li");
-                 li.InnerText = FieldsValues[2];
+                 li.Attributes.Add("role", "presentation");
+                 HtmlGenericControl abal = new HtmlGenericControl("a");
+                 abal.Attributes.Add("href", "#");
+                 abal.InnerText = FieldsValues[2];
+                 li.Controls.Add(abal);
                  OrderedList.Controls.Add(li);               
 
              }
