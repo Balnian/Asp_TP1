@@ -16,8 +16,7 @@ namespace TP1
            {
               Usager = (Users)Session["User"];
               SetTbText();
-           }
-          // SetTbText();
+           }      
         }
 
        private void SetTbText()
@@ -54,8 +53,7 @@ namespace TP1
                Usager.Update();
                Session["User"] = Usager;
                IMG_Avatar.ImageUrl = @"~\Avatars/" + Usager.Avatar + ".png";
-               Usager.EndQuerySQL();
-             
+               Usager.EndQuerySQL();           
            }      
        }
        private void DeleteImage(String ID)
