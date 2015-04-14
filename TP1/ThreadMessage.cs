@@ -33,7 +33,6 @@ namespace TP1
             Date_Of_Creation = FieldsValues[3];
             Message = FieldsValues[4];
         }
-
         public void MessageGridView(Panel  PN_GridView)
         {
             Table Grid = null;        
@@ -66,15 +65,33 @@ namespace TP1
                     row1.Attributes.Add("class", "row");
                     row1.InnerText = FieldsValues[3];
 
+                    HtmlGenericControl editbutton = new HtmlGenericControl("button");
+                    editbutton.Attributes.Add("class", "btn btn-default pull-right");
+                    editbutton.ID = "e_" + FieldsValues[0];
+                    HtmlGenericControl edit = new HtmlGenericControl("span");
+                    edit.Attributes.Add("class", "glyphicon glyphicon-pencil");
+                    editbutton.Controls.Add(edit);
+                    row1.Controls.Add(editbutton);
+                    
                     HtmlGenericControl row2 = new HtmlGenericControl("div");
-                    HtmlGenericControl str = new HtmlGenericControl("strong");
+                    HtmlGenericControl str = new HtmlGenericControl("strong");                    
                     str.InnerText = info[0];
                     row2.Controls.Add(str);
 
+                    HtmlGenericControl removebutton = new HtmlGenericControl("button");
+                    removebutton.Attributes.Add("class", "btn btn-default pull-right");
+                    removebutton.ID = "r_" + FieldsValues[0];
+                    HtmlGenericControl remove = new HtmlGenericControl("span");
+                    remove.Attributes.Add("class", "glyphicon glyphicon-remove-sign");                 
+                
+                    
+                    removebutton.Controls.Add(remove);
+                    row2.Controls.Add(removebutton);
                     td.Controls.Add(row1);
                     td.Controls.Add(row2);
                     tr.Cells.Add(td);
 
+                    
                     //Message
                     TableCell ttext = new TableCell();
                     ttext.CssClass = "col-xs-9";

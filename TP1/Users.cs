@@ -360,7 +360,7 @@ namespace TP1
                     TableCell tdimage = new TableCell();
                     Image image = new Image();
 
-                    if (online_user.Contains(long.Parse(FieldsValues[0])))
+                    if (!online_user.Contains(long.Parse(FieldsValues[0])))
                         image.ImageUrl = @"~\Images\OffLine.png";
                     else
                         image.ImageUrl = @"~\Images\Online.png";
