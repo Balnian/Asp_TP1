@@ -21,9 +21,15 @@ function ChatMode(event) {
     var separatorPos = messageId.lastIndexOf("_");
     var Type = messageId.slice(messageId.indexOf("_")+1, separatorPos);
     var Id = messageId.slice(separatorPos + 1, messageId.length);
+    
+
     window.location.href = "ChatRoom.aspx?Type=" + Type + "&Id=" + Id;
 
-
+    if (Type != "r") {
+        var tb = document.getElementById("Tb_Message");
+        var message = document.getElementById("m_" + Id).innerText;
+        tb.innerText = message;
+    }
 }
 
 function ThreadMode(event) {
