@@ -11,6 +11,14 @@ namespace TP1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Request["Type"] != null && Request["Id"] != null)
+            {
+                EditRemove(Request["Type"], Request["Id"]);
+               
+            }
+
+
             if (Session["User"] != null)
             {
                 SetMessage();
@@ -19,6 +27,9 @@ namespace TP1
             }
             else
                 Response.Redirect("Login.aspx");
+
+
+
         }
 
         public void SetMessage()
@@ -49,7 +60,6 @@ namespace TP1
             if (Session["User"] != null)
             {
                 user = (Users)Session["User"];
-
                 ThreadMessage Tmessage = new ThreadMessage((string)Application["MainDB"], this);
                 Tmessage.Thread_ID = 3;
                 Tmessage.User_ID = user.ID;
@@ -58,7 +68,6 @@ namespace TP1
                 Tmessage.Insert();
                 Tmessage.EndQuerySQL();
             }
-
             SetMessage();
         }
 
@@ -83,9 +92,21 @@ namespace TP1
                 user.listAccessThread(User_Panel, 2, (List<long>)Application["Online"]);
                 user.EndQuerySQL();
             }
+        }
+
+        private void EditRemove(String type, String messageId)
+        { 
+        ThreadMessage message = new ThreadMessage((string)Application["MainDB"], this);
+
+        if (type.Equals("e"))
+        {            
+            Tb_Message.Text = message.GetMessageById(long.Parse(messageId));
+
+        }
+        
 
 
-
+        
         }
     }
 }

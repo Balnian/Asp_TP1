@@ -146,6 +146,49 @@ namespace TP1
             return info;                               
         }
 
+        public String GetMessageById(long id)
+        {
+
+
+
+            String Query = "Select Message  from THREAD_MESSAGES  Where ID = " + id;
+            SqlConnection Connection;
+            SqlDataReader Reader;
+            String message = "Default";
+            // instancier l'objet de collection
+            Connection = new SqlConnection(connexionString);
+            // bâtir l'objet de requête
+            SqlCommand sqlcmd = new SqlCommand(Query, Connection);
+           //  Page.Application.Lock();
+            try
+            {
+                Connection.Open();
+                Reader = sqlcmd.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    message = Reader.GetString(0);
+
+                }
+                Reader.Close();
+            }
+            catch (Exception)
+            {
+            }
+
+            finally
+            {
+                 //EndQuerySQL();
+                Connection.Close();
+        
+
+            }
+            return message;
+
+           
+        
+        
+        }
        
     }
 }
