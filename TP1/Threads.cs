@@ -66,27 +66,36 @@ namespace TP1
         }
 
 
-         public void ShowThread(Panel PN_GridView, long id) 
+         public void ShowThread(Panel PN_GridView, long id, long Tid) 
         {
         
-            Table Grid = null;
+            HtmlGenericControl Grid = null;
          
             if (reader.HasRows)
             {
-                Grid = new Table();
+                Grid = new HtmlGenericControl("ul");
 
-                TableRow tr;
+                HtmlGenericControl tr;
              
                 while (Next())
                 {
-                    tr = new TableRow();
-                    TableCell td = new TableCell();
-                    td.Text = FieldsValues[2];
-                    tr.Cells.Add(td);
-                    Grid.Rows.Add(tr);
+                    tr = new HtmlGenericControl("li");
+                    
+                   
+                    HyperLink abal = new HyperLink();
+                    abal.Text = FieldsValues[2];
+                    abal.NavigateUrl = "#";
+                    
+                    abal.ID=FieldsValues[0];
+                    abal.Attributes.Add("onclick", "ThreadMode(this)");
+                    if (Tid == long.Parse(FieldsValues[0]))
+                        abal.Attributes.Add("class", "active");
+                    tr.Controls.Add(abal);
+                    
+                    Grid.Controls.Add(tr);
                 }
 
-                Grid.CssClass = "nav nav-pills nav-stacked";
+                Grid.Attributes.Add("Class", "nav nav-pills nav-stacked");
             }
             PN_GridView.Controls.Clear();
             if (Grid != null)

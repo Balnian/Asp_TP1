@@ -60,14 +60,18 @@ namespace TP1
                    
                     //Heure et nom
                     TableCell td = new TableCell();
+                    Panel contain = new Panel();
+                    contain.CssClass = "container-fluid";
                     td.CssClass = "col-xs-2";
                     HtmlGenericControl row1 = new HtmlGenericControl("div");
                     row1.Attributes.Add("class", "row");
+
+                   
                     row1.InnerText = FieldsValues[3];
 
                     HtmlGenericControl editbutton = new HtmlGenericControl("button");
                     editbutton.Attributes.Add("onclick", "ChatMode(this)");
-                    editbutton.Attributes.Add("class", "btn btn-default pull-right");
+                    editbutton.Attributes.Add("class", "btn btn-warning pull-right btn-xs");
                     editbutton.ID = "e_" + FieldsValues[0];
                     HtmlGenericControl edit = new HtmlGenericControl("span");
                     edit.Attributes.Add("class", "glyphicon glyphicon-pencil");
@@ -80,7 +84,7 @@ namespace TP1
                     row2.Controls.Add(str);
 
                     HtmlGenericControl removebutton = new HtmlGenericControl("button");
-                    removebutton.Attributes.Add("class", "btn btn-default pull-right");
+                    removebutton.Attributes.Add("class", "btn btn-danger pull-right btn-xs");
                     removebutton.ID = "r_" + FieldsValues[0];
                     HtmlGenericControl remove = new HtmlGenericControl("span");
                     remove.Attributes.Add("class", "glyphicon glyphicon-remove-sign");                 
@@ -88,8 +92,9 @@ namespace TP1
                     
                     removebutton.Controls.Add(remove);
                     row2.Controls.Add(removebutton);
-                    td.Controls.Add(row1);
-                    td.Controls.Add(row2);
+                    contain.Controls.Add(row1);
+                    contain.Controls.Add(row2);
+                    td.Controls.Add(contain);
                     tr.Cells.Add(td);
 
                     

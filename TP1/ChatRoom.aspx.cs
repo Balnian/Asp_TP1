@@ -51,7 +51,7 @@ namespace TP1
                 Threads thread = new Threads((string)Application["MainDB"], this);
                // user.EndQuerySQL();
                 thread.SelectAll();
-                thread.ShowThread(Thread_Panel, user.ID);
+                thread.ShowThread(Thread_Panel, user.ID,(long)Session["Thread"]);
                 thread.EndQuerySQL();
                 user.EndQuerySQL();
             }

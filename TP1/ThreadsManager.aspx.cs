@@ -22,7 +22,17 @@ namespace TP1
                 user.EndQuerySQL();
                 Threads thread = new Threads((string)Application["MainDB"], this);
                 thread.SelectAll();
-                thread.ShowThread(Pn_Thread, user.ID);
+                if (Request["Id"]!=null)
+                {
+                    Session["Thread"] = Request["Id"];
+                    
+                }
+                else
+                {
+                    Session["Thread"] = -1;
+                }
+                
+                thread.ShowThread(Pn_Thread, user.ID, long.Parse(Session["Thread"].ToString()));
                 thread.EndQuerySQL();
             }
             else
