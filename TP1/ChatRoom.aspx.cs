@@ -72,7 +72,7 @@ namespace TP1
             }
             else if (Session["MessageId"] != null)
             {
-                Tmessage.UpdateById(Session["MessageId"].ToString(), Tb_Message.Text);
+                Tmessage.UpdateById(Session["MessageId"].ToString(), Request["text"]);
                 update = false;
                 Session["MessageId"] = null;
                 Btn_Send.Text = "Send";

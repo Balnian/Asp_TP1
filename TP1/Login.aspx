@@ -25,7 +25,8 @@
                         </div>
                         <div class="form-group">
                             <%--<label for="pwd">Password:</label>--%>
-                              <asp:TextBox id="TB_PassWord"  TextMode="password" name="Pwd" runat="server" CssClass="form-control" placeholder="Enter password"></asp:TextBox> 
+                              <asp:TextBox id="TB_PassWord"
+                                    TextMode="password" name="Pwd" runat="server" CssClass="form-control" placeholder="Enter password"></asp:TextBox> 
                         </div>
                 <div class="form-group">
                     <button type="submit" name="sub" class="btn btn-primary">Connection</button>

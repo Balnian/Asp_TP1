@@ -137,11 +137,10 @@ namespace TP1
             catch (Exception)
             {
             }
-
             finally
             {
-              // EndQuerySQL();
-            
+               Connection.Close();
+              // EndQuerySQL()            
             }
             return info;                               
         }
@@ -165,7 +164,6 @@ namespace TP1
                 while (Reader.Read())
                 {
                     message = Reader.GetString(0);
-
                 }
                 Reader.Close();
             }
@@ -177,8 +175,6 @@ namespace TP1
             {
                  //EndQuerySQL();
                 Connection.Close();
-        
-
             }
             return message;                     
         }
@@ -187,8 +183,7 @@ namespace TP1
 
         public void UpdateById(String id , String Message)
         { 
-        
-        
+               
            String Query = "Update " + SQLTableName + " Set Message ='" + Message +"' Where ID =" + id;
 
               SqlConnection Connection =   new SqlConnection(connexionString);
@@ -211,8 +206,7 @@ namespace TP1
         
         
         
-        
-        
+                
 
     }
 }
