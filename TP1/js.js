@@ -16,8 +16,8 @@ function PreLoadImage(e) {
     return true;
 }
 
-function ChatMode() {
-    var messageId = event.target.getAttribute("id");
+function ChatMode(event) {
+    var messageId = event.getAttribute("id");
     var separatorPos = messageId.lastIndexOf("_");
     var Type = messageId.slice(messageId.indexOf("_")+1, separatorPos);
     var Id = messageId.slice(separatorPos + 1, messageId.length);

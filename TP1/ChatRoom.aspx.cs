@@ -64,13 +64,9 @@ namespace TP1
 
         protected void Timer_Chat_Tick(object sender, EventArgs e)
         {
-
-
         }
         public void ShowThreadUser()
         {
-
-
             Threads thread = new Threads((string)Application["MainDB"], this);
             thread.SelectAll();
             thread.MakeThreadList(Thread_Panel, 2);
