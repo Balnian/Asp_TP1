@@ -109,8 +109,7 @@ namespace TP1
             // instancier l'objet de collection
             Connection = new SqlConnection(connexionString);
             // bâtir l'objet de requête
-            SqlCommand sqlcmd = new SqlCommand(Query, Connection);
-           
+            SqlCommand sqlcmd = new SqlCommand(Query, Connection);           
             try
             {
                 Connection.Open();

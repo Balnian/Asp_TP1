@@ -76,6 +76,7 @@ namespace TP1
             }
             finally
             {
+                Connection.Close();
                 EndQuerySQL();               
             }
         }
@@ -105,6 +106,7 @@ namespace TP1
             }
             finally
             {
+                Connection.Close();
                 EndQuerySQL();               
             }
             return iD;
@@ -278,25 +280,7 @@ namespace TP1
                
                 while (Next())
                 {
-                    //HtmlGenericControl divCheck = new HtmlGenericControl("div");
-                    //divCheck.Attributes.Add("class", "checkbox");
-                    //HtmlGenericControl lbl = new HtmlGenericControl("label");
-                    ////Checkbox
-                    //CheckBox input = new CheckBox();
-                    //input.ID = FieldsValues[0].ToString();
-                    //lbl.Controls.Add(input);
-                    ////Image
-                    //Image imageA = new Image();
-                    //imageA.ImageUrl = @"~\Avatars/" + FieldsValues[5] + ".png";
-                    //imageA.CssClass = "img-responsive";
-                    //imageA.Width = new Unit(70);
-                    //lbl.Controls.Add(imageA);
-                    ////Nom
-                    //lbl.InnerText = FieldsValues[2].ToString();
-                    
-                    //divCheck.Controls.Add(lbl);
-
-
+                 
                     tr = new TableRow();
 
                     TableCell tdcheck = new TableCell();

@@ -148,9 +148,6 @@ namespace TP1
 
         public String GetMessageById(long id)
         {
-
-
-
             String Query = "Select Message  from THREAD_MESSAGES  Where ID = " + id;
             SqlConnection Connection;
             SqlDataReader Reader;
@@ -183,12 +180,39 @@ namespace TP1
         
 
             }
-            return message;
-
-           
-        
-        
+            return message;                     
         }
-       
+
+
+
+        public void UpdateById(String id , String Message)
+        { 
+        
+        
+           String Query = "Update " + SQLTableName + " Set Message ='" + Message +"' Where ID =" + id;
+
+              SqlConnection Connection =   new SqlConnection(connexionString);
+              SqlCommand sqlcmd = new SqlCommand(Query,Connection);   
+             //  Page.Application.Lock();          
+            try
+            {
+                Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+            }
+              catch (Exception)
+            {               
+            }
+            finally
+            {
+                Connection.Close();
+             //   EndQuerySQL();               
+            }
+        }
+        
+        
+        
+        
+        
+
     }
 }
