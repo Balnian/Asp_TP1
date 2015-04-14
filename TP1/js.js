@@ -20,7 +20,7 @@ function ChatMode() {
     var messageId = event.target.getAttribute("id");
     var separatorPos = messageId.lastIndexOf("_");
     var Type = messageId.slice(messageId.indexOf("_")+1, separatorPos);
-    var Id = messageId.slice(separatorPos, 0);
+    var Id = messageId.slice(separatorPos + 1, messageId.length);
 
     alert(Id);
     window.location.href = "ChatRoom.aspx?Type=" + Type + "&Id=" + Id;
