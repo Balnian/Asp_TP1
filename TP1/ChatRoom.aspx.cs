@@ -17,9 +17,8 @@ namespace TP1
             if (Request["Type"] != null && Request["Id"] != null)
             {
                 EditRemove(Request["Type"], Request["Id"]);
-               
+                Response.Redirect("ChatRoom.aspx");               
             }
-
 
             if (Session["User"] != null)
             {
@@ -29,9 +28,6 @@ namespace TP1
             }
             else
                 Response.Redirect("Login.aspx");
-
-
-
         }
 
         public void SetMessage()

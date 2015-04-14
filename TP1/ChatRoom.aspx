@@ -51,8 +51,7 @@
                             </asp:UpdatePanel>
                         
                     </div>
-
-                    
+                   
                     <!-- Message Input -->
                     <div class="panel-footer">
                         <div class="row">
