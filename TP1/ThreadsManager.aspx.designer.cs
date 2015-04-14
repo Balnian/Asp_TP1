@@ -31,6 +31,15 @@ namespace TP1 {
         protected global::System.Web.UI.WebControls.Panel Pn_Threads;
         
         /// <summary>
+        /// Contrôle Pn_Thread.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Pn_Thread;
+        
+        /// <summary>
         /// Contrôle TB_ThreadName.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace TP1 {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TB_ThreadName;
-        
-        /// <summary>
-        /// Contrôle Pn_Users.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Pn_Users;
         
         /// <summary>
         /// Contrôle BTN_Create.
@@ -58,12 +58,12 @@ namespace TP1 {
         protected global::System.Web.UI.WebControls.Button BTN_Create;
         
         /// <summary>
-        /// Contrôle Pn_Thread.
+        /// Contrôle Pn_Users.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Pn_Thread;
+        protected global::System.Web.UI.WebControls.Panel Pn_Users;
     }
 }

@@ -18,13 +18,15 @@ namespace TP1
             {
                 user = (Users)Session["User"];
                 user.SelectAll();
-               cblist = user.MakeAGridForThread(Pn_Users);
-               user.EndQuerySQL();
-               Threads thread = new Threads((string)Application["MainDB"], this);
-               thread.SelectAll();
-               thread.ShowThread(Pn_Thread, user.ID);
-               thread.EndQuerySQL();
+                cblist = user.MakeAGridForThread(Pn_Users);
+                user.EndQuerySQL();
+                Threads thread = new Threads((string)Application["MainDB"], this);
+                thread.SelectAll();
+                thread.ShowThread(Pn_Thread, user.ID);
+                thread.EndQuerySQL();
             }
+            else
+                Response.Redirect("Login.aspx");
         }
         protected void BTN_Create_Click(object sender, EventArgs e)
         {

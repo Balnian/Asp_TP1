@@ -15,3 +15,13 @@ function PreLoadImage(e) {
     }
     return true;
 }
+
+function Edit(){
+    var messageId = event.target.getAttribute("id");
+    var separatorPos = messageId.indexof("_");
+    var Type = messageId.slice(0,separatorPos);
+    var Id = messageId.slice(separatorPos, 0);
+    window.location.href = "ChatRoom.aspx?Type=" + Type + "&Id=" + Id;
+    
+    
+}

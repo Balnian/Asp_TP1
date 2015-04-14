@@ -269,7 +269,7 @@ namespace TP1
 
             Table Grid = null;
             List<CheckBox> cblist = new List<CheckBox>();
-
+            
             if (reader.HasRows)
             {
                 Grid = new Table();
@@ -278,32 +278,52 @@ namespace TP1
                
                 while (Next())
                 {
-                   
-                        tr = new TableRow();
+                    //HtmlGenericControl divCheck = new HtmlGenericControl("div");
+                    //divCheck.Attributes.Add("class", "checkbox");
+                    //HtmlGenericControl lbl = new HtmlGenericControl("label");
+                    ////Checkbox
+                    //CheckBox input = new CheckBox();
+                    //input.ID = FieldsValues[0].ToString();
+                    //lbl.Controls.Add(input);
+                    ////Image
+                    //Image imageA = new Image();
+                    //imageA.ImageUrl = @"~\Avatars/" + FieldsValues[5] + ".png";
+                    //imageA.CssClass = "img-responsive";
+                    //imageA.Width = new Unit(70);
+                    //lbl.Controls.Add(imageA);
+                    ////Nom
+                    //lbl.InnerText = FieldsValues[2].ToString();
+                    
+                    //divCheck.Controls.Add(lbl);
 
-                                TableCell td = new TableCell();
-                                td.Text = FieldsValues[2].ToString();
-                                td.CssClass = "numeric";
-                                tr.Cells.Add(td);
-                                TableCell tdavatar = new TableCell();
-                                Image imageA = new Image();
-                                imageA.ImageUrl = @"~\Avatars/" + FieldsValues[5] + ".png";
-                                imageA.CssClass = "img-responsive";
-                                imageA.Width = new Unit(70);
-                                tdavatar.Controls.Add(imageA);
-                                tr.Cells.Add(tdavatar);
-                                TableCell tdcheck = new TableCell();
-                                CheckBox check = new CheckBox();
-                                check.ID = FieldsValues[0].ToString();
-                                tdcheck.Controls.Add(check);
-                                tr.Cells.Add(tdcheck);
-                                cblist.Add(check);
+
+                    tr = new TableRow();
+
+                    TableCell tdcheck = new TableCell();
+                    CheckBox check = new CheckBox();
+                    check.ID = FieldsValues[0].ToString();
+                    tdcheck.Controls.Add(check);
+                    tr.Cells.Add(tdcheck);
+                    cblist.Add(check);
+                    TableCell tdavatar = new TableCell();                    
+                    Image imageA = new Image();
+                    imageA.ImageUrl = @"~\Avatars/" + FieldsValues[5] + ".png";
+                    imageA.CssClass = "img-responsive";
+                    imageA.Width = new Unit(70);
+                    tdavatar.Controls.Add(imageA);
+                    tr.Cells.Add(tdavatar);
+                    TableCell td = new TableCell();
+                    td.Text = FieldsValues[2].ToString();
+                    td.CssClass = "numeric";
+                    tr.Cells.Add(td);
+                    
+
 
                     Grid.Rows.Add(tr);
 
                 }
                
-                Grid.CssClass = "table-condensed";
+                Grid.CssClass = "table table-condensed";
             }
             PN_GridView.Controls.Clear();
             if (Grid != null)
