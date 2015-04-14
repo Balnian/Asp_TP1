@@ -66,6 +66,7 @@ namespace TP1
                     row1.InnerText = FieldsValues[3];
 
                     HtmlGenericControl editbutton = new HtmlGenericControl("button");
+                    editbutton.Attributes.Add("onclick", "Edit()");
                     editbutton.Attributes.Add("class", "btn btn-default pull-right");
                     editbutton.ID = "e_" + FieldsValues[0];
                     HtmlGenericControl edit = new HtmlGenericControl("span");
