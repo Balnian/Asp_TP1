@@ -57,7 +57,7 @@ namespace TP1
                 thread.date = DateTime.Now.ToString();
                 thread.Insert();
                 ThreadAcces threadA = new ThreadAcces((string)Application["MainDB"], this);
-                threadA.THREAD_ID = thread.GetId(user.UserName);
+                threadA.THREAD_ID = thread.GetId(thread.title);
                     foreach (long id in idlist)
                     {
                         threadA.ID_U = id;

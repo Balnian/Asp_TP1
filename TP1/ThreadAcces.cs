@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -31,6 +32,42 @@ namespace TP1
 
             InsertRecord(THREAD_ID, ID_U);
         }
+
+        public List<long> UserAcces(long UserId)
+           {
+
+               String Query = "Select THREAD_ID from " + SQLTableName + " where USER_ID = " + UserId;
+               SqlConnection Connection;
+               SqlDataReader Reader;
+               List<long> id = new List<long>();
+               // instancier l'objet de collection
+               Connection = new SqlConnection(connexionString);
+               // bâtir l'objet de requête
+               SqlCommand sqlcmd = new SqlCommand(Query, Connection);
+                 Page.Application.Lock();
+               try
+               {
+                   Connection.Open();
+                   Reader = sqlcmd.ExecuteReader();
+
+                   while (Reader.Read())
+                   {
+                       id.Add(Reader.GetInt64(0));
+
+                   }
+                   Reader.Close();
+               }
+               catch (Exception)
+               {
+               }
+               finally
+               {
+                   Connection.Close();
+                   EndQuerySQL();            
+               }
+               return id;                               
+    
+           }
 
     }
 }

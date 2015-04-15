@@ -343,8 +343,8 @@ namespace TP1
         }
 
 
-        public void listAccessThread(Panel PN_GridView, long Thread_id, List<long> online_user,long ThreadId)
-        {
+        public void listAccessThread(Panel PN_GridView, long Thread_id, List<long> online_user,long ThreadId,ThreadAcces tdacess)
+        {           
             Table Grid = null;
             if (reader.HasRows)
             {
@@ -353,32 +353,35 @@ namespace TP1
                 TableRow tr;              
                 while (Next())
                 {
-                    tr = new TableRow();
+                    List<long> Acces = tdacess.UserAcces(long.Parse(FieldsValues[0]));
+                    if (Acces.Contains(Thread_id))
+                    {
+                        tr = new TableRow();
 
-                    TableCell tdavatar = new TableCell();
-                    Image imageA = new Image();
-                    imageA.ImageUrl = @"~\Avatars/" + FieldsValues[5] + ".png";
-                    imageA.CssClass = "img-responsive";
-                    imageA.Width = new Unit(40);
-                    tdavatar.Controls.Add(imageA);
-                    tr.Cells.Add(tdavatar);
-                    TableCell td = new TableCell();
-                    td.Text = FieldsValues[2].ToString();
-                    td.CssClass = "numeric";
-                    tr.Cells.Add(td);
-                    TableCell tdimage = new TableCell();
-                    Image image = new Image();
+                        TableCell tdavatar = new TableCell();
+                        Image imageA = new Image();
+                        imageA.ImageUrl = @"~\Avatars/" + FieldsValues[5] + ".png";
+                        imageA.CssClass = "img-responsive";
+                        imageA.Width = new Unit(40);
+                        tdavatar.Controls.Add(imageA);
+                        tr.Cells.Add(tdavatar);
+                        TableCell td = new TableCell();
+                        td.Text = FieldsValues[2].ToString();
+                        td.CssClass = "numeric";
+                        tr.Cells.Add(td);
+                        TableCell tdimage = new TableCell();
+                        Image image = new Image();
 
-                    if (!online_user.Contains(long.Parse(FieldsValues[0])))
-                        image.ImageUrl = @"~\Images\OffLine.png";
-                    else
-                        image.ImageUrl = @"~\Images\Online.png";
+                        if (!online_user.Contains(long.Parse(FieldsValues[0])))
+                            image.ImageUrl = @"~\Images\OffLine.png";
+                        else
+                            image.ImageUrl = @"~\Images\Online.png";
 
-                    image.Width = new Unit(30);
-                    tdimage.Controls.Add(image);
-                    tr.Cells.Add(tdimage);
-                    Grid.Rows.Add(tr);
-
+                        image.Width = new Unit(30);
+                        tdimage.Controls.Add(image);
+                        tr.Cells.Add(tdimage);
+                        Grid.Rows.Add(tr);
+                    }
                 }
 
                 Grid.CssClass = "table-condensed";

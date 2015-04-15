@@ -46,7 +46,6 @@ function ThreadMode(event) {
 function SelectedThread(event){
 
     var selectedThread = event.innerHTML;
-    alert("ChatRoom.aspx?name=" + selectedThread);
 
     window.location.href = "ChatRoom.aspx?name=" + selectedThread;
 
