@@ -145,6 +145,7 @@ namespace TP1
             }
             finally
             {
+                Connection.Close();
                 EndQuerySQL();
             }
                    
@@ -342,7 +343,7 @@ namespace TP1
         }
 
 
-        public void listAccessThread(Panel PN_GridView, long Thread_id, List<long> online_user)
+        public void listAccessThread(Panel PN_GridView, long Thread_id, List<long> online_user,long ThreadId)
         {
             Table Grid = null;
             if (reader.HasRows)
@@ -387,6 +388,51 @@ namespace TP1
                 PN_GridView.Controls.Add(Grid);
             EndQuerySQL();
 
+        
+        
+        
+        }
+
+        public bool PassWordVerif(String Un, String pw)
+        {
+
+
+            String Query = "Select PassWord from " + SQLTableName + " Where UserName = '" + Un + "'";
+            SqlConnection Connection;
+            SqlDataReader Reader;
+            String Pw = "";
+            // instancier l'objet de collection
+            Connection = new SqlConnection(connexionString);
+            // bâtir l'objet de requête
+            SqlCommand sqlcmd = new SqlCommand(Query, Connection);
+            Page.Application.Lock();
+            try
+            {
+                Connection.Open();
+                Reader = sqlcmd.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Pw = Reader.GetString(0);
+                    
+                }
+
+                Reader.Close();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                
+                 
+                Connection.Close();
+                EndQuerySQL();
+               
+            }
+                   
+         return Pw == pw ? true : false;
+        
         
         
         

@@ -33,20 +33,20 @@ namespace TP1
             Date_Of_Creation = FieldsValues[3];
             Message = FieldsValues[4];
         }
-        public void MessageGridView(Panel  PN_GridView, long UserId)
+        public void MessageGridView(Panel  PN_GridView, long UserId, long threadId)
         {
+            
             Table Grid = null;        
             if (reader.HasRows)
             {
                 Grid = new Table();
                 Grid.CssClass = "table table-responsive";
-                
-                
-
                 TableRow tr;
              
                 while (Next())
                 {
+                    if (threadId == long.Parse(FieldsValues[1]))
+                    {
                     tr = new TableRow();
                     tr.ID = FieldsValues[0];
                     
@@ -72,7 +72,7 @@ namespace TP1
                     row1.Attributes.Add("class", "row");
 
                     HtmlGenericControl time = new HtmlGenericControl("span");
-                   time.InnerText=FieldsValues[3];
+                        time.InnerText = FieldsValues[3];
                    row1.Controls.Add(time); 
 
                    
@@ -83,6 +83,7 @@ namespace TP1
                     str.InnerText = info[0];
                    
                     row2.Controls.Add(str);
+
                     if (UserId == long.Parse(FieldsValues[2]))
                     {
                         //cacher les bouton et les montrer au mouse hover
@@ -102,7 +103,7 @@ namespace TP1
                     HtmlGenericControl removebutton = new HtmlGenericControl("button");
                     removebutton.Attributes.Add("class", "btn btn-danger btn-xs pull-right ");
                     removebutton.Attributes.Add("style", "visibility:hidden");
-                    removebutton.Attributes.Add("onclick", "ChatMode(this)");
+                        removebutton.Attributes.Add("onclick", "ChatMode(this)");
                     removebutton.ID = "r_" + FieldsValues[0];
                     HtmlGenericControl remove = new HtmlGenericControl("span");
                     remove.Attributes.Add("class", "glyphicon glyphicon-remove-sign");                 
@@ -126,6 +127,7 @@ namespace TP1
                     ttext.ClientIDMode = System.Web.UI.ClientIDMode.Static;
                     tr.Cells.Add(ttext);
                     Grid.Rows.Add(tr);
+                }
                 }
 
               //  Grid.CssClass = "table-condensed";

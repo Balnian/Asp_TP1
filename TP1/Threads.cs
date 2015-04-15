@@ -60,7 +60,8 @@ namespace TP1
             }
             finally
             {
-                EndQuerySQL();               
+              //  EndQuerySQL();     
+                Connection.Close();
             }
             return iD;
         }

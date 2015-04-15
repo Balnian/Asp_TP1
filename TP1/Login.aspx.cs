@@ -30,7 +30,7 @@ namespace TP1
                 Usager = new Users((string)Application["MainDB"], this);
                if(Usager.SelectByFieldName("UserName",TB_UserName.Text))
                {
-                   if (Usager.SelectByFieldName("PassWord", TB_PassWord.Text))
+                   if (Usager.PassWordVerif(TB_UserName.Text,TB_PassWord.Text))
                    {
                        Usager.SetUserInfo(TB_UserName.Text);
                        Session["User"] = Usager;
