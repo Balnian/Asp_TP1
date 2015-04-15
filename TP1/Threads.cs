@@ -90,7 +90,10 @@ namespace TP1
                     abal.ID=FieldsValues[0];
                     abal.Attributes.Add("onclick", "ThreadMode(this)");
                     if (Tid == long.Parse(FieldsValues[0]))
-                        abal.Attributes.Add("class", "active");
+                    {
+                        tr.Attributes.Add("class", "active");
+                    }
+                        
                     tr.Controls.Add(abal);
                     
                     Grid.Controls.Add(tr);
@@ -129,6 +132,7 @@ namespace TP1
          
          }
          
+
         
     }
 }

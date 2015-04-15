@@ -267,7 +267,7 @@ namespace TP1
            }
         }
 
-        public List<CheckBox> MakeAGridForThread(Panel PN_GridView)
+        public List<CheckBox> MakeAGridForThread(Panel PN_GridView,long tid)
         {
 
             Table Grid = null;
@@ -311,6 +311,7 @@ namespace TP1
                     CheckBox check = new CheckBox();
                     check.ID = FieldsValues[0].ToString();
                     check.Attributes.Add("class", "selectA");
+                    check.Checked = isInThread(long.Parse(FieldsValues[0]), tid);
                     tdcheck.Controls.Add(check);
                     tr.Cells.Add(tdcheck);
                     cblist.Add(check);
@@ -391,6 +392,45 @@ namespace TP1
         
         
         
+        }
+
+        public bool isInThread(long IdU, long IdT)
+        {
+            String Query = "Select ID from THREADS_ACCESS Where USER_ID = " + IdU.ToString() + " and THREAD_ID = " + IdT;
+            SqlConnection Connection;
+            SqlDataReader Reader;
+            bool ret = false; ;
+            // instancier l'objet de collection
+            Connection = new SqlConnection(connexionString);
+            // bâtir l'objet de requête
+            SqlCommand sqlcmd = new SqlCommand(Query, Connection);
+            //Page.Application.Lock();
+            try
+            {
+                Connection.Open();
+                Reader = sqlcmd.ExecuteReader();
+                if (Reader.HasRows)
+                    ret = true;
+                else
+                    ret = false;
+              
+                Reader.Close();
+            }
+            catch (Exception e)
+            {
+                
+                ret = false;
+            }
+            finally
+            {
+
+
+                Connection.Close();
+                //EndQuerySQL();
+
+            }
+
+            return ret;
         }
 
         public bool PassWordVerif(String Un, String pw)
