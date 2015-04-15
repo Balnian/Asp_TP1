@@ -101,11 +101,10 @@ namespace TP1
             Users user;
             if (Session["User"] != null && Session["threadId"] != null)
             {
-                ThreadAcces tdacces = new ThreadAcces((string)Application["MainDB"], this);
-                tdacces.SelectAll();
+                ThreadAcces tdacces = new ThreadAcces((string)Application["MainDB"], this);                
                 user = (Users)Session["User"];
                 user.SelectAll();
-                user.listAccessThread(User_Panel, 2, (List<long>)Application["Online"], (long)Session["threadId"],tdacces);
+                user.listAccessThread(User_Panel, (long)Session["threadId"], (List<long>)Application["Online"], (long)Session["threadId"], tdacces);
                 user.EndQuerySQL();
             }
         }

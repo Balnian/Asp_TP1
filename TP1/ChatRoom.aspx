@@ -39,7 +39,7 @@
             <div class="col-xs-9 col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-body" style="overflow-y:scroll">
-                            <asp:Timer runat="server" ID="Timer_Chat" Interval="3000" OnTick="Timer_Chat_Tick"></asp:Timer>
+                            <asp:Timer runat="server" ID="Timer_Chat" Interval="30000" OnTick="Timer_Chat_Tick"></asp:Timer>
                             <asp:UpdatePanel ID="Chat" runat="server" >
                                  <Triggers>
                                   <asp:AsyncPostBackTrigger ControlID="Timer_Chat" EventName="Tick" />
