@@ -108,7 +108,7 @@ namespace TP1
                     
                     //Message
                     TableCell ttext = new TableCell();
-                    ttext.CssClass = "col-xs-9";
+                    ttext.CssClass = "col-xs-9 well";
                     ttext.Text = FieldsValues[4];
                     ttext.ID = "m_" + FieldsValues[0];
                     ttext.ClientIDMode = System.Web.UI.ClientIDMode.Static;
