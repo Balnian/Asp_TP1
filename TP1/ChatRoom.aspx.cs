@@ -19,7 +19,12 @@ namespace TP1
                 EditRemove(Request["Type"], Request["Id"]);
                 Response.Redirect("ChatRoom.aspx");               
             }
-
+            if (Request["name"] != null)
+            {
+                Threads thread = new Threads((string)Application["MainDB"], this);
+                Session["threadId"] = thread.GetId(Request["name"]);
+            
+            }
             if (Session["User"] != null )
             {
                 SetMessage();
@@ -29,16 +34,15 @@ namespace TP1
             else
                 Response.Redirect("Login.aspx");
         }
-
         public void SetMessage()
         {
             Users user;
-            if (Session["User"] != null)
+            if (Session["User"] != null && Session["threadId"]!=null)
             {
                 user = (Users)Session["User"];
                 ThreadMessage message = new ThreadMessage((string)Application["MainDB"], this);
                 message.SelectAll();
-                message.MessageGridView(Message_Panel,user.ID);
+                message.MessageGridView(Message_Panel,user.ID,(long)Session["threadId"]);
                 message.EndQuerySQL();
             }
         }
@@ -61,10 +65,10 @@ namespace TP1
         {
             Users user;
             ThreadMessage Tmessage = new ThreadMessage((string)Application["MainDB"], this);
-            if (Session["User"] != null && !update)
+            if (Session["User"] != null && !update && Session["threadId"] != null)
             {
-                user = (Users)Session["User"];                
-                Tmessage.Thread_ID = 3;
+                user = (Users)Session["User"];
+                Tmessage.Thread_ID = (long)Session["threadId"];
                 Tmessage.User_ID = user.ID;
                 Tmessage.Date_Of_Creation = DateTime.Now.ToShortTimeString();
                 Tmessage.Message = Tb_Message.Text;
@@ -77,11 +81,9 @@ namespace TP1
                 update = false;
                 Session["MessageId"] = null;
                 Btn_Send.Text = "Send";
-            }
-           
+            }           
             SetMessage();
         }
-
         protected void Timer_Chat_Tick(object sender, EventArgs e)
         {
             SetMessage(); 
@@ -122,10 +124,7 @@ namespace TP1
             message.DeleteRecordByID(messageId);
         
         }
-        
-
-
-        
+               
         }
     }
 }
