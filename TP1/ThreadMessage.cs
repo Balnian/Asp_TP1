@@ -45,6 +45,8 @@ namespace TP1
                 while (Next())
                 {
                     tr = new TableRow();
+                    tr.ID = FieldsValues[0];
+                    
                     String[] info = GetUserNameAndAvatar(long.Parse(FieldsValues[2]));
                     Image imagea = new Image();
                     imagea.CssClass = "img-responsive";
@@ -80,9 +82,15 @@ namespace TP1
                     row2.Controls.Add(str);
                     if (UserId == long.Parse(FieldsValues[2]))
                     {
+                        //cacher les bouton et les montrer au mouse hover
+                        tr.Attributes.Add("onmouseenter", "showbt(this)");
+                        tr.Attributes.Add("onmouseleave", "hidebt(this)");
+                        //tr.Attributes.Add("onload", "hidebt(this)");
+
                     HtmlGenericControl editbutton = new HtmlGenericControl("button");
                     editbutton.Attributes.Add("onclick", "ChatMode(this)");
                     editbutton.Attributes.Add("class", "btn btn-warning btn-xs pull-right ");
+                    editbutton.Attributes.Add("style", "visibility:hidden");
                     editbutton.ID = "e_" + FieldsValues[0];
                     HtmlGenericControl edit = new HtmlGenericControl("span");
                     edit.Attributes.Add("class", "glyphicon glyphicon-pencil");
@@ -90,6 +98,7 @@ namespace TP1
                     row1.Controls.Add(editbutton);
                     HtmlGenericControl removebutton = new HtmlGenericControl("button");
                     removebutton.Attributes.Add("class", "btn btn-danger btn-xs pull-right ");
+                    removebutton.Attributes.Add("style", "visibility:hidden");
                         removebutton.Attributes.Add("onclick", "ChatMode(this)");
                     removebutton.ID = "r_" + FieldsValues[0];
                     HtmlGenericControl remove = new HtmlGenericControl("span");
