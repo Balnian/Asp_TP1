@@ -69,5 +69,20 @@ namespace TP1
 
         }
 
+        protected void Update_Click(object sender, EventArgs e)
+        {
+            if (Request["Id"]!=null)
+            {
+                //if(user.isInThread())
+            }
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            if (Request["Id"] != null)
+            {
+            }
+        }
+
     }
 }

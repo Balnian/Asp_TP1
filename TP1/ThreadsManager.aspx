@@ -16,14 +16,14 @@
                                             <asp:Button ID="Update" runat="server"
                                                 Text="Update"
                                                 ValidationGroup="Subscribe_Validation"
-                                                OnClick="BTN_Create_Click"
+                                                OnClick="Update_Click"
                                                 CssClass="btn btn-warning btn-block" />
                                         </div>
                                         <div class="col-xs-12 col-md-6">
                                             <asp:Button ID="Delete" runat="server"
                                                 Text="Delete"
                                                 ValidationGroup="Subscribe_Validation"
-                                                OnClick="BTN_Create_Click"
+                                                OnClick="Delete_Click"
                                                 CssClass="btn btn-danger btn-block" />
                                         </div>
                                     </div>
