@@ -66,27 +66,30 @@ namespace TP1
                     HtmlGenericControl row1 = new HtmlGenericControl("div");
                     row1.Attributes.Add("class", "row");
 
-                   
-                    row1.InnerText = FieldsValues[3];
+                    HtmlGenericControl time = new HtmlGenericControl("span");
+                   time.InnerText=FieldsValues[3];
+                   row1.Controls.Add(time); 
 
                    
                     
                     HtmlGenericControl row2 = new HtmlGenericControl("div");
+                    row2.Attributes.Add("class", "row");
                     HtmlGenericControl str = new HtmlGenericControl("strong");                    
                     str.InnerText = info[0];
+                   
                     row2.Controls.Add(str);
                     if (UserId == long.Parse(FieldsValues[2]))
                     {
                     HtmlGenericControl editbutton = new HtmlGenericControl("button");
                     editbutton.Attributes.Add("onclick", "ChatMode(this)");
-                    editbutton.Attributes.Add("class", "btn btn-warning pull-right btn-xs");
+                    editbutton.Attributes.Add("class", "btn btn-warning btn-xs pull-right ");
                     editbutton.ID = "e_" + FieldsValues[0];
                     HtmlGenericControl edit = new HtmlGenericControl("span");
                     edit.Attributes.Add("class", "glyphicon glyphicon-pencil");
                     editbutton.Controls.Add(edit);
                     row1.Controls.Add(editbutton);
                     HtmlGenericControl removebutton = new HtmlGenericControl("button");
-                    removebutton.Attributes.Add("class", "btn btn-danger pull-right btn-xs");
+                    removebutton.Attributes.Add("class", "btn btn-danger btn-xs pull-right ");
                         removebutton.Attributes.Add("onclick", "ChatMode(this)");
                     removebutton.ID = "r_" + FieldsValues[0];
                     HtmlGenericControl remove = new HtmlGenericControl("span");
