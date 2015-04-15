@@ -71,3 +71,20 @@ function hidebt(e) {
     document.getElementById(head + "r_" + Id).style.visibility = "hidden";
     document.getElementById(head + "e_" + Id).style.visibility = "hidden";
 }
+
+//change l'état de tous les checkbox de la page
+//selon l'état du checkbox pour tous le monde
+$(document).ready(function () {
+    $('#evr1').click(function (event) {  //on click
+        if (this.checked) { // check select status
+            $('input[type="checkbox"]').each(function () { //loop through each checkbox
+                this.checked = true;  //select all checkboxes with class "checkbox1"              
+            });
+        } else {
+            $('input[type="checkbox"]').each(function () { //loop through each checkbox
+                this.checked = false; //deselect all checkboxes with class "checkbox1"                      
+            });
+        }
+    });
+
+});

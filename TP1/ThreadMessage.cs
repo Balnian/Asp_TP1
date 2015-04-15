@@ -40,6 +40,9 @@ namespace TP1
             {
                 Grid = new Table();
                 Grid.CssClass = "table table-responsive";
+                
+                
+
                 TableRow tr;
              
                 while (Next())
@@ -99,7 +102,7 @@ namespace TP1
                     HtmlGenericControl removebutton = new HtmlGenericControl("button");
                     removebutton.Attributes.Add("class", "btn btn-danger btn-xs pull-right ");
                     removebutton.Attributes.Add("style", "visibility:hidden");
-                        removebutton.Attributes.Add("onclick", "ChatMode(this)");
+                    removebutton.Attributes.Add("onclick", "ChatMode(this)");
                     removebutton.ID = "r_" + FieldsValues[0];
                     HtmlGenericControl remove = new HtmlGenericControl("span");
                     remove.Attributes.Add("class", "glyphicon glyphicon-remove-sign");                 

@@ -276,16 +276,40 @@ namespace TP1
             {
                 Grid = new Table();
 
+                #region Tableheader
+
+                TableHeaderRow headerRow = new TableHeaderRow();
+                TableHeaderCell headerTableCell1 = new TableHeaderCell();
+                CheckBox slctE = new CheckBox();
+                slctE.Attributes.Add("onchange", "selectchange(this)");
+                slctE.ClientIDMode = ClientIDMode.Static;
+                slctE.ID = "evr1";
+                
+                headerTableCell1.Controls.Add(slctE);
+                TableHeaderCell headerTableCell2 = new TableHeaderCell();
+                headerTableCell2.ColumnSpan = 2;
+                headerTableCell2.Text = "Select Everybody";
+                headerRow.Controls.Add(headerTableCell1);
+                headerRow.Controls.Add(headerTableCell2);
+                Grid.Controls.Add(headerRow);
+
+                #endregion
+
                 TableRow tr ;
+                tr = new TableRow();
+
                
                 while (Next())
                 {
                  
                     tr = new TableRow();
+                    
+                    tr.ClientIDMode = ClientIDMode.Static;
 
                     TableCell tdcheck = new TableCell();
                     CheckBox check = new CheckBox();
                     check.ID = FieldsValues[0].ToString();
+                    check.Attributes.Add("class", "selectA");
                     tdcheck.Controls.Add(check);
                     tr.Cells.Add(tdcheck);
                     cblist.Add(check);
