@@ -48,17 +48,15 @@
                                 <ContentTemplate>
                                     <asp:Panel ID="Message_Panel" runat="server"></asp:Panel>
                                 </ContentTemplate>
-                            </asp:UpdatePanel>
-                        
+                            </asp:UpdatePanel>                        
                     </div>
-
-                    
+                   
                     <!-- Message Input -->
                     <div class="panel-footer">
                         <div class="row">
                             <div class="col-xs-12 col-xs-offset-0 col-md-9 col-md-offset-2">
                                 <div class="col-xs-10">
-                                    <asp:TextBox CssClass="form-control"  name="text" ID="Tb_Message" style="resize:none" MaxLength="1" TextMode="multiline" Columns="40" Rows="5" runat="server" placeholder="Enter Message"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control"  name="text" ClientIDMode="Static" ID="Tb_Message" style="resize:none" MaxLength="1" TextMode="multiline" Columns="40" Rows="5" runat="server" placeholder="Enter Message"></asp:TextBox>
 
                                 </div>
                                 <div class="col-xs-2">

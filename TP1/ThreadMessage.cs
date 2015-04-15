@@ -33,7 +33,7 @@ namespace TP1
             Date_Of_Creation = FieldsValues[3];
             Message = FieldsValues[4];
         }
-        public void MessageGridView(Panel  PN_GridView)
+        public void MessageGridView(Panel  PN_GridView, long UserId)
         {
             Table Grid = null;        
             if (reader.HasRows)
@@ -69,6 +69,14 @@ namespace TP1
                    
                     row1.InnerText = FieldsValues[3];
 
+                   
+                    
+                    HtmlGenericControl row2 = new HtmlGenericControl("div");
+                    HtmlGenericControl str = new HtmlGenericControl("strong");                    
+                    str.InnerText = info[0];
+                    row2.Controls.Add(str);
+                    if (UserId == long.Parse(FieldsValues[2]))
+                    {
                     HtmlGenericControl editbutton = new HtmlGenericControl("button");
                     editbutton.Attributes.Add("onclick", "ChatMode(this)");
                     editbutton.Attributes.Add("class", "btn btn-warning pull-right btn-xs");
@@ -77,21 +85,18 @@ namespace TP1
                     edit.Attributes.Add("class", "glyphicon glyphicon-pencil");
                     editbutton.Controls.Add(edit);
                     row1.Controls.Add(editbutton);
-                    
-                    HtmlGenericControl row2 = new HtmlGenericControl("div");
-                    HtmlGenericControl str = new HtmlGenericControl("strong");                    
-                    str.InnerText = info[0];
-                    row2.Controls.Add(str);
-
                     HtmlGenericControl removebutton = new HtmlGenericControl("button");
                     removebutton.Attributes.Add("class", "btn btn-danger pull-right btn-xs");
+                        removebutton.Attributes.Add("onclick", "ChatMode(this)");
                     removebutton.ID = "r_" + FieldsValues[0];
                     HtmlGenericControl remove = new HtmlGenericControl("span");
                     remove.Attributes.Add("class", "glyphicon glyphicon-remove-sign");                 
+                        removebutton.Controls.Add(remove);
+                        row2.Controls.Add(removebutton);
+                    }
                 
                     
-                    removebutton.Controls.Add(remove);
-                    row2.Controls.Add(removebutton);
+                    
                     contain.Controls.Add(row1);
                     contain.Controls.Add(row2);
                     td.Controls.Add(contain);
@@ -102,6 +107,8 @@ namespace TP1
                     TableCell ttext = new TableCell();
                     ttext.CssClass = "col-xs-9";
                     ttext.Text = FieldsValues[4];
+                    ttext.ID = "m_" + FieldsValues[0];
+                    ttext.ClientIDMode = System.Web.UI.ClientIDMode.Static;
                     tr.Cells.Add(ttext);
                     Grid.Rows.Add(tr);
                 }

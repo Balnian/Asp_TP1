@@ -10,16 +10,15 @@ namespace TP1
     public partial class ChatRoom : System.Web.UI.Page
     {
         bool update = false;
-        long messageId = 0;
+     
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (Request["Type"] != null && Request["Id"] != null)
             {
                 EditRemove(Request["Type"], Request["Id"]);
-               
+                Response.Redirect("ChatRoom.aspx");               
             }
-
 
             if (Session["User"] != null)
             {
@@ -29,17 +28,19 @@ namespace TP1
             }
             else
                 Response.Redirect("Login.aspx");
-
-
-
         }
 
         public void SetMessage()
         {
-            ThreadMessage message = new ThreadMessage((string)Application["MainDB"], this);
-            message.SelectAll();
-            message.MessageGridView(Message_Panel);
-            message.EndQuerySQL();
+            Users user;
+            if (Session["User"] != null)
+            {
+                user = (Users)Session["User"];
+                ThreadMessage message = new ThreadMessage((string)Application["MainDB"], this);
+                message.SelectAll();
+                message.MessageGridView(Message_Panel,user.ID);
+                message.EndQuerySQL();
+            }
         }
         public void SetThread()
         {
@@ -111,13 +112,13 @@ namespace TP1
         if (type.Equals("e"))
         {
             Btn_Send.Text = "Update";
-            Tb_Message.Text = message.GetMessageById(long.Parse(messageId));
+          //  Tb_Message.Text = message.GetMessageById(long.Parse(messageId));
             Session["MessageId"] = messageId;
             update = true;
         }
         else if (type.Equals("r"))
-        { 
-        
+        {
+            message.DeleteRecordByID(messageId);
         
         }
         
