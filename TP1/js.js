@@ -51,8 +51,4 @@ function SelectedThread(event)
 
     window.location.href = "ChatRoom.aspx? name=" + selectedThread;
 
-
-
-
-
 }

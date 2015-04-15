@@ -18,7 +18,6 @@ namespace TP1
               SetTbText();
            }      
         }
-
        private void SetTbText()
         {
             Usager.ID = Usager.SelectId(Usager.UserName);

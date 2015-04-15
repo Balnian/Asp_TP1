@@ -20,7 +20,7 @@ namespace TP1
                 Response.Redirect("ChatRoom.aspx");               
             }
 
-            if (Session["User"] != null)
+            if (Session["User"] != null )
             {
                 SetMessage();
                 ShowThreadUser();
@@ -84,6 +84,7 @@ namespace TP1
 
         protected void Timer_Chat_Tick(object sender, EventArgs e)
         {
+            SetMessage(); 
         }
         public void ShowThreadUser()
         {
