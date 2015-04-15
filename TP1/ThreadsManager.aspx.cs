@@ -18,7 +18,7 @@ namespace TP1
             {
                 user = (Users)Session["User"];
                 user.SelectAll();
-                cblist = user.MakeAGridForThread(Pn_Users);
+                cblist = user.MakeAGridForThread(Pn_Users,(Request["Id"]!=null)? long.Parse(Request["Id"]):-1);
                 user.EndQuerySQL();
                 Threads thread = new Threads((string)Application["MainDB"], this);
                 thread.SelectAll();
