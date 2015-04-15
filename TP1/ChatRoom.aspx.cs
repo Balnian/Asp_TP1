@@ -99,11 +99,11 @@ namespace TP1
         public void ShowUser()
         {
             Users user;
-            if (Session["User"] != null)
+            if (Session["User"] != null && Session["threadId"] != null)
             {
                 user = (Users)Session["User"];
                 user.SelectAll();
-                user.listAccessThread(User_Panel, 2, (List<long>)Application["Online"]);
+                user.listAccessThread(User_Panel, 2, (List<long>)Application["Online"], (long)Session["threadId"]);
                 user.EndQuerySQL();
             }
         }
