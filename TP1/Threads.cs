@@ -115,6 +115,7 @@ namespace TP1
                  li.Attributes.Add("role", "presentation");
                  HtmlGenericControl abal = new HtmlGenericControl("a");
                  abal.Attributes.Add("href", "#");
+                 abal.Attributes.Add("onclick", "SelectedThread(this)");
                  abal.InnerText = FieldsValues[2];
                  li.Controls.Add(abal);
                  OrderedList.Controls.Add(li);               
