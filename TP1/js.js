@@ -43,12 +43,31 @@ function ThreadMode(event) {
 
 }
 
-function SelectedThread(event)
-{
+function SelectedThread(event){
 
     var selectedThread = event.innerHTML;
     alert("ChatRoom.aspx?name=" + selectedThread);
 
     window.location.href = "ChatRoom.aspx? name=" + selectedThread;
 
+}
+
+function showbt(e) {
+    var msgid = e.getAttribute("id");
+    var separatorPos = msgid.lastIndexOf("_");
+    var Id = msgid.slice(separatorPos + 1, msgid.length);
+    var head = msgid.slice(0,msgid.indexOf("_")+1)
+
+    document.getElementById(head + "r_" + Id).style.visibility = "visible";
+    document.getElementById(head + "e_" + Id).style.visibility = "visible";
+}
+function hidebt(e) {
+    var msgid = e.getAttribute("id");
+
+    var separatorPos = msgid.lastIndexOf("_");
+    var Id = msgid.slice(separatorPos + 1, msgid.length);
+    var head = msgid.slice(0, msgid.indexOf("_") + 1)
+
+    document.getElementById(head + "r_" + Id).style.visibility = "hidden";
+    document.getElementById(head + "e_" + Id).style.visibility = "hidden";
 }
