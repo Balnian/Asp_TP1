@@ -12,35 +12,96 @@
                 <div class="row">
                     <div class="col-xs-12 col-md-6">
 
-                        <div class="form-group">
+                        <asp:Panel runat="server" ID="namegroup" class="form-group">
                             <label for="user">Full Name:</label>
-                            <input name="FullName" type="text" class="form-control" id="name" placeholder="Enter your full name" />
-                        </div>
+                            <asp:TextBox runat="server" name="FullName" type="text" class="form-control" id="name" placeholder="Enter your full name"  />
+                            <asp:CustomValidator 
+                                ID="FnameVal" 
+                                runat="server" 
+                                ErrorMessage="Name field is not set!"
+                                ControlToValidate="name"
+                                ValidateEmptyText="true"
+                                Display="None"
+                                OnServerValidate="CV_Name_IsNotNull"
+                                ValidationGroup="Subscribe_Validation"
+                                ></asp:CustomValidator> 
 
-                        <div class="form-group">
+                        </asp:Panel>
+
+                        <asp:Panel runat="server" ID="Unamegroup" class="form-group">
                             <label for="user">Username:</label>
-                            <input name="UserName" type="text" class="form-control" id="user" placeholder="Enter username" />
-                        </div>
+                            <asp:TextBox runat="server" name="UserName" type="text" class="form-control" id="user" placeholder="Enter username" />
+                        <asp:CustomValidator 
+                                ID="FunameVal" 
+                                runat="server" 
+                                ErrorMessage="UserName field is not set!"
+                                ControlToValidate="user"
+                                ValidateEmptyText="true"
+                                Display="None"
+                                OnServerValidate="CV_uname_IsNotNull"
+                                ValidationGroup="Subscribe_Validation"
+                                ></asp:CustomValidator> 
+                             </asp:Panel>
 
-                        <div class="form-group">
+                        <asp:Panel runat="server" ID="pwd1group" class="form-group">
                             <label for="pwd">Password:</label>
-                            <input name="PassWord" type="password" class="form-control" id="pwd" placeholder="Enter password" />
-                        </div>
+                            <asp:TextBox runat="server" name="PassWord" type="password" class="form-control" id="pwd" placeholder="Enter password" />
+                       <asp:CustomValidator 
+                                ID="fpwd1Val" 
+                                runat="server" 
+                                ErrorMessage="Password field is not valid!"
+                                ControlToValidate="pwd"                           
+                                ValidateEmptyText="true"
+                                Display="None"
+                                OnServerValidate="CV_pwd_IsNotNull"
+                                ValidationGroup="Subscribe_Validation"
+                                ></asp:CustomValidator> 
+                             </asp:Panel>
 
-                        <div class="form-group">
+                        <asp:Panel runat="server" ID="pwdcgroup" class="form-group">
                             <label for="pwd">Confirm Password:</label>
-                            <input type="password" class="form-control" id="conpwd" placeholder="Confirm password" />
-                        </div>
+                            <asp:TextBox runat="server" type="password" class="form-control" id="conpwd" placeholder="Confirm password" />
+                        <asp:CustomValidator 
+                                ID="fpwdcVal" 
+                                runat="server" 
+                                ErrorMessage="Password fields do not match!"
+                                ControlToValidate="conpwd"                           
+                                ValidateEmptyText="true"
+                                Display="None"
+                                OnServerValidate="CV_pwd_match"
+                                ValidationGroup="Subscribe_Validation"
+                                ></asp:CustomValidator> 
+                        </asp:Panel>
 
-                        <div class="form-group">
+                        <asp:Panel runat="server" ID="eml1group" class="form-group">
                             <label for="pwd">Email:</label>
-                            <input name="Email" type="text" class="form-control" id="mail" placeholder="Enter Email" />
-                        </div>
+                            <asp:TextBox runat="server" name="Email" type="text" class="form-control" id="mail" placeholder="Enter Email" />
+                        <asp:CustomValidator 
+                                ID="feml1Val" 
+                                runat="server" 
+                                ErrorMessage="Email field is not valid!"
+                                ControlToValidate="mail"                           
+                                ValidateEmptyText="true"
+                                Display="None"
+                                OnServerValidate="CV_email_valid"
+                                ValidationGroup="Subscribe_Validation"
+                                ></asp:CustomValidator> 
+                        </asp:Panel>
 
-                        <div class="form-group">
+                        <asp:Panel runat="server" ID="emlcgroup" class="form-group">
                             <label for="pwd">Confirm Email:</label>
-                            <input type="text" class="form-control" id="conmail" placeholder="Confirm Email" />
-                        </div>
+                            <asp:TextBox runat="server" type="text" class="form-control" id="conmail" placeholder="Confirm Email" />
+                        <asp:CustomValidator 
+                                ID="femlcVal" 
+                                runat="server" 
+                                ErrorMessage="Email fields do not match!"
+                                ControlToValidate="conmail"                           
+                                ValidateEmptyText="true"
+                                Display="None"
+                                OnServerValidate="CV_email_match"
+                                ValidationGroup="Subscribe_Validation"
+                                ></asp:CustomValidator> 
+                        </asp:Panel>
                     </div>
 
                     <div class="col-xs-12 col-md-6">
@@ -91,7 +152,7 @@
                                                     <asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5" CssClass="form-control" placeholder="Enter Captcha"></asp:TextBox>
                                                     <!--<span id="Error_Span_Captcha" class="glyphicon glyphicon-remove form-control-feedback show"></span>-->
                                                     <asp:CustomValidator ID="CV_Captcha" runat="server"
-                                                        ErrorMessage="Code captcha incorrect!"
+                                                        ErrorMessage="Wrong captcha!"
                                                         ValidationGroup="Subscribe_Validation"
                                                         Text=""
                                                         Display="None"

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Net.Mail;
 
 
 namespace TP1
@@ -142,5 +143,142 @@ namespace TP1
          ((List<long>)Application["Online"]).Add(Usager.ID);
        
        }
+       #region CustomValidator
+
+       protected void CV_Name_IsNotNull(object source, ServerValidateEventArgs args)
+       {
+           Label ErrSpan_Captcha = new Label();
+           args.IsValid = !(String.IsNullOrEmpty(args.Value) || String.IsNullOrWhiteSpace(args.Value));
+           if(!args.IsValid)
+           {
+               ErrorOverview.Visible = true;
+               ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
+               ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
+
+               name.Parent.Controls.AddAt(name.Parent.Controls.IndexOf(name) + 1, ErrSpan_Captcha);
+               namegroup.CssClass = "form-group has-error has-feedback";
+           }
+           else
+           {
+               namegroup.CssClass = "form-group";
+               namegroup.Controls.Remove(ErrSpan_Captcha);
+           }
+       }
+
+       protected void CV_uname_IsNotNull(object source, ServerValidateEventArgs args)
+       {
+           Label ErrSpan_Captcha = new Label();
+           args.IsValid = !(String.IsNullOrEmpty(args.Value) || String.IsNullOrWhiteSpace(args.Value));
+           if (!args.IsValid)
+           {
+               ErrorOverview.Visible = true;
+               ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
+               ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
+
+               user.Parent.Controls.AddAt(user.Parent.Controls.IndexOf(user) + 1, ErrSpan_Captcha);
+               Unamegroup.CssClass = "form-group has-error has-feedback";
+           }
+           else
+           {
+               Unamegroup.CssClass = "form-group";
+               Unamegroup.Controls.Remove(ErrSpan_Captcha);
+           }
+       }
+       protected void CV_pwd_IsNotNull(object source, ServerValidateEventArgs args)
+       {
+           Label ErrSpan_Captcha = new Label();
+           args.IsValid = !(String.IsNullOrEmpty(args.Value) || String.IsNullOrWhiteSpace(args.Value));
+           if (!args.IsValid)
+           {
+               ErrorOverview.Visible = true;
+               ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
+               ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
+
+               pwd.Parent.Controls.AddAt(user.Parent.Controls.IndexOf(pwd) + 1, ErrSpan_Captcha);
+               pwd1group.CssClass = "form-group has-error has-feedback";
+           }
+           else
+           {
+               pwd1group.CssClass = "form-group";
+               pwd1group.Controls.Remove(ErrSpan_Captcha);
+           }
+       }
+
+       protected void CV_pwd_match(object source, ServerValidateEventArgs args)
+       {
+           Label ErrSpan_Captcha = new Label();
+           args.IsValid = args.Value == pwd.Text;
+           if (!args.IsValid)
+           {
+               ErrorOverview.Visible = true;
+               ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
+               ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
+
+               conpwd.Parent.Controls.AddAt(user.Parent.Controls.IndexOf(conpwd) + 1, ErrSpan_Captcha);
+               pwdcgroup.CssClass = "form-group has-error has-feedback";
+           }
+           else
+           {
+               pwdcgroup.CssClass = "form-group";
+               pwdcgroup.Controls.Remove(ErrSpan_Captcha);
+           }
+       }
+
+       protected void CV_email_match(object source, ServerValidateEventArgs args)
+       {
+           Label ErrSpan_Captcha = new Label();
+           args.IsValid = args.Value == pwd.Text;
+           if (!args.IsValid)
+           {
+               ErrorOverview.Visible = true;
+               ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
+               ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
+
+               conmail.Parent.Controls.AddAt(user.Parent.Controls.IndexOf(conmail) + 1, ErrSpan_Captcha);
+               emlcgroup.CssClass = "form-group has-error has-feedback";
+           }
+           else
+           {
+               emlcgroup.CssClass = "form-group";
+               emlcgroup.Controls.Remove(ErrSpan_Captcha);
+           }
+       }
+
+       protected void CV_email_valid(object source, ServerValidateEventArgs args)
+       {
+           Label ErrSpan_Captcha = new Label();
+           args.IsValid = IsValidEmailAddr(args.Value);
+           if (!args.IsValid)
+           {
+               ErrorOverview.Visible = true;
+               ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
+               ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
+
+               mail.Parent.Controls.AddAt(user.Parent.Controls.IndexOf(mail) + 1, ErrSpan_Captcha);
+               eml1group.CssClass = "form-group has-error has-feedback";
+           }
+           else
+           {
+               eml1group.CssClass = "form-group";
+               eml1group.Controls.Remove(ErrSpan_Captcha);
+           }
+       }
+
+       public bool IsValidEmailAddr(string emailaddress)
+       {
+           try
+           {
+               MailAddress m = new MailAddress(emailaddress);
+
+               return true;
+           }
+           catch (FormatException)
+           {
+               return false;
+           }
+       }
+
+       #endregion
+
     }
 }
