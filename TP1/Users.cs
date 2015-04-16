@@ -481,6 +481,50 @@ namespace TP1
         
         
         }
+        public String IsUserEmail(String Email, String AccName)
+        {
+
+
+            String Query = "Select PassWord from " + SQLTableName + " Where UserName = '" + AccName + "' AND Email='" + Email+"'";
+            SqlConnection Connection;
+            SqlDataReader Reader;
+            String Pw = "";
+            // instancier l'objet de collection
+            Connection = new SqlConnection(connexionString);
+            // bâtir l'objet de requête
+            SqlCommand sqlcmd = new SqlCommand(Query, Connection);
+            //Page.Application.Lock();
+            try
+            {
+                Connection.Open();
+                Reader = sqlcmd.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Pw = Reader.GetString(0);
+
+                }
+
+                Reader.Close();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+
+
+                Connection.Close();
+                //EndQuerySQL();
+
+            }
+
+            return Pw;
+
+
+
+
+        }
 
     }
 }

@@ -32,7 +32,7 @@
                     <button type="submit" name="sub" class="btn btn-primary">Connection</button>
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="fmp" class="btn btn-default ">Forgot my password</button>
+                    <a href="ForgotPassword.aspx" type="submit" name="fmp" class="btn btn-default ">Forgot my password</a>
                 </div>
 
             </div>
