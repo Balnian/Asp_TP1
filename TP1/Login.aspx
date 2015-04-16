@@ -37,7 +37,7 @@
 
             </div>
             <div class="panel-footer">
-                <button type="submit" name="su" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Sign Up</button>
+                <a  href="SignUp.aspx" name="su" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
             </div>
         </div>
     </div>

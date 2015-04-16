@@ -172,6 +172,7 @@ namespace TP1
                  else
                  image.ImageUrl = @"~\Images\Online.png";
 
+                 image.Width = new Unit(40);
                  tdimage.Controls.Add(image);
                  tr.Cells.Add(tdimage);
                  for (int fieldIndex = 0; fieldIndex < FieldsValues.Count; fieldIndex++)
@@ -214,7 +215,8 @@ namespace TP1
                  Image imageA = new Image();
                  imageA.ImageUrl = @"~\Avatars/" + FieldsValues[5] + ".png";
                  imageA.CssClass = "img-responsive";
-                 imageA.Width = new Unit(100);
+                 imageA.Width = new Unit(60);
+                 imageA.Height = new Unit(60);
                 
                  tdavatar.Controls.Add(imageA);
                  tr.Cells.Add(tdavatar);              

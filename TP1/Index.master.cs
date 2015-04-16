@@ -11,8 +11,15 @@ namespace TP1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Users usager;
             if (Session["User"] == null)
                 Response.Redirect("Login.aspx");
+            else
+            {
+                usager = (Users)Session["User"];
+                Lbl_Name.Text = usager.UserName;
+                Lbl_FullName.Text = usager.FullName;
+            }
         }
     }
 }
