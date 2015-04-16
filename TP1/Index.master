@@ -6,7 +6,8 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
         <div class="page-header">
-            <h1><%  %> Here shall be Name <small>Subtext for header</small><p></p></h1>
+            <h1><%  %> <asp:Label ID="Lbl_Name" runat="server" Text="Label"></asp:Label></h1><h4>
+                <asp:Label ID="Lbl_FullName" runat="server" Text="Label"></asp:Label></h4>
         </div>
         <ul class="nav nav-tabs">
             <li <%if (Page.Request.FilePath == "/Profil.aspx")

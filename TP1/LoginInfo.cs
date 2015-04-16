@@ -45,7 +45,7 @@ namespace TP1
             InsertRecord(ID_U, LoginDate, LogOutDate, IpAdresse);
         }
 
-        public void MakeThatGridView(Panel PN_GridView,long ID)
+        public void MakeThatGridView(Panel PN_GridView,long ID, String UserName)
         {               
            Table Grid = null;        
            if (reader.HasRows)
@@ -54,7 +54,7 @@ namespace TP1
               TableRow tr = new TableRow();           
               while (Next())
               {
-                if(long.Parse(FieldsValues[1]) == ID)
+                if(long.Parse(FieldsValues[1]) == ID || UserName == "Admin")
                 { 
                  tr = new TableRow();
                  String[] info = SelectInfo(long.Parse(FieldsValues[1]));
@@ -69,6 +69,17 @@ namespace TP1
                                   tr.Cells.Add(td);
                      }
                  }
+                    
+
+                 TableCell time = new TableCell();
+                
+               
+                    DateTime date  = DateTime.Parse(FieldsValues[2]);
+                   
+                 time.Text =  (DateTime.Parse(FieldsValues[3]).Subtract(date).TotalMinutes.ToString());
+                 time.CssClass = "numeric";
+                 tr.Cells.Add(time);
+
                      for (int i = 0; i < info.Length; i++)
                      {
                           TableCell cell = new TableCell();
