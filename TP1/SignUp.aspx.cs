@@ -194,7 +194,7 @@ namespace TP1
                ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
                ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
 
-               pwd.Parent.Controls.AddAt(user.Parent.Controls.IndexOf(pwd) + 1, ErrSpan_Captcha);
+               pwd.Parent.Controls.AddAt(pwd.Parent.Controls.IndexOf(pwd) + 1, ErrSpan_Captcha);
                pwd1group.CssClass = "form-group has-error has-feedback";
            }
            else
@@ -214,7 +214,7 @@ namespace TP1
                ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
                ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
 
-               conpwd.Parent.Controls.AddAt(user.Parent.Controls.IndexOf(conpwd) + 1, ErrSpan_Captcha);
+               conpwd.Parent.Controls.AddAt(conpwd.Parent.Controls.IndexOf(conpwd) + 1, ErrSpan_Captcha);
                pwdcgroup.CssClass = "form-group has-error has-feedback";
            }
            else
@@ -227,14 +227,14 @@ namespace TP1
        protected void CV_email_match(object source, ServerValidateEventArgs args)
        {
            Label ErrSpan_Captcha = new Label();
-           args.IsValid = args.Value == pwd.Text;
+           args.IsValid = args.Value == mail.Text;
            if (!args.IsValid)
            {
                ErrorOverview.Visible = true;
                ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
                ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
 
-               conmail.Parent.Controls.AddAt(user.Parent.Controls.IndexOf(conmail) + 1, ErrSpan_Captcha);
+               conmail.Parent.Controls.AddAt(conmail.Parent.Controls.IndexOf(conmail) + 1, ErrSpan_Captcha);
                emlcgroup.CssClass = "form-group has-error has-feedback";
            }
            else
@@ -247,14 +247,17 @@ namespace TP1
        protected void CV_email_valid(object source, ServerValidateEventArgs args)
        {
            Label ErrSpan_Captcha = new Label();
-           args.IsValid = IsValidEmailAddr(args.Value);
+           if (!String.IsNullOrEmpty(args.Value))
+               args.IsValid = IsValidEmailAddr(args.Value);
+           else
+               args.IsValid = false;
            if (!args.IsValid)
            {
                ErrorOverview.Visible = true;
                ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
                ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
 
-               mail.Parent.Controls.AddAt(user.Parent.Controls.IndexOf(mail) + 1, ErrSpan_Captcha);
+               mail.Parent.Controls.AddAt(mail.Parent.Controls.IndexOf(mail) + 1, ErrSpan_Captcha);
                eml1group.CssClass = "form-group has-error has-feedback";
            }
            else

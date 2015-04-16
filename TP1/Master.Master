@@ -20,10 +20,7 @@
 
 </head>
 <body>
-    <script>
-
-        $("#Form1").height(window.screenY);
-    </script>
+    
     <form id="form1" runat="server" style="max-height: 100%">
 
         <nav class="navbar navbar-inverse">
@@ -44,27 +41,27 @@
                     <ul class="nav navbar-nav">
                         <li <%if (Page.Request.FilePath == "/Profil.aspx")
                               {%>
-                            class="active" <% } %>><a href="Profil.aspx"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                            class="active" <% } %>><a href="Profil.aspx"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
                         <% if (Session["user"] != null)
                            {  %>
                         <li <%if (Page.Request.FilePath == "/ChatRoom.aspx")
                               {%>
-                            class="active" <% } %>><a href="ChatRoom.aspx"><span class="glyphicon glyphicon-comment"></span>Chat Room</a></li>
+                            class="active" <% } %>><a href="ChatRoom.aspx"><span class="glyphicon glyphicon-comment"></span>&nbsp;Chat Room</a></li>
                         <li <%if (Page.Request.FilePath == "/ThreadsManager.aspx")
                               {%>
-                            class="active" <% } %>><a href="ThreadsManager.aspx"><span class="glyphicon glyphicon-list-alt"></span>Threads Manager</a></li>
+                            class="active" <% } %>><a href="ThreadsManager.aspx"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Threads Manager</a></li>
                         <% } %>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" id="Nav-Right">
                         <% if (Session["user"] != null)
                            {  %>
-                        <li><a href="Profil.aspx"><span class="glyphicon glyphicon-user"></span>Profil</a></li>
-                        <li><a href="Login.aspx"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                        <li><a href="Profil.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;Profil</a></li>
+                        <li><a href="Login.aspx"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
                         <%}
                            else
                            {%>
-                        <li><a href="SignUp.aspx"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                        <li><a href="Login.aspx"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                        <li><a href="SignUp.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign Up</a></li>
+                        <li><a href="Login.aspx"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a></li>
                         <% } %>
                     </ul>
                 </div>
