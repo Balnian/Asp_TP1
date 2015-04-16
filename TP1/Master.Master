@@ -20,9 +20,8 @@
 
 </head>
 <body>
-    
+   
     <form id="form1" runat="server" style="max-height: 100%">
-
         <nav class="navbar navbar-inverse">
             <div class="container">
                 <div class="navbar-header">

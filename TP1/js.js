@@ -1,5 +1,5 @@
 
-
+var timer = 0;
 
 function PreLoadImage(e) {
     var imageTarget = document.getElementById("IMG_Avatar");
@@ -89,3 +89,16 @@ $(document).ready(function () {
 });
 
 
+function TimeOut(){
+   
+    timer++;
+    if (timer == 10)
+    {
+
+        window.location.href = "Login.aspx";
+        alert("Votre Session a expirer");
+        timer = 0;
+    }
+
+
+}

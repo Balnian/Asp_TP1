@@ -21,5 +21,7 @@ namespace TP1
                 Lbl_FullName.Text = usager.FullName;
             }
         }
+    
+        
     }
 }
