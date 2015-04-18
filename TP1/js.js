@@ -25,11 +25,8 @@ function ChatMode(event) {
 
     window.location.href = "ChatRoom.aspx?Type=" + Type + "&Id=" + Id;
 
-    if (Type != "r") {
-        var tb = document.getElementById("Tb_Message");
-        var message = document.getElementById("m_" + Id).innerText;
-        tb.innerText = message;
-    }
+    
+    
 }
 
 function ThreadMode(event) {

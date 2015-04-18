@@ -9,7 +9,7 @@ namespace TP1
 {
     public partial class ChatRoom : System.Web.UI.Page
     {
-        bool update = false;
+       
      
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,7 +17,7 @@ namespace TP1
             if (Request["Type"] != null && Request["Id"] != null)
             {
                 EditRemove(Request["Type"], Request["Id"]);
-                Response.Redirect("ChatRoom.aspx");               
+                       
             }
             if (Request["name"] != null)
             {
@@ -65,7 +65,7 @@ namespace TP1
         {
             Users user;
             ThreadMessage Tmessage = new ThreadMessage((string)Application["MainDB"], this);
-            if (Session["User"] != null && !update && Session["threadId"] != null)
+            if (Session["User"] != null  && Session["threadId"] != null && Session["update"] == null)
             {
                 user = (Users)Session["User"];
                 Tmessage.Thread_ID = (long)Session["threadId"];
@@ -73,13 +73,15 @@ namespace TP1
                 Tmessage.Date_Of_Creation = DateTime.Now.ToShortTimeString();
                 Tmessage.Message = Tb_Message.Text;
                 Tmessage.Insert();
+                Tb_Message.Text = "";
                 Tmessage.EndQuerySQL();
             }
             else if (Session["MessageId"] != null)
             {
-                Tmessage.UpdateById(Session["MessageId"].ToString(), Request["text"]);
-                update = false;
+                Tmessage.UpdateById(Session["MessageId"].ToString(), Tb_Message.Text);
+                Tb_Message.Text = "";
                 Session["MessageId"] = null;
+                Session["update"] = null;
                 Btn_Send.Text = "Send";
             }           
             SetMessage();
@@ -115,12 +117,12 @@ namespace TP1
         { 
         ThreadMessage message = new ThreadMessage((string)Application["MainDB"], this);
 
-        if (type.Equals("e"))
+        if (type.Equals("e") && Session["update"] == null)
         {
             Btn_Send.Text = "Update";
-          //  Tb_Message.Text = message.GetMessageById(long.Parse(messageId));
+            Tb_Message.Text = message.GetMessageById(long.Parse(messageId));
             Session["MessageId"] = messageId;
-            update = true;
+            Session["update"] = true;
         }
         else if (type.Equals("r"))
         {
