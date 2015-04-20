@@ -13,7 +13,7 @@ namespace TP1
      
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             if (Request["Type"] != null && Request["Id"] != null)
             {
                 EditRemove(Request["Type"], Request["Id"]);
@@ -105,27 +105,27 @@ namespace TP1
         {
             if (Session["User"] != null)
             {
-                Threads thread = new Threads((string)Application["MainDB"], this);
-                thread.SelectAll();
+            Threads thread = new Threads((string)Application["MainDB"], this);
+            thread.SelectAll();
 
                 thread.MakeThreadList(Thread_Panel, ((Users)Session["User"]).ID, long.Parse(Session["threadId"].ToString()));
-                thread.EndQuerySQL();
-            }
+            thread.EndQuerySQL();
+        }
         }
 
         public void ShowUser()
         {
             Users user;
-            Users carry = (Users)Session["User"];
+            Users carry = new Users((string)Application["MainDB"], this);
+            Users usager = new Users((string)Application["MainDB"], this);
             if (Session["User"] != null && Session["threadId"] != null)
             {
                 ThreadAcces tdacces = new ThreadAcces((string)Application["MainDB"], this);                
-                user = (Users)Session["User"];
+                user = usager.SelectUser(((Users)Session["User"]).ID,carry);
                 user.SelectAll();
-                user.listAccessThread(User_Panel,
-                    long.Parse(Session["threadId"].ToString()), 
-                    (List<long>)Application["Online"], 
-                    tdacces);
+ /*BUG ICI*/    user.listAccessThread(User_Panel, (long)Session["threadId"], (List<long>)Application["Online"], tdacces);
+
+
                 user.EndQuerySQL();
             }
            // Session["User"] = carry;
