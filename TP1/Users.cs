@@ -325,7 +325,7 @@ namespace TP1
                     tdavatar.Controls.Add(imageA);
                     tr.Cells.Add(tdavatar);
                     TableCell td = new TableCell();
-                    td.Text = FieldsValues[2].ToString();
+                    td.Text = FieldsValues[3].ToString();
                     td.CssClass = "numeric";
                     tr.Cells.Add(td);
                     
