@@ -6,7 +6,7 @@
         <div class="panel panel-default">
             <div class="panel-heading"></div>
             <div class="panel-body">
-                <asp:Panel ID="Pn_Threads" runat="server">
+                <asp:Panel ID="Pn_Threads"  runat="server">
                     <div class="col-xs-5 col-md-9">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -29,7 +29,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body" style="max-height:400px;height:400px;overflow-y:auto;">
                                 <asp:Panel ID="Pn_Thread" runat="server">
                                 </asp:Panel>
                             </div>
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <asp:Panel ID="Pn_Users" runat="server">
+                            <asp:Panel ID="Pn_Users" runat="server" style="max-height:400px;height:400px;overflow-y:auto;">
                             </asp:Panel>
                         </div>
 
