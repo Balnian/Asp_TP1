@@ -13,18 +13,27 @@ namespace TP1
      
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
             if (Request["Type"] != null && Request["Id"] != null)
             {
                 EditRemove(Request["Type"], Request["Id"]);
                        
             }
+
             if (Request["name"] != null)
             {
                 Threads thread = new Threads((string)Application["MainDB"], this);
                 Session["threadId"] = thread.GetId(Request["name"]);
             
             }
+            else
+            {
+                if (Session["threadId"] == null)
+                    Session["threadId"] = -1;
+
+
+            }
+            
             if (Session["User"] != null )
             {
                 SetMessage();
@@ -42,7 +51,7 @@ namespace TP1
                 user = (Users)Session["User"];
                 ThreadMessage message = new ThreadMessage((string)Application["MainDB"], this);
                 message.SelectAll();
-                message.MessageGridView(Message_Panel,user.ID,(long)Session["threadId"]);
+                message.MessageGridView(Message_Panel,user.ID,long.Parse( Session["threadId"].ToString()));
                 message.EndQuerySQL();
             }
         }
@@ -51,12 +60,14 @@ namespace TP1
             Users user;
             if (Session["User"] != null)
             {
+                
                 user = (Users)Session["User"];
                 user.SelectAll();
                 Threads thread = new Threads((string)Application["MainDB"], this);
                // user.EndQuerySQL();
                 thread.SelectAll();
-                thread.ShowThread(Thread_Panel, user.ID,(long)Session["Thread"]);
+
+                thread.MakeThreadList(Thread_Panel, ((Users)Session["User"]).ID, long.Parse(Session["threadId"].ToString()));
                 thread.EndQuerySQL();
                 user.EndQuerySQL();
             }
@@ -92,10 +103,14 @@ namespace TP1
         }
         public void ShowThreadUser()
         {
-            Threads thread = new Threads((string)Application["MainDB"], this);
-            thread.SelectAll();
-            thread.MakeThreadList(Thread_Panel, 2);
-            thread.EndQuerySQL();
+            if (Session["User"] != null)
+            {
+                Threads thread = new Threads((string)Application["MainDB"], this);
+                thread.SelectAll();
+
+                thread.MakeThreadList(Thread_Panel, ((Users)Session["User"]).ID, long.Parse(Session["threadId"].ToString()));
+                thread.EndQuerySQL();
+            }
         }
 
         public void ShowUser()
@@ -107,10 +122,13 @@ namespace TP1
                 ThreadAcces tdacces = new ThreadAcces((string)Application["MainDB"], this);                
                 user = (Users)Session["User"];
                 user.SelectAll();
- /*BUG ICI*/    user.listAccessThread(User_Panel, (long)Session["threadId"], (List<long>)Application["Online"], (long)Session["threadId"], tdacces);
+                user.listAccessThread(User_Panel,
+                    long.Parse(Session["threadId"].ToString()), 
+                    (List<long>)Application["Online"], 
+                    tdacces);
                 user.EndQuerySQL();
             }
-            Session["User"] = carry;
+           // Session["User"] = carry;
         }
 
         private void EditRemove(String type, String messageId)

@@ -346,7 +346,7 @@ namespace TP1
         }
 
 
-        public void listAccessThread(Panel PN_GridView, long Thread_id, List<long> online_user,long ThreadId,ThreadAcces tdacess)
+        public void listAccessThread(Panel PN_GridView, long Thread_id, List<long> online_user,ThreadAcces tdacess)
         {
             tdacess.SelectAll();
             Table Grid = null;
