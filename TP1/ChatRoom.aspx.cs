@@ -94,7 +94,8 @@ namespace TP1
                 Session["MessageId"] = null;
                 Session["update"] = null;
                 Btn_Send.Text = "Send";
-            }           
+            }
+            Response.Redirect("ChatRoom.aspx");
             SetMessage();
         }
         protected void Timer_Chat_Tick(object sender, EventArgs e)
@@ -123,7 +124,8 @@ namespace TP1
                 ThreadAcces tdacces = new ThreadAcces((string)Application["MainDB"], this);                
                 user = usager.SelectUser(((Users)Session["User"]).ID,carry);
                 user.SelectAll();
- /*BUG ICI*/    user.listAccessThread(User_Panel, (long)Session["threadId"], (List<long>)Application["Online"], tdacces);
+                /*BUG ICI*/
+                user.listAccessThread(User_Panel, long.Parse(Session["threadId"].ToString()), (List<long>)Application["Online"], tdacces);
 
 
                 user.EndQuerySQL();
@@ -145,7 +147,7 @@ namespace TP1
         else if (type.Equals("r"))
         {
             message.DeleteRecordByID(messageId);
-        
+            Response.Redirect("ChatRoom.aspx");
         }
                
         }
