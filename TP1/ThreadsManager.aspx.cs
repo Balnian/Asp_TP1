@@ -65,23 +65,102 @@ namespace TP1
                     }
                     thread.EndQuerySQL();
                     threadA.EndQuerySQL();
+                    Response.Redirect("ThreadsManager.aspx");
             }
 
         }
 
+
         protected void Update_Click(object sender, EventArgs e)
         {
-            if (Request["Id"]!=null)
+            if (Session["User"] != null && long.Parse(Session["Thread"].ToString()) != -1)
             {
-                //if(user.isInThread())
+                user = (Users)Session["User"];
+                Threads thread = new Threads((string)Application["MainDB"], this);
+                
+                foreach (CheckBox cb in cblist)
+                {
+                    if (cb.Checked)
+                    {
+                        idlist.Add(long.Parse(cb.ID));
+                    }
+                }
+                List<long> UserIn = thread.UserInThread(long.Parse(Session["Thread"].ToString()));
+                List<long> toAdd = new List<long>();
+
+                //User to add filter
+                foreach (long id in idlist)
+                {
+                    if(!UserIn.Contains(id))
+                        toAdd.Add(id);
+                    //foreach (long id2 in UserIn)
+                    //{
+                    //    if (id==id2)
+                    //    {
+                    //        toAdd.Add(id);
+                    //    }
+                    //}
+                    
+                        
+                    
+                }
+                //Delete user filter
+                List<long> toDel = new List<long>();
+                foreach (long id in UserIn)
+                {
+                    if(!idlist.Contains(id))
+                        toDel.Add(id);
+                    //foreach (long id2 in idlist)
+                    //{
+                    //    if (id == id2)
+                    //    {
+                    //        toDel.Add(id);
+                    //    }
+                    //}
+                    
+                   
+                    
+                }
+
+                //Adding new User
+                ThreadAcces threadA = new ThreadAcces((string)Application["MainDB"], this);
+                threadA.THREAD_ID = long.Parse(Session["Thread"].ToString());
+                //delete Users
+                foreach (long id in toDel)
+                {
+                    threadA.ID_U = id;
+                    threadA.DeleteAccessByID();
+                }
+                foreach (long id in toAdd)
+                {
+                    threadA.ID_U = id;
+                    threadA.Insert();
+                }
+                
+                //thread.EndQuerySQL();
+                threadA.EndQuerySQL();
+                Response.Redirect("ThreadsManager.aspx");
             }
+            
+
         }
 
         protected void Delete_Click(object sender, EventArgs e)
         {
-            if (Request["Id"] != null)
+            if (Session["User"] != null && long.Parse(Session["Thread"].ToString()) != -1)
             {
+                user = (Users)Session["User"];
+                Threads thread = new Threads((string)Application["MainDB"], this);
+                
+                thread.DeleteRecordByID(Session["Thread"].ToString());
+
+                ThreadAcces threadA = new ThreadAcces((string)Application["MainDB"], this);
+                threadA.THREAD_ID = long.Parse(Session["Thread"].ToString());
+                threadA.DeleteAccessByTID();
+                Response.Redirect("ThreadsManager.aspx");
             }
+            
+
         }
 
     }

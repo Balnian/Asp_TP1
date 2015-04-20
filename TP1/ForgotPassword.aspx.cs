@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EmailSender;
+using System.Net.Mail;
 
 namespace TP1
 {
@@ -12,6 +13,7 @@ namespace TP1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ErrorOverview.Visible = false;
             if(Page.IsPostBack)
             {
                 if (!String.IsNullOrWhiteSpace(EmailTxt.Text) && !String.IsNullOrWhiteSpace(AccName.Text))
@@ -51,6 +53,63 @@ namespace TP1
             else
                 return false;
         }
-        
+
+        protected void CV_uname_IsNotNull(object source, ServerValidateEventArgs args)
+        {
+           
+            Label ErrSpan_Captcha = new Label();
+            args.IsValid = !(String.IsNullOrEmpty(args.Value) || String.IsNullOrWhiteSpace(args.Value));
+            if (!args.IsValid)
+            {
+                ErrorOverview.Visible = true;
+                ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
+                ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
+
+                AccName.Parent.Controls.AddAt(AccName.Parent.Controls.IndexOf(AccName) + 1, ErrSpan_Captcha);
+                Unamegroup.CssClass = "form-group has-error has-feedback";
+            }
+            else
+            {
+                Unamegroup.CssClass = "form-group";
+                Unamegroup.Controls.Remove(ErrSpan_Captcha);
+            }
+        }
+
+        protected void CV_email_valid(object source, ServerValidateEventArgs args)
+        {
+            Label ErrSpan_Captcha = new Label();
+            if (!String.IsNullOrEmpty(args.Value))
+                args.IsValid = IsValidEmailAddr(args.Value);
+            else
+                args.IsValid = false;
+            if (!args.IsValid)
+            {
+                ErrorOverview.Visible = true;
+                ErrSpan_Captcha.CssClass = "glyphicon glyphicon-remove form-control-feedback";
+                ErrSpan_Captcha.Attributes.Add("aria-hidden", "true");
+
+                EmailTxt.Parent.Controls.AddAt(EmailTxt.Parent.Controls.IndexOf(EmailTxt) + 1, ErrSpan_Captcha);
+                eml1group.CssClass = "form-group has-error has-feedback";
+            }
+            else
+            {
+                eml1group.CssClass = "form-group";
+                eml1group.Controls.Remove(ErrSpan_Captcha);
+            }
+        }
+
+        public bool IsValidEmailAddr(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
     }
 }

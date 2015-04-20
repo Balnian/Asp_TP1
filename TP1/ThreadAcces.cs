@@ -33,6 +33,19 @@ namespace TP1
             InsertRecord(THREAD_ID, ID_U);
         }
 
+        public void DeleteAccessByID()
+        {
+            String sql = "DELETE FROM " + SQLTableName + " WHERE USER_ID = " + ID_U + "and THREAD_ID=" + THREAD_ID;
+            NonQuerySQL(sql);
+        }
+
+        public void DeleteAccessByTID()
+        {
+            String sql = "DELETE FROM " + SQLTableName + " WHERE THREAD_ID=" + THREAD_ID;
+            NonQuerySQL(sql);
+        }
+
+
         public List<long> UserAcces(long UserId)
            {
 

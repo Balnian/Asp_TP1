@@ -30,6 +30,47 @@ namespace TP1
             date = FieldsValues[3];          
         }
 
+        public List<long> UserInThread( long IdT)
+        {
+            List<long> Id=new List<long>();
+            String Query = "Select USER_ID from THREADS_ACCESS Where THREAD_ID = " + IdT;
+            SqlConnection Connection;
+            SqlDataReader Reader;
+            bool ret = false; ;
+            // instancier l'objet de collection
+            Connection = new SqlConnection(connexionString);
+            // bâtir l'objet de requête
+            SqlCommand sqlcmd = new SqlCommand(Query, Connection);
+            //Page.Application.Lock();
+            try
+            {
+                Connection.Open();
+                Reader = sqlcmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    Id.Add(Reader.GetInt64(0));
+
+                }
+
+                Reader.Close();
+            }
+            catch (Exception e)
+            {
+
+                ret = false;
+            }
+            finally
+            {
+
+
+                Connection.Close();
+                //EndQuerySQL();
+
+            }
+
+            return Id;
+        }
+
          public override void Insert()
         {
             InsertRecord(creator, title, date);        
