@@ -64,9 +64,7 @@ namespace TP1
                        Session["Fail"] = null;
                        Session["Blacklist"] = DateTime.Now;
                    }
-               }
-               
-              
+               }                             
             }
              if (Session["Blacklist"] != null)
             {

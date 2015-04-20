@@ -101,16 +101,19 @@ namespace TP1
         public void ShowUser()
         {
             Users user;
-            Users carry = (Users)Session["User"];
+            Users carry = new Users((string)Application["MainDB"], this);
+            Users usager = new Users((string)Application["MainDB"], this);
             if (Session["User"] != null && Session["threadId"] != null)
             {
                 ThreadAcces tdacces = new ThreadAcces((string)Application["MainDB"], this);                
-                user = (Users)Session["User"];
+                user = usager.SelectUser(((Users)Session["User"]).ID,carry);
                 user.SelectAll();
  /*BUG ICI*/    user.listAccessThread(User_Panel, (long)Session["threadId"], (List<long>)Application["Online"], (long)Session["threadId"], tdacces);
+
+
                 user.EndQuerySQL();
             }
-            Session["User"] = carry;
+           // Session["User"] = carry;
         }
 
         private void EditRemove(String type, String messageId)

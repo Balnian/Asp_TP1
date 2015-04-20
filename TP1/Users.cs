@@ -522,10 +522,51 @@ namespace TP1
             }
 
             return Pw;
+        }
+
+        public Users SelectUser(long Id, Users Us)
+        {
+
+           String Query = "Select * from " + SQLTableName + " Where ID = " + Id;
+           SqlConnection Connection;
+           SqlDataReader Reader;
+        
+           // instancier l'objet de collection
+           Connection = new SqlConnection(connexionString);
+           // bâtir l'objet de requête
+           SqlCommand sqlcmd = new SqlCommand(Query, Connection);
+           //Page.Application.Lock();
+           try
+           {
+              Connection.Open();
+              Reader = sqlcmd.ExecuteReader();
+
+              while (Reader.Read())
+              {
+                 Us.ID = Reader.GetInt64(0);
+                 Us.FullName = Reader.GetString(1);
+                 Us.Password = Reader.GetString(2);
+                 Us.UserName = Reader.GetString(3);
+                 Us.Email = Reader.GetString(4);
+                 Us.Avatar = Reader.GetString(5);
+                 
+              }
+
+              Reader.Close();
+           }
+           catch (Exception)
+           {
+           }
+           finally
+           {
 
 
+              Connection.Close();
+              //EndQuerySQL();
 
+           }
 
+           return Us;
         }
 
     }
