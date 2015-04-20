@@ -16,21 +16,25 @@ namespace TP1
         {
             if (Session["User"] != null)
             {
-                user = (Users)Session["User"];
-                user.SelectAll();
-                cblist = user.MakeAGridForThread(Pn_Users,(Request["Id"]!=null)? long.Parse(Request["Id"]):-1);
-                user.EndQuerySQL();
-                Threads thread = new Threads((string)Application["MainDB"], this);
-                thread.SelectAll();
-                if (Request["Id"]!=null)
+                if (Request["Id"] != null)
                 {
                     Session["Thread"] = Request["Id"];
-                    
+
                 }
                 else
                 {
-                    Session["Thread"] = -1;
+                    if (Session["Thread"] == null)
+                        Session["Thread"] = -1;
+                    
+
                 }
+                user = (Users)Session["User"];
+                user.SelectAll();
+                cblist = user.MakeAGridForThread(Pn_Users, long.Parse(Session["Thread"].ToString()));
+                user.EndQuerySQL();
+                Threads thread = new Threads((string)Application["MainDB"], this);
+                thread.SelectAll();
+                
                 
                 thread.ShowThread(Pn_Thread, user.ID, long.Parse(Session["Thread"].ToString()));
                 thread.EndQuerySQL();
