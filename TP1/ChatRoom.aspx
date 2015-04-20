@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="panel panel-default" style="max-height:90%">
+    <div class="panel panel-default" >
         <div class="panel-heading">
             <!-- header -->
             <!--Big-->
@@ -29,7 +29,7 @@
                     <asp:UpdatePanel ID="ListeConvo" runat="server">
                         <ContentTemplate>
                          
-                            <asp:Panel ID="Thread_Panel" runat="server"></asp:Panel>
+                            <asp:Panel ID="Thread_Panel" runat="server" style="max-height:400px;height:400px; overflow-y:auto;"></asp:Panel>
                             
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -38,8 +38,8 @@
             <!-- Chat -->
             <div class="col-xs-9 col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-body" style="overflow-y:scroll">
-                            <asp:Timer runat="server" ID="Timer_Chat" Interval="30000" OnTick="Timer_Chat_Tick"></asp:Timer>
+                    <div id="Chatscroll" class="panel-body" style="max-height:400px;height:400px;overflow-y:auto;" onload="godown(this)">
+                            <asp:Timer runat="server" ID="Timer_Chat" Interval="3000" OnTick="Timer_Chat_Tick"></asp:Timer>
                             <asp:UpdatePanel ID="Chat" runat="server" >
                                  <Triggers>
                                   <asp:AsyncPostBackTrigger ControlID="Timer_Chat" EventName="Tick" />
@@ -74,7 +74,7 @@
             <div class="col-xs-3 col-md-2">
                 <asp:UpdatePanel ID="Users" runat="server">
                     <ContentTemplate>
-                           <asp:Panel ID="User_Panel" runat="server"></asp:Panel>
+                           <asp:Panel ID="User_Panel" runat="server" style="max-height:400px;height:400px;overflow-y:auto;"></asp:Panel>
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </div>

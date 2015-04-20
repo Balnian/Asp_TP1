@@ -34,7 +34,7 @@ function ThreadMode(event) {
     var separatorPos = messageId.lastIndexOf("_");
     var Id = messageId.slice(separatorPos + 1, messageId.length);
 
-    alert("ThreadsManager.aspx?Id=" + Id);
+    
     window.location.href = "ThreadsManager.aspx?Id=" + Id;
 
 
@@ -98,4 +98,15 @@ function TimeOut(){
     }
 
 
+}
+
+//$(document).ready(function () {
+//    $('#Chatscroll').animate({
+//        scrollTop: 2000//$('#chat-scroll').get(0).scrollHeight
+//    }, 2000);
+//});
+function godown(t) {
+    
+    var chat_div = document.getElementById('Chatscroll');
+    chat_div.scrollTop = chat_div.scrollHeight;
 }
